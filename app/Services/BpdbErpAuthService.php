@@ -335,4 +335,121 @@ class BpdbErpAuthService
 
         return null;
     }
+
+    /**
+     * ERP হতে কর্মচারীর প্রোফাইল ছবি সংগ্রহ করে public/uploads/profiles এ সংরক্ষণ করে
+     */
+    public function fetchAndStoreEmployeePicture(string $erpNo): ?string
+    {
+        $cleanErp = preg_replace('/[^a-zA-Z0-9_-]/', '', trim($erpNo));
+        if ($cleanErp === '') {
+            return null;
+        }
+
+        // ১. ইতিমধ্যে সংরক্ষিত ছবি থাকলে সরাসরি পাথ ফেরত
+        $existing = glob(public_path('uploads/profiles/' . $cleanErp . '_*.*'));
+        if (! empty($existing) && file_exists($existing[0])) {
+            return 'uploads/profiles/' . basename($existing[0]);
+        }
+
+        $endpoint = (string) (config('services.erp.endpoint') ?: "http://bc1.bdpowersectorerp.com:7048/POWERDIVBCONE/ODataV4/Company('BPDB')/Employee_Card");
+        $username = (string) (config('services.erp.username') ?: "bpdb_diraccounts_admin");
+        $password = (string) (config('services.erp.password') ?: "Bpdb12345");
+        $timeout  = (int) (config('services.erp.timeout') ?: 15);
+
+        $offset = strpos($endpoint, '/ODataV4/');
+        if ($offset === false) {
+            return null;
+        }
+
+        $serviceRoot = substr($endpoint, 0, $offset);
+
+        // ২. Business Central Standard API এর মাধ্যমে ছবি সংগ্রহ
+        try {
+            // Company ID নির্ধারণ (BPDB)
+            $companiesRes = Http::withBasicAuth($username, $password)
+                ->timeout($timeout)
+                ->connectTimeout(6)
+                ->get($serviceRoot . '/api/beta/companies');
+
+            $companyId = null;
+            if ($companiesRes->successful() && is_array($companiesRes->json('value'))) {
+                foreach ($companiesRes->json('value') as $co) {
+                    if (($co['name'] ?? '') === 'BPDB') {
+                        $companyId = $co['id'] ?? null;
+                        break;
+                    }
+                }
+                if (! $companyId) {
+                    $companyId = $companiesRes->json('value.0.id');
+                }
+            }
+
+            if (! $companyId) {
+                return null;
+            }
+
+            // Employee GUID খোঁজা
+            $empRes = Http::withBasicAuth($username, $password)
+                ->timeout($timeout)
+                ->connectTimeout(6)
+                ->get($serviceRoot . "/api/beta/companies({$companyId})/employees?\$filter=" . rawurlencode("number eq '{$cleanErp}'") . "&\$select=id,number");
+
+            $empId = $empRes->json('value.0.id');
+            if (! $empId) {
+                return null;
+            }
+
+            // Picture Metadata খোঁজা
+            $picRes = Http::withBasicAuth($username, $password)
+                ->timeout($timeout)
+                ->connectTimeout(6)
+                ->get($serviceRoot . "/api/beta/companies({$companyId})/employees({$empId})/picture");
+
+            $picRows = $picRes->json('value');
+            $picObj = is_array($picRows) ? ($picRows[0] ?? null) : $picRes->json();
+            $mediaUrl = $picObj['content@odata.mediaReadLink'] ?? ($picObj['pictureContent@odata.mediaReadLink'] ?? null);
+
+            if (! $mediaUrl) {
+                return null;
+            }
+
+            // ছবির বাইনারি ডেটা ডাউনলোড
+            $imgRes = Http::withBasicAuth($username, $password)
+                ->timeout($timeout)
+                ->connectTimeout(6)
+                ->get($mediaUrl);
+
+            if (! $imgRes->successful() || strlen($imgRes->body()) === 0) {
+                return null;
+            }
+
+            $imgData = $imgRes->body();
+            $info = @getimagesizefromstring($imgData);
+            $mimeMap = [
+                'image/jpeg' => 'jpg',
+                'image/png'  => 'png',
+                'image/gif'  => 'gif',
+                'image/webp' => 'webp',
+            ];
+            $ext = $mimeMap[$info['mime'] ?? ''] ?? 'jpg';
+
+            $dir = public_path('uploads/profiles');
+            if (! is_dir($dir)) {
+                @mkdir($dir, 0777, true);
+            }
+
+            $hash = substr(hash('sha256', $imgData), 0, 12);
+            $filename = "{$cleanErp}_{$hash}.{$ext}";
+            $destination = $dir . DIRECTORY_SEPARATOR . $filename;
+
+            if (@file_put_contents($destination, $imgData) !== false) {
+                return 'uploads/profiles/' . $filename;
+            }
+        } catch (\Throwable $e) {
+            Log::warning("ERP Picture fetch error for {$erpNo}: " . $e->getMessage());
+        }
+
+        return null;
+    }
 }

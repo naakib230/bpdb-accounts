@@ -24,6 +24,7 @@ class User extends Authenticatable
         'designation_code',
         'cadre',
         'post_type',
+        'photo_path',
         'office_name',
         'password',
         'is_active',
@@ -42,6 +43,26 @@ class User extends Authenticatable
             'last_login_at' => 'datetime',
             'password'      => 'hashed',
         ];
+    }
+
+    /**
+     * প্রোফাইল ছবির পূর্ণ URL ফেরত দেয়
+     */
+    public function getPhotoUrlAttribute(): ?string
+    {
+        if ($this->photo_path && file_exists(public_path($this->photo_path))) {
+            return asset($this->photo_path);
+        }
+
+        if ($this->erp_no || $this->username) {
+            $identifier = $this->erp_no ?: $this->username;
+            $matches = glob(public_path('uploads/profiles/' . $identifier . '_*.*'));
+            if (! empty($matches) && file_exists($matches[0])) {
+                return asset('uploads/profiles/' . basename($matches[0]));
+            }
+        }
+
+        return null;
     }
 
     public function roles(): BelongsToMany

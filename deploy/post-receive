@@ -48,8 +48,8 @@ if ! grep -q "^ERP_ODATA_TIMEOUT=" .env; then
 fi
 
 # Ensure storage & runtime directories and permissions
-mkdir -p storage/app/public storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache database public/uploads 2>/dev/null || true
-chmod -R 777 storage bootstrap/cache database public 2>/dev/null || true
+mkdir -p storage/app/public storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache database public/uploads/profiles 2>/dev/null || true
+chmod -R 777 storage bootstrap/cache database public public/uploads 2>/dev/null || true
 
 # Launch using docker-compose.yml
 echo " Launching Docker Compose stack (Port 1972)..."

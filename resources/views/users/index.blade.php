@@ -38,8 +38,19 @@
                     @forelse ($users as $u)
                         <tr>
                             <td>
-                                <strong class="text-dark">{{ $u->name_bn ?: $u->name }}</strong>
-                                <small class="text-muted d-block"><i class="fa-solid fa-at me-1"></i>{{ $u->username }} ({{ $u->email ?: 'no-email' }})</small>
+                                <div class="d-flex align-items-center gap-2">
+                                    @if ($u->photo_url)
+                                        <img src="{{ $u->photo_url }}" alt="" class="rounded-circle object-fit-cover border shadow-sm flex-shrink-0" style="width: 36px; height: 36px;">
+                                    @else
+                                        <div class="rounded-circle bg-light border text-secondary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 36px; height: 36px; font-size: 13px;">
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                    @endif
+                                    <div>
+                                        <strong class="text-dark d-block">{{ $u->name_bn ?: $u->name }}</strong>
+                                        <small class="text-muted"><i class="fa-solid fa-id-badge me-1"></i>{{ $u->erp_no ?: $u->username }}</small>
+                                    </div>
+                                </div>
                             </td>
                             <td>
                                 <div class="small fw-semibold">{{ $u->designation ?: 'হিসাব কর্মকর্তা' }}</div>

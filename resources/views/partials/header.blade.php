@@ -19,7 +19,11 @@
             <!-- User Profile Chip -->
             <a href="{{ route('profile') }}" class="header-profile" title="প্রোফাইল দেখুন">
                 <span class="header-avatar">
-                    <i class="fa-solid fa-user"></i>
+                    @if ($currentUser->photo_url)
+                        <img src="{{ $currentUser->photo_url }}" alt="{{ $currentUser->name_bn ?: $currentUser->name }}" class="w-100 h-100 rounded-circle object-fit-cover">
+                    @else
+                        <i class="fa-solid fa-user"></i>
+                    @endif
                 </span>
                 <span class="d-none d-md-flex flex-column text-start">
                     <span class="header-person-name">{{ $currentUser->name_bn ?: $currentUser->name }}</span>

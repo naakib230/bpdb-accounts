@@ -50,10 +50,31 @@
                         </button>
                     </form>
                 @else
+                    @php
+                        $photoUrl = null;
+                        if (!empty($verification['photo_path']) && file_exists(public_path($verification['photo_path']))) {
+                            $photoUrl = asset($verification['photo_path']);
+                        } elseif (!empty($verification['erp_no'])) {
+                            $matches = glob(public_path('uploads/profiles/' . $verification['erp_no'] . '_*.*'));
+                            if (!empty($matches) && file_exists($matches[0])) {
+                                $photoUrl = asset('uploads/profiles/' . basename($matches[0]));
+                            }
+                        }
+                    @endphp
+
                     <!-- ধাপ ২: যাচাইকৃত তথ্যের সারসংক্ষেপ ও পাসওয়ার্ড নির্ধারণ -->
                     <div class="card bg-light border-success border-2 rounded-3 p-3 mb-4">
                         <div class="d-flex align-items-center mb-2">
-                            <i class="fa-solid fa-circle-check text-success fs-4 me-2"></i>
+                            @if($photoUrl)
+                                <div class="position-relative me-3 flex-shrink-0">
+                                    <img src="{{ $photoUrl }}" alt="{{ $verification['name_bn'] ?: $verification['name_en'] }}" class="rounded-circle border border-2 border-success shadow-sm object-fit-cover" style="width: 58px; height: 58px;">
+                                    <span class="position-absolute bottom-0 end-0 bg-success text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 20px; height: 20px; font-size: 10px;" title="যাচাইকৃত">
+                                        <i class="fa-solid fa-check"></i>
+                                    </span>
+                                </div>
+                            @else
+                                <i class="fa-solid fa-circle-check text-success fs-4 me-2"></i>
+                            @endif
                             <div>
                                 <h6 class="fw-bold mb-0 text-dark">{{ $verification['name_bn'] ?: $verification['name_en'] }}</h6>
                                 <small class="text-muted">ERP No: <strong class="text-dark">{{ $verification['erp_no'] }}</strong></small>

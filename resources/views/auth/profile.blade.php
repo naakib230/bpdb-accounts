@@ -15,6 +15,25 @@
         <!-- Profile Update Card -->
         <div class="col-12 col-lg-7">
             <div class="card border-0 shadow-sm rounded-4 bg-white p-4">
+                <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
+                    <div class="position-relative flex-shrink-0">
+                        @if ($user->photo_url)
+                            <img src="{{ $user->photo_url }}" alt="{{ $user->name_bn ?: $user->name }}" class="rounded-circle border border-2 border-success shadow-sm object-fit-cover" style="width: 72px; height: 72px;">
+                        @else
+                            <div class="rounded-circle bg-success bg-opacity-10 text-success d-flex align-items-center justify-content-center border border-2 border-success" style="width: 72px; height: 72px;">
+                                <i class="fa-solid fa-user fs-2"></i>
+                            </div>
+                        @endif
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-dark mb-1">{{ $user->name_bn ?: $user->name }}</h5>
+                        <div class="text-muted small mb-1">{{ $user->designation ?: 'হিসাব কর্মকর্তা' }} (কোড: {{ $user->designation_code ?: 'N/A' }})</div>
+                        <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25">
+                            ERP No: {{ $user->erp_no ?: $user->username }}
+                        </span>
+                    </div>
+                </div>
+
                 <h5 class="fw-bold text-dark mb-3">ব্যক্তিগত ও দাপ্তরিক তথ্য</h5>
                 <form method="POST" action="{{ route('profile.update') }}">
                     @csrf

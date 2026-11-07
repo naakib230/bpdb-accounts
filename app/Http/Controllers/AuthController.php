@@ -98,6 +98,14 @@ class AuthController extends Controller
 
         $user->update(['last_login_at' => now()]);
 
+        // প্রোফাইল ছবি সিঙ্ক (যদি না থাকে)
+        if (! $user->photo_path || ! file_exists(public_path($user->photo_path))) {
+            $photo = $erpAuthService->fetchAndStoreEmployeePicture($user->erp_no ?: $user->username);
+            if ($photo) {
+                $user->update(['photo_path' => $photo]);
+            }
+        }
+
         AuditLog::log('LOGIN', 'ব্যবহারকারী সিস্টেমে সফলভাবে লগইন করেছেন।');
 
         return redirect()->intended(route('dashboard'))
@@ -158,6 +166,9 @@ class AuthController extends Controller
         $office = trim((string) ($record['Office_Name_in_Bangla'] ?? ($record['Office_Name'] ?? 'হিসাব পরিদপ্তর, বিউবো')));
         $designation = $desigInfo['name_bn'] ?? ($record['Designation_in_Bangla'] ?? ($record['Designation'] ?? 'কর্মকর্তা'));
 
+        // ERP হতে প্রোফাইল ছবি সংগ্রহ
+        $photoPath = $erpAuthService->fetchAndStoreEmployeePicture($erpNo);
+
         $verification = [
             'erp_no'           => $erpNo,
             'nid_no'           => trim((string) ($record['NID'] ?? '')),
@@ -168,6 +179,7 @@ class AuthController extends Controller
             'office_name'      => $office,
             'post_type'        => trim((string) ($record['Post_Type'] ?? 'Officer')),
             'cadre'            => 'Finance Cadre',
+            'photo_path'       => $photoPath,
         ];
 
         session(['first_time_verification' => $verification]);
@@ -216,6 +228,7 @@ class AuthController extends Controller
                 'office_name'      => $verification['office_name'],
                 'cadre'            => 'Finance Cadre',
                 'post_type'        => $verification['post_type'],
+                'photo_path'       => $verification['photo_path'] ?? null,
                 'password'         => Hash::make($data['password']),
                 'is_active'        => true,
             ]

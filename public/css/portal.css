@@ -103,6 +103,8 @@ body {
   justify-content: center;
   font-size: 0.95rem;
   font-weight: 700;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .header-person-name {
