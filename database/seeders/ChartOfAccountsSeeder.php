@@ -11,10 +11,14 @@ class ChartOfAccountsSeeder extends Seeder
     public function run(): void
     {
         // ১. পূর্বের সকল চার্ট অব অ্যাকাউন্টস ও সংশ্লিষ্ট রেফারেন্স মুছে ফেলা
+        DB::table('bank_reconciliation_items')->delete();
+        DB::table('bank_reconciliations')->delete();
         DB::table('voucher_entries')->delete();
+        DB::table('vouchers')->delete();
+        DB::table('user_bank_accounts')->delete();
+        DB::table('bank_accounts')->delete();
         DB::table('budgets')->delete();
         DB::table('user_chart_of_accounts')->delete();
-        DB::table('bank_accounts')->update(['chart_of_account_id' => null]);
         DB::table('chart_of_accounts')->delete();
 
         // ২. নতুন CSV ফাইল হতে ১,৫৭৫টি চার্ট অব অ্যাকাউন্টস লোড করা
