@@ -144,11 +144,29 @@ class BpdbErpAuthService
             return self::ALLOWED_DESIGNATIONS[$code];
         }
 
-        // ২. ইংরেজি নাম (Designation) অথবা বাংলা নাম (Designation_in_Bangla) দিয়ে ম্যাচিং
+        // ২. ইংরেজি ও বাংলা পদবী প্রস্তুতি
         $desigEn = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', (string) ($record['Designation'] ?? '')));
         $desigBn = trim((string) ($record['Designation_in_Bangla'] ?? ($record['Designation_Name_in_Bangla'] ?? '')));
 
+        // ২. হুবহু মিল (Exact Match) - ইংরেজি বা বাংলা
         foreach (self::ALLOWED_DESIGNATIONS as $desig) {
+            $allowedEn = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $desig['name_en']));
+            if ($desigEn !== '' && $desigEn === $allowedEn) {
+                return $desig;
+            }
+
+            if ($desigBn !== '' && $desigBn === $desig['name_bn']) {
+                return $desig;
+            }
+        }
+
+        // ৩. আংশিক মিল (Partial Match) - বড় নামগুলো আগে যাচাই (যেমন Senior Assistant Director যাতে Assistant Director এর আগে প্রাধান্য পায়)
+        $sortedDesignations = self::ALLOWED_DESIGNATIONS;
+        uasort($sortedDesignations, function ($a, $b) {
+            return mb_strlen($b['name_bn']) <=> mb_strlen($a['name_bn']);
+        });
+
+        foreach ($sortedDesignations as $desig) {
             $allowedEn = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $desig['name_en']));
             if ($desigEn !== '' && ($desigEn === $allowedEn || str_contains($desigEn, $allowedEn) || str_contains($allowedEn, $desigEn))) {
                 return $desig;
