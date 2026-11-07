@@ -53,10 +53,10 @@ class AuthController extends Controller
             $erpRecord = $erpAuthService->fetchEmployeeFromErp($identifier);
             if ($erpRecord) {
                 $erpNo = $erpRecord['No'] ?? $identifier;
-                $desigCode = $erpRecord['Designation_Code'] ?? null;
+                $desigInfo = $erpAuthService->resolveDesignationInfo($erpRecord);
 
                 // পদবী অনুমোদন পরীক্ষা
-                if (! $erpAuthService->isSystemAdmin($erpNo) && ! $erpAuthService->isAllowedDesignation($desigCode)) {
+                if (! $erpAuthService->isSystemAdmin($erpNo) && ! $desigInfo) {
                     throw ValidationException::withMessages([
                         'identifier' => 'দুঃখিত, শুধুমাত্র বিউবো অর্থ ও হিসাব ক্যাডারের অনুমোদিত পদবীধারী (হিসাব শাখা) কর্মকর্তাবৃন্দ এবং সিস্টেম অ্যাডমিনিস্ট্রেটরগণ এই পোর্টালে লগইন করতে পারবেন। আপনার বর্তমান পদবী অনুমোদিত তালিকায় নেই।',
                     ]);
@@ -142,26 +142,30 @@ class AuthController extends Controller
         }
 
         $erpNo = trim((string) ($record['No'] ?? ''));
-        $desigCode = trim((string) ($record['Designation_Code'] ?? ''));
+        $desigInfo = $erpAuthService->resolveDesignationInfo($record);
+        $desigCode = $desigInfo['code'] ?? trim((string) ($record['Designation_Code'] ?? ''));
 
         // পদবী বা সিস্টেম অ্যাডমিন অনুমোদন যাচাই
-        if (! $erpAuthService->isSystemAdmin($erpNo) && ! $erpAuthService->isAllowedDesignation($desigCode)) {
-            $desigName = $record['Designation'] ?? 'অজানা পদবী';
+        if (! $erpAuthService->isSystemAdmin($erpNo) && ! $desigInfo) {
+            $desigName = $record['Designation_in_Bangla'] ?? ($record['Designation'] ?? 'অজানা পদবী');
             throw ValidationException::withMessages([
-                'identifier' => "দুঃখিত, শুধুমাত্র বিউবো অর্থ ও হিসাব ক্যাডারের অনুমোদিত ১২টি পদবীধারী (হিসাব শাখা) কর্মকর্তা/কর্মচারীগণ এই পোর্টালে যুক্ত হতে পারবেন। আপনার বর্তমান পদবী '{$desigName}' (কোড: {$desigCode}) অনুমোদিত নয়।",
+                'identifier' => "দুঃখিত, শুধুমাত্র বিউবো অর্থ ও হিসাব ক্যাডারের অনুমোদিত ১২টি পদবীধারী (হিসাব শাখা) কর্মকর্তা/কর্মচারীগণ এই পোর্টালে যুক্ত হতে পারবেন। আপনার বর্তমান পদবী '{$desigName}' অনুমোদিত নয়।",
             ]);
         }
 
-        $desigInfo = BpdbErpAuthService::ALLOWED_DESIGNATIONS[$desigCode] ?? null;
+        $nameEn = trim((string) ($record['First_Name'] ?? ($record['Name'] ?? $erpNo)));
+        $nameBn = trim((string) ($record['Name_in_Bangla'] ?? ($record['First_Name'] ?? $nameEn)));
+        $office = trim((string) ($record['Office_Name_in_Bangla'] ?? ($record['Office_Name'] ?? 'হিসাব পরিদপ্তর, বিউবো')));
+        $designation = $desigInfo['name_bn'] ?? ($record['Designation_in_Bangla'] ?? ($record['Designation'] ?? 'কর্মকর্তা'));
 
         $verification = [
             'erp_no'           => $erpNo,
             'nid_no'           => trim((string) ($record['NID'] ?? '')),
-            'name_en'          => trim((string) ($record['Name'] ?? ($record['First_Name'] ?? ''))),
-            'name_bn'          => trim((string) ($record['First_Name'] ?? ($record['Name'] ?? ''))),
+            'name_en'          => $nameEn,
+            'name_bn'          => $nameBn,
             'designation_code' => $desigCode,
-            'designation'      => $desigInfo['name_bn'] ?? ($record['Designation'] ?? 'কর্মকর্তা'),
-            'office_name'      => trim((string) ($record['Office_Name'] ?? ($record['Posting_Location'] ?? 'বিউবো'))),
+            'designation'      => $designation,
+            'office_name'      => $office,
             'post_type'        => trim((string) ($record['Post_Type'] ?? 'Officer')),
             'cadre'            => 'Finance Cadre',
         ];
@@ -188,14 +192,15 @@ class AuthController extends Controller
 
         $erpNo = $verification['erp_no'];
         $desigCode = $verification['designation_code'] ?? null;
+        $desigInfo = $erpAuthService->resolveDesignationInfo(['Designation_Code' => $desigCode, 'Designation' => $verification['designation'], 'Designation_in_Bangla' => $verification['designation']]);
 
         // পুনরায় পদবী অনুমতি চেক
-        if (! $erpAuthService->isSystemAdmin($erpNo) && ! $erpAuthService->isAllowedDesignation($desigCode)) {
+        if (! $erpAuthService->isSystemAdmin($erpNo) && ! $desigInfo) {
             session()->forget('first_time_verification');
             return redirect()->route('login')->with('error', 'অননুমোদিত পদবী।');
         }
 
-        $roleName = $erpAuthService->getDefaultRole($erpNo, $desigCode);
+        $roleName = $desigInfo['default_role'] ?? $erpAuthService->getDefaultRole($erpNo, $desigCode);
         $role = Role::where('name', $roleName)->first() ?? Role::where('name', 'accountant')->first();
 
         // অ্যাকাউন্ট তৈরি বা আপডেট

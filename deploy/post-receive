@@ -33,6 +33,20 @@ else
     sed -i 's/^WEB_PORT=.*/WEB_PORT=1972/' .env
 fi
 
+# Ensure ERP OData credentials in .env
+if ! grep -q "^ERP_ODATA_ENDPOINT=" .env; then
+    echo "ERP_ODATA_ENDPOINT=\"http://bc1.bdpowersectorerp.com:7048/POWERDIVBCONE/ODataV4/Company('BPDB')/Employee_Card\"" >> .env
+fi
+if ! grep -q "^ERP_ODATA_USERNAME=" .env; then
+    echo "ERP_ODATA_USERNAME=\"bpdb_diraccounts_admin\"" >> .env
+fi
+if ! grep -q "^ERP_ODATA_PASSWORD=" .env; then
+    echo "ERP_ODATA_PASSWORD=\"Bpdb12345\"" >> .env
+fi
+if ! grep -q "^ERP_ODATA_TIMEOUT=" .env; then
+    echo "ERP_ODATA_TIMEOUT=15" >> .env
+fi
+
 # Ensure storage & runtime directories and permissions
 mkdir -p storage/app/public storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache database public/uploads 2>/dev/null || true
 chmod -R 777 storage bootstrap/cache database public 2>/dev/null || true

@@ -130,25 +130,76 @@ class BpdbErpAuthService
     }
 
     /**
-     * চেক করে পদবী কোড অনুমোদিত তালিকার অন্তর্ভুক্ত কি না
+     * ERP রেকর্ড হতে অর্থ ও হিসাব ক্যাডারের অনুমোদিত ১২টি পদবীর তথ্য সন্ধান
      */
-    public function isAllowedDesignation(?string $code): bool
+    public function resolveDesignationInfo(?array $record): ?array
     {
-        if (! $code) return false;
-        return array_key_exists(trim($code), self::ALLOWED_DESIGNATIONS);
+        if (! $record) {
+            return null;
+        }
+
+        // ১. সরাসরি Designation_Code দেওয়া থাকলে
+        $code = trim((string) ($record['Designation_Code'] ?? ''));
+        if ($code !== '' && isset(self::ALLOWED_DESIGNATIONS[$code])) {
+            return self::ALLOWED_DESIGNATIONS[$code];
+        }
+
+        // ২. ইংরেজি নাম (Designation) অথবা বাংলা নাম (Designation_in_Bangla) দিয়ে ম্যাচিং
+        $desigEn = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', (string) ($record['Designation'] ?? '')));
+        $desigBn = trim((string) ($record['Designation_in_Bangla'] ?? ($record['Designation_Name_in_Bangla'] ?? '')));
+
+        foreach (self::ALLOWED_DESIGNATIONS as $desig) {
+            $allowedEn = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $desig['name_en']));
+            if ($desigEn !== '' && ($desigEn === $allowedEn || str_contains($desigEn, $allowedEn) || str_contains($allowedEn, $desigEn))) {
+                return $desig;
+            }
+
+            if ($desigBn !== '' && ($desigBn === $desig['name_bn'] || str_contains($desigBn, $desig['name_bn']) || str_contains($desig['name_bn'], $desigBn))) {
+                return $desig;
+            }
+        }
+
+        return null;
     }
 
     /**
-     * পদবী কোড অনুযায়ী অনুমোদিত ডিফল্ট ভূমিকা (Role) ফেরত দেয়
+     * চেক করে পদবী কোড বা ERP রেকর্ড অনুমোদিত তালিকার অন্তর্ভুক্ত কি না
      */
-    public function getDefaultRole(string $identifier, ?string $designationCode): string
+    public function isAllowedDesignation(?string $code, ?array $record = null): bool
+    {
+        if ($code && array_key_exists(trim($code), self::ALLOWED_DESIGNATIONS)) {
+            return true;
+        }
+
+        if ($record && $this->resolveDesignationInfo($record)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * পদবী কোড বা রেকর্ড অনুযায়ী অনুমোদিত ডিফল্ট ভূমিকা (Role) ফেরত দেয়
+     */
+    public function getDefaultRole(string $identifier, ?string $designationCode, ?array $record = null): string
     {
         if ($this->isSystemAdmin($identifier)) {
             return 'system_admin';
         }
 
         $code = trim((string) $designationCode);
-        return self::ALLOWED_DESIGNATIONS[$code]['default_role'] ?? 'accountant';
+        if ($code !== '' && isset(self::ALLOWED_DESIGNATIONS[$code])) {
+            return self::ALLOWED_DESIGNATIONS[$code]['default_role'];
+        }
+
+        if ($record) {
+            $info = $this->resolveDesignationInfo($record);
+            if ($info) {
+                return $info['default_role'];
+            }
+        }
+
+        return 'accountant';
     }
 
     /**
@@ -164,10 +215,16 @@ class BpdbErpAuthService
         // ২. ইউজারের সংরক্ষিত পদবী কোড চেক
         $code = (string) ($user->designation_code ?: ($erpData['Designation_Code'] ?? ''));
 
-        if (! $this->isAllowedDesignation($code)) {
-            throw ValidationException::withMessages([
-                'identifier' => 'দুঃখিত, শুধুমাত্র বিউবো অর্থ ও হিসাব ক্যাডারের অনুমোদিত পদবীধারী (হিসাব শাখা) কর্মকর্তাবৃন্দ এবং সিস্টেম অ্যাডমিনিস্ট্রেটরগণ এই পোর্টালে লগইন করতে পারবেন। আপনার বর্তমান পদবী অনুমোদিত তালিকায় নেই।',
-            ]);
+        if (! $this->isAllowedDesignation($code, $erpData)) {
+            $tempRecord = [
+                'Designation'           => $user->designation,
+                'Designation_in_Bangla' => $user->designation,
+            ];
+            if (! $this->resolveDesignationInfo($tempRecord)) {
+                throw ValidationException::withMessages([
+                    'identifier' => 'দুঃখিত, শুধুমাত্র বিউবো অর্থ ও হিসাব ক্যাডারের অনুমোদিত পদবীধারী (হিসাব শাখা) কর্মকর্তাবৃন্দ এবং সিস্টেম অ্যাডমিনিস্ট্রেটরগণ এই পোর্টালে লগইন করতে পারবেন। আপনার বর্তমান পদবী অনুমোদিত তালিকায় নেই।',
+                ]);
+            }
         }
     }
 
@@ -184,46 +241,66 @@ class BpdbErpAuthService
         // হার্ডকোডেড সিস্টেম অ্যাডমিন ফলব্যাক ডেটা
         if ($originalIdentifier === '140011111') {
             return [
-                'No'               => '140011111',
-                'Name'             => 'Nur Ahammad Akib',
-                'First_Name'       => 'নূর আহাম্মদ আকিব',
-                'Designation_Code' => '897',
-                'Designation'      => 'সিনিয়র সহকারী পরিচালক (হিসাব/অর্থ/অডিট/বাণিজ্যিক পরিচালন)',
-                'Office_Name'      => 'হিসাব পরিদপ্তর, ওয়াপদা ভবন, ঢাকা',
-                'Post_Type'        => 'Officer',
-                'Status'           => 'Working',
+                'No'                    => '140011111',
+                'Name'                  => 'Nur Ahammad Akib',
+                'First_Name'            => 'নূর আহাম্মদ আকিব',
+                'Name_in_Bangla'        => 'নূর আহাম্মদ আকিব',
+                'Designation_Code'      => '897',
+                'Designation'           => 'Senior Assistant Director (Accs/Fin./Audit/C.O.)',
+                'Designation_in_Bangla' => 'সিনিয়র সহকারী পরিচালক (হিসাব/অর্থ/অডিট/বাণিজ্যিক পরিচালন)',
+                'Office_Name'           => 'Directorate of Accounts',
+                'Office_Name_in_Bangla' => 'হিসাব পরিদপ্তর, ওয়াপদা ভবন, ঢাকা',
+                'Post_Type'             => 'Officer',
+                'Status'                => 'Working',
             ];
         }
 
         if ($originalIdentifier === '140038764') {
             return [
-                'No'               => '140038764',
-                'Name'             => 'Md. Asifuzzaman',
-                'First_Name'       => 'মোঃ আসিফুজ্জামান',
-                'Designation_Code' => '138',
-                'Designation'      => 'নির্বাহী প্রকৌশলী / সিস্টেম অ্যানালিস্ট',
-                'Office_Name'      => 'কম্পিউটার সেন্টার, ওয়াপদা ভবন, ঢাকা',
-                'Post_Type'        => 'Officer',
-                'Status'           => 'Working',
+                'No'                    => '140038764',
+                'Name'                  => 'Md. Asifuzzaman',
+                'First_Name'            => 'মোঃ আসিফুজ্জামান',
+                'Name_in_Bangla'        => 'মোঃ আসিফুজ্জামান',
+                'Designation_Code'      => '138',
+                'Designation'           => 'Executive Engineer',
+                'Designation_in_Bangla' => 'নির্বাহী প্রকৌশলী / সিস্টেম অ্যানালিস্ট',
+                'Office_Name'           => 'Computer Center',
+                'Office_Name_in_Bangla' => 'কম্পিউটার সেন্টার, ওয়াপদা ভবন, ঢাকা',
+                'Post_Type'             => 'Officer',
+                'Status'                => 'Working',
             ];
         }
 
-        $endpoint = (string) config('services.erp.endpoint', '');
-        if ($endpoint === '') {
-            return null;
-        }
+        $endpoint = (string) (config('services.erp.endpoint') ?: "http://bc1.bdpowersectorerp.com:7048/POWERDIVBCONE/ODataV4/Company('BPDB')/Employee_Card");
+        $username = (string) (config('services.erp.username') ?: "bpdb_diraccounts_admin");
+        $password = (string) (config('services.erp.password') ?: "Bpdb12345");
+        $timeout  = (int) (config('services.erp.timeout') ?: 15);
 
         $cleanIdentifier = str_replace("'", "''", $originalIdentifier);
+        $cleanNoSpaces = str_replace([' ', '-'], '', $cleanIdentifier);
 
-        foreach (['No', 'NID', 'Employee_Code'] as $field) {
-            $filter = "({$field} eq '{$cleanIdentifier}') and (Status eq 'Working' or Status eq 'PRL' or Status eq 'Retired')";
+        $queries = [];
+        // ১. No (ERP No)
+        $queries[] = "(No eq '{$cleanIdentifier}')";
+
+        // ২. Employee_Code
+        $queries[] = "(Employee_Code eq '{$cleanIdentifier}')";
+
+        // ৩. NID (মূল ও স্পেস ফরম্যাট)
+        $queries[] = "(NID eq '{$cleanIdentifier}')";
+        if ($cleanNoSpaces !== $cleanIdentifier) {
+            $queries[] = "(NID eq '{$cleanNoSpaces}')";
+        }
+
+        foreach ($queries as $condition) {
+            $filter = "{$condition} and (Status eq 'Working' or Status eq 'PRL' or Status eq 'Retired')";
             $url = $endpoint . '?$filter=' . rawurlencode($filter);
 
             try {
-                $response = Http::withBasicAuth(
-                    (string) config('services.erp.username', ''),
-                    (string) config('services.erp.password', '')
-                )->timeout((int) config('services.erp.timeout', 15))->get($url);
+                $response = Http::withBasicAuth($username, $password)
+                    ->timeout($timeout)
+                    ->connectTimeout(8)
+                    ->get($url);
 
                 if ($response->successful() && is_array($response->json('value'))) {
                     $rows = $response->json('value');
