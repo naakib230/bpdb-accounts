@@ -78,92 +78,6 @@
                                 </div>
                             </td>
                         </tr>
-
-                        <!-- Edit Modal -->
-                        <div class="modal fade" id="editModal{{ $acc->id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <form method="POST" action="{{ route('bank_accounts.update', $acc) }}" class="modal-content">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"><i class="fa-solid fa-pen-to-square me-2 text-primary"></i>ব্যাংক হিসাব সম্পাদনা</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">ব্যাংকের নাম <span class="text-danger">*</span></label>
-                                            <input type="text" name="bank_name" class="form-control" value="{{ $acc->bank_name }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">শাখার নাম <span class="text-danger">*</span></label>
-                                            <input type="text" name="branch_name" class="form-control" value="{{ $acc->branch_name }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">হিসাব নম্বর <span class="text-danger">*</span></label>
-                                            <input type="text" name="account_number" class="form-control" value="{{ $acc->account_number }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">হিসাবের শিরোনাম <span class="text-danger">*</span></label>
-                                            <input type="text" name="account_title" class="form-control" value="{{ $acc->account_title }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">হিসাবের ধরন <span class="text-danger">*</span></label>
-                                            <select name="account_type" class="form-select" required>
-                                                <option value="Current" @selected($acc->account_type === 'Current')>Current</option>
-                                                <option value="SND" @selected($acc->account_type === 'SND')>SND</option>
-                                                <option value="STD" @selected($acc->account_type === 'STD')>STD</option>
-                                                <option value="Savings" @selected($acc->account_type === 'Savings')>Savings</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">জিএল চার্ট অব একাউন্ট <span class="text-danger">*</span></label>
-                                            <select name="chart_of_account_id" class="form-select" required>
-                                                @foreach ($bankCoas as $c)
-                                                    <option value="{{ $c->id }}" @selected($acc->chart_of_account_id == $c->id)>
-                                                        {{ $c->account_code }} - {{ $c->account_name_bn }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">বাতিল</button>
-                                        <button type="submit" class="btn btn-success rounded-pill">আপডেট করুন</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Assign Users Modal -->
-                        <div class="modal fade" id="assignModal{{ $acc->id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <form method="POST" action="{{ route('bank_accounts.assign_users', $acc) }}" class="modal-content">
-                                    @csrf
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"><i class="fa-solid fa-user-plus me-2 text-success"></i>ব্যবহারকারী অ্যাসাইন - {{ $acc->account_number }}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p class="small text-muted mb-3">যেসব ব্যবহারকারীকে এই ব্যাংক হিসাব হতে লেনদেন বা স্টেটমেন্ট দেখার অনুমতি দিতে চান তাদের নির্বাচন করুন:</p>
-                                        <div class="d-flex flex-column gap-2" style="max-height: 300px; overflow-y: auto;">
-                                            @foreach ($users as $u)
-                                                <div class="form-check p-2 border rounded-3 bg-light">
-                                                    <input type="checkbox" name="user_ids[]" value="{{ $u->id }}" id="bankuser_{{ $acc->id }}_{{ $u->id }}" class="form-check-input ms-0 me-2" @checked($acc->users->contains('id', $u->id))>
-                                                    <label class="form-check-label fw-medium text-dark" for="bankuser_{{ $acc->id }}_{{ $u->id }}">
-                                                        {{ $u->name_bn ?: $u->name }} ({{ $u->username }})
-                                                        <small class="text-muted d-block">{{ $u->designation ?: 'হিসাব শাখা' }}</small>
-                                                    </label>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">বাতিল</button>
-                                        <button type="submit" class="btn btn-success rounded-pill">অ্যাসাইন সংরক্ষণ করুন</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     @empty
                         <tr>
                             <td colspan="7" class="text-center py-4 text-muted">কোনো ব্যাংক হিসাব পাওয়া যায়নি।</td>
@@ -178,6 +92,96 @@
             </div>
         @endif
     </div>
+</div>
+
+<!-- Edit & Assign Modals (Outside table and card) -->
+@foreach ($bankAccounts as $acc)
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal{{ $acc->id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form method="POST" action="{{ route('bank_accounts.update', $acc) }}" class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
+                @csrf
+                @method('PUT')
+                <div class="modal-header bg-light border-bottom px-4 py-3">
+                    <h5 class="modal-title fw-bold text-dark mb-0"><i class="fa-solid fa-pen-to-square me-2 text-primary"></i>ব্যাংক হিসাব সম্পাদনা</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4 bg-white">
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">ব্যাংকের নাম <span class="text-danger">*</span></label>
+                        <input type="text" name="bank_name" class="form-control" value="{{ $acc->bank_name }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">শাখার নাম <span class="text-danger">*</span></label>
+                        <input type="text" name="branch_name" class="form-control" value="{{ $acc->branch_name }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">হিসাব নম্বর <span class="text-danger">*</span></label>
+                        <input type="text" name="account_number" class="form-control" value="{{ $acc->account_number }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">হিসাবের শিরোনাম <span class="text-danger">*</span></label>
+                        <input type="text" name="account_title" class="form-control" value="{{ $acc->account_title }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">হিসাবের ধরন <span class="text-danger">*</span></label>
+                        <select name="account_type" class="form-select" required>
+                            <option value="Current" @selected($acc->account_type === 'Current')>Current</option>
+                            <option value="SND" @selected($acc->account_type === 'SND')>SND</option>
+                            <option value="STD" @selected($acc->account_type === 'STD')>STD</option>
+                            <option value="Savings" @selected($acc->account_type === 'Savings')>Savings</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">জিএল চার্ট অব একাউন্ট <span class="text-danger">*</span></label>
+                        <select name="chart_of_account_id" class="form-select" required>
+                            @foreach ($bankCoas as $c)
+                                <option value="{{ $c->id }}" @selected($acc->chart_of_account_id == $c->id)>
+                                    {{ $c->account_code }} - {{ $c->account_name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-top px-4 py-3">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="submit" class="btn btn-success rounded-pill px-4">আপডেট করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Assign Users Modal -->
+    <div class="modal fade" id="assignModal{{ $acc->id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form method="POST" action="{{ route('bank_accounts.assign_users', $acc) }}" class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
+                @csrf
+                <div class="modal-header bg-light border-bottom px-4 py-3">
+                    <h5 class="modal-title fw-bold text-dark mb-0"><i class="fa-solid fa-user-plus me-2 text-success"></i>ব্যবহারকারী অ্যাসাইন - {{ $acc->account_number }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4 bg-white">
+                    <p class="small text-muted mb-3">যেসব ব্যবহারকারীকে এই ব্যাংক হিসাব হতে লেনদেন বা স্টেটমেন্ট দেখার অনুমতি দিতে চান তাদের নির্বাচন করুন:</p>
+                    <div class="d-flex flex-column gap-2" style="max-height: 300px; overflow-y: auto;">
+                        @foreach ($users as $u)
+                            <div class="form-check p-2 border rounded-3 bg-light">
+                                <input type="checkbox" name="user_ids[]" value="{{ $u->id }}" id="bankuser_{{ $acc->id }}_{{ $u->id }}" class="form-check-input ms-0 me-2" @checked($acc->users->contains('id', $u->id))>
+                                <label class="form-check-label fw-medium text-dark" for="bankuser_{{ $acc->id }}_{{ $u->id }}" style="cursor: pointer;">
+                                    {{ $u->name_bn ?: $u->name }} ({{ $u->username }})
+                                    <small class="text-muted d-block">{{ $u->designation ?: 'হিসাব শাখা' }}</small>
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-top px-4 py-3">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="submit" class="btn btn-success rounded-pill px-4">অ্যাসাইন সংরক্ষণ করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+@endforeach
 </div>
 
 <!-- Create Modal -->

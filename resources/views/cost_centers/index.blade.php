@@ -75,77 +75,6 @@
                                 </div>
                             </td>
                         </tr>
-
-                        <!-- Edit Modal -->
-                        <div class="modal fade" id="editModal{{ $cc->id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <form method="POST" action="{{ route('cost_centers.update', $cc) }}" class="modal-content">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"><i class="fa-solid fa-pen-to-square me-2 text-primary"></i>কস্ট সেন্টার সম্পাদনা</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">কোড <span class="text-danger">*</span></label>
-                                            <input type="text" name="code" class="form-control" value="{{ $cc->code }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">বাংলা নাম <span class="text-danger">*</span></label>
-                                            <input type="text" name="name_bn" class="form-control" value="{{ $cc->name_bn }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">ইংরেজি নাম <span class="text-danger">*</span></label>
-                                            <input type="text" name="name" class="form-control" value="{{ $cc->name }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">অবস্থান (Location)</label>
-                                            <input type="text" name="location" class="form-control" value="{{ $cc->location }}">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">জোন / বিভাগ</label>
-                                            <input type="text" name="division_or_zone" class="form-control" value="{{ $cc->division_or_zone }}">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">বাতিল</button>
-                                        <button type="submit" class="btn btn-success rounded-pill">আপডেট করুন</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Assign Users Modal -->
-                        <div class="modal fade" id="assignModal{{ $cc->id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <form method="POST" action="{{ route('cost_centers.assign_users', $cc) }}" class="modal-content">
-                                    @csrf
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"><i class="fa-solid fa-user-plus me-2 text-success"></i>ব্যবহারকারী অ্যাসাইন - {{ $cc->name_bn }}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p class="small text-muted mb-3">যেসব ব্যবহারকারীকে এই কস্ট সেন্টারের হিসাব প্রস্তুত ও দেখার অনুমতি দিতে চান তাদের নির্বাচন করুন:</p>
-                                        <div class="d-flex flex-column gap-2" style="max-height: 300px; overflow-y: auto;">
-                                            @foreach ($users as $u)
-                                                <div class="form-check p-2 border rounded-3 bg-light">
-                                                    <input type="checkbox" name="user_ids[]" value="{{ $u->id }}" id="user_{{ $cc->id }}_{{ $u->id }}" class="form-check-input ms-0 me-2" @checked($cc->users->contains('id', $u->id))>
-                                                    <label class="form-check-label fw-medium text-dark" for="user_{{ $cc->id }}_{{ $u->id }}">
-                                                        {{ $u->name_bn ?: $u->name }} ({{ $u->username }})
-                                                        <small class="text-muted d-block">{{ $u->designation ?: 'হিসাব শাখা' }}</small>
-                                                    </label>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">বাতিল</button>
-                                        <button type="submit" class="btn btn-success rounded-pill">অ্যাসাইন সংরক্ষণ করুন</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     @empty
                         <tr>
                             <td colspan="6" class="text-center py-4 text-muted">কোনো কস্ট সেন্টার পাওয়া যায়নি।</td>
@@ -161,6 +90,80 @@
         @endif
     </div>
 </div>
+
+<!-- Edit & Assign Modals (Outside table and card) -->
+@foreach ($costCenters as $cc)
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal{{ $cc->id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form method="POST" action="{{ route('cost_centers.update', $cc) }}" class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
+                @csrf
+                @method('PUT')
+                <div class="modal-header bg-light border-bottom px-4 py-3">
+                    <h5 class="modal-title fw-bold text-dark mb-0"><i class="fa-solid fa-pen-to-square me-2 text-primary"></i>কস্ট সেন্টার সম্পাদনা</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-white">
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">কোড <span class="text-danger">*</span></label>
+                        <input type="text" name="code" class="form-control" value="{{ $cc->code }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">বাংলা নাম <span class="text-danger">*</span></label>
+                        <input type="text" name="name_bn" class="form-control" value="{{ $cc->name_bn }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">ইংরেজি নাম <span class="text-danger">*</span></label>
+                        <input type="text" name="name" class="form-control" value="{{ $cc->name }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">অবস্থান (Location)</label>
+                        <input type="text" name="location" class="form-control" value="{{ $cc->location }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">জোন / বিভাগ</label>
+                        <input type="text" name="division_or_zone" class="form-control" value="{{ $cc->division_or_zone }}">
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-top px-4 py-3">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="submit" class="btn btn-success rounded-pill px-4">আপডেট করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Assign Users Modal -->
+    <div class="modal fade" id="assignModal{{ $cc->id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form method="POST" action="{{ route('cost_centers.assign_users', $cc) }}" class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
+                @csrf
+                <div class="modal-header bg-light border-bottom px-4 py-3">
+                    <h5 class="modal-title fw-bold text-dark mb-0"><i class="fa-solid fa-user-plus me-2 text-success"></i>ব্যবহারকারী অ্যাসাইন - {{ $cc->name_bn }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-white">
+                    <p class="small text-muted mb-3">যেসব ব্যবহারকারীকে এই কস্ট সেন্টারের হিসাব প্রস্তুত ও দেখার অনুমতি দিতে চান তাদের নির্বাচন করুন:</p>
+                    <div class="d-flex flex-column gap-2" style="max-height: 300px; overflow-y: auto;">
+                        @foreach ($users as $u)
+                            <div class="form-check p-2 border rounded-3 bg-light">
+                                <input type="checkbox" name="user_ids[]" value="{{ $u->id }}" id="user_{{ $cc->id }}_{{ $u->id }}" class="form-check-input ms-0 me-2" @checked($cc->users->contains('id', $u->id))>
+                                <label class="form-check-label fw-medium text-dark" for="user_{{ $cc->id }}_{{ $u->id }}" style="cursor: pointer;">
+                                    {{ $u->name_bn ?: $u->name }} ({{ $u->username }})
+                                    <small class="text-muted d-block">{{ $u->designation ?: 'হিসাব শাখা' }}</small>
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-top px-4 py-3">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="submit" class="btn btn-success rounded-pill px-4">অ্যাসাইন সংরক্ষণ করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+@endforeach
 
 <!-- Create Modal -->
 <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
