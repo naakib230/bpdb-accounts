@@ -15,7 +15,7 @@
         <div class="flex-grow-1 overflow-hidden">
             <div class="fw-semibold text-dark text-truncate">
                 <i class="fa-solid fa-circle-exclamation text-danger me-1"></i>
-                বিউবো অ্যাকাউন্টস পোর্টালে স্বাগত। ক্যাশ ও জার্নাল ভাউচার পোস্টিং, লেজার, ট্রায়াল ব্যালেন্স এবং বছর সমাপনী কাজের জন্য আপনার নির্ধারিত ভূমিকা ও ইউজারনেম দিয়ে লগইন করুন।
+                বিউবো অ্যাকাউন্টস পোর্টালে স্বাগত। শুধুমাত্র বিউবো অর্থ ও হিসাব ক্যাডারের অনুমোদিত কর্মকর্তা/কর্মচারীগণ এবং সিস্টেম অ্যাডমিনিস্ট্রেটরগণ এই পোর্টালে লগইন করতে পারবেন।
             </div>
         </div>
     </div>
@@ -31,25 +31,53 @@
                         <p class="text-muted small mb-0">অ্যাকাউন্টস ও ফিন্যান্সিয়াল ম্যানেজমেন্ট পোর্টাল</p>
                     </div>
 
+                    @if(session('success'))
+                        <div class="alert alert-success alert-dismissible fade show text-start small mb-3" role="alert">
+                            <i class="fa-solid fa-circle-check me-2"></i>{{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    @if(session('warning'))
+                        <div class="alert alert-warning alert-dismissible fade show text-start small mb-3" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation me-2"></i>{{ session('warning') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    @if(session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show text-start small mb-3" role="alert">
+                            <i class="fa-solid fa-circle-xmark me-2"></i>{{ session('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <form method="POST" action="{{ route('login.store') }}" class="text-start">
                         @csrf
                         <div class="mb-3">
-                            <label for="username" class="form-label fw-semibold text-secondary small">ইউজারনেম / ERP নম্বর</label>
+                            <label for="loginIdentifier" class="form-label fw-semibold text-secondary small">ইউজার আইডি (ERP No. অথবা জাতীয় পরিচয়পত্র / NID)</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-user"></i></span>
-                                <input type="text" class="form-control border-start-0 ps-0" id="username" name="username" value="{{ old('username') }}" placeholder="ইউজারনেম লিখুন" required autofocus>
+                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-id-badge"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-0 @error('identifier') is-invalid @enderror" id="loginIdentifier" name="identifier" value="{{ old('identifier') }}" placeholder="যেমন: 140011111 অথবা 1985..." required autofocus autocomplete="username">
                             </div>
+                            @error('identifier')
+                                <div class="invalid-feedback d-block small mt-1 text-danger fw-semibold">{{ $message }}</div>
+                            @enderror
+                            <div class="form-text small text-muted">১০, ১৩ অথবা ১৭ ডিজিটের NID নম্বর দিয়েও লগইন করা যাবে।</div>
                         </div>
 
                         <div class="mb-4">
-                            <label for="password" class="form-label fw-semibold text-secondary small">পাসওয়ার্ড</label>
+                            <label for="password" class="form-label fw-semibold text-secondary small">পাসওয়ার্ড (Password)</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" class="form-control border-start-0 border-end-0 ps-0" id="password" name="password" placeholder="পাসওয়ার্ড লিখুন" required>
+                                <input type="password" class="form-control border-start-0 border-end-0 ps-0 @error('password') is-invalid @enderror" id="password" name="password" placeholder="পাসওয়ার্ড লিখুন" required autocomplete="current-password">
                                 <button type="button" class="input-group-text bg-light border-start-0 text-muted toggle-password" onclick="togglePass()">
                                     <i class="fa-solid fa-eye" id="eyeIcon"></i>
                                 </button>
                             </div>
+                            @error('password')
+                                <div class="invalid-feedback d-block small mt-1 text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="d-flex align-items-center justify-content-between mb-4">
@@ -63,6 +91,13 @@
                             <i class="fa-solid fa-right-to-bracket me-2"></i>লগইন করুন
                         </button>
                     </form>
+
+                    <div class="mt-4 pt-3 border-top text-center">
+                        <p class="small text-muted mb-2">প্রথমবার লগইন করছেন বা পাসওয়ার্ড সেট করেননি?</p>
+                        <a href="{{ route('first_time') }}" class="btn btn-outline-success btn-sm px-3 rounded-pill fw-semibold">
+                            <i class="fa-solid fa-user-plus me-1"></i>প্রথমবার অ্যাকাউন্ট অ্যাক্টিভেশন
+                        </a>
+                    </div>
                 </div>
 
                 <div class="mt-4 pt-3 border-top text-center">

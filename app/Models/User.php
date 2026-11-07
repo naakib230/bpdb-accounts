@@ -14,11 +14,16 @@ class User extends Authenticatable
 
     protected $fillable = [
         'username',
+        'erp_no',
+        'nid_no',
         'name',
         'name_bn',
         'email',
         'phone',
         'designation',
+        'designation_code',
+        'cadre',
+        'post_type',
         'office_name',
         'password',
         'is_active',

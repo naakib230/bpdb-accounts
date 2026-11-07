@@ -21,9 +21,9 @@ class VoucherSeeder extends Seeder
         if (! $currentFy) return;
 
         $period = AccountingPeriod::where('fiscal_year_id', $currentFy->id)->first();
-        $admin = User::where('username', 'admin')->first();
-        $director = User::where('username', 'director')->first();
-        $accountant = User::where('username', 'accountant1')->first();
+        $admin = User::where('username', '140011111')->first() ?? User::first();
+        $director = User::where('username', '140038764')->first() ?? $admin;
+        $accountant = $admin;
 
         $ccHead = CostCenter::where('code', 'CC-101')->first();
         $ccGhorashal = CostCenter::where('code', 'CC-106')->first();

@@ -21,6 +21,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/', [AuthController::class, 'showLogin']);
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.store');
+    Route::get('/first-time', [AuthController::class, 'showFirstTime'])->name('first_time');
+    Route::post('/first-time/verify', [AuthController::class, 'verifyFirstTime'])->name('first_time.verify');
+    Route::post('/first-time/activate', [AuthController::class, 'activateAccount'])->name('first_time.activate');
 });
 
 // Authenticated Routes

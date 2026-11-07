@@ -8,9 +8,13 @@ echo "=== Test 2: Login Page ==="
 CSRF=$(curl -s -c /tmp/c.txt http://localhost:1972/login | grep 'name="_token"' | head -1 | sed -e 's/.*value="//' -e 's/".*//')
 echo "Extracted CSRF: ${CSRF:0:15}..."
 
-echo "=== Test 3: Authenticate Admin ==="
-HTTP_LOGIN=$(curl -s -b /tmp/c.txt -c /tmp/c.txt -d "_token=$CSRF" -d "login=admin" -d "password=password123" -o /dev/null -w "%{http_code}\n" http://localhost:1972/login)
+echo "=== Test 3: Authenticate Admin 140011111 ==="
+HTTP_LOGIN=$(curl -s -b /tmp/c.txt -c /tmp/c.txt -d "_token=$CSRF" -d "identifier=140011111" -d "password=Systemadmin123@" -o /dev/null -w "%{http_code}\n" http://localhost:1972/login)
 echo "Login HTTP status: $HTTP_LOGIN (Expected: 302 Found redirecting to /dashboard)"
+
+echo "=== Test 3b: Verify old admin is rejected ==="
+OLD_LOGIN=$(curl -s -b /tmp/c.txt -c /tmp/c.txt -d "_token=$CSRF" -d "identifier=admin" -d "password=password123" -o /dev/null -w "%{http_code}\n" http://localhost:1972/login)
+echo "Old admin login status: $OLD_LOGIN (Expected: 302 back to login with validation error)"
 
 echo "=== Test 4: Access Dashboard ==="
 curl -s -b /tmp/c.txt -c /tmp/c.txt http://localhost:1972/dashboard | grep -E "বাংলাদেশ বিদ্যুৎ উন্নয়ন বোর্ড|মোট ভাউচার সংখ্যা|ক্যাশ ও ব্যাংক স্থিতি" | head -3
