@@ -445,3 +445,49 @@ nav[role="navigation"] svg,
   border-color: #e2e8f0;
 }
 
+/* Modals - Solid Background, Elegant Elevation & Backdrop Fix */
+.modal-backdrop {
+  z-index: 1050 !important;
+  background-color: #0f172a !important;
+  opacity: 0.55 !important;
+}
+
+.modal {
+  z-index: 1055 !important;
+}
+
+.modal-dialog {
+  margin: 1.75rem auto;
+}
+
+.modal-content {
+  background-color: #ffffff !important;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  color: #1e293b !important;
+}
+
+.modal-header {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  padding: 1rem 1.5rem !important;
+}
+
+.modal-body {
+  background-color: #ffffff !important;
+  padding: 1.5rem !important;
+}
+
+.modal-footer {
+  background-color: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+  padding: 1rem 1.5rem !important;
+}
+
+

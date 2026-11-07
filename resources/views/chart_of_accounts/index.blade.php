@@ -172,100 +172,6 @@
                                 </div>
                             </td>
                         </tr>
-                                    @if ($acc->is_leaf)
-                                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#assignModal{{ $acc->id }}" title="ইউজার দায়িত্ব বণ্টন">
-                                            <i class="fa-solid fa-user-plus"></i>
-                                        </button>
-                                        <a href="{{ route('ledger.index', ['chart_of_account_id' => $acc->id]) }}" class="btn btn-outline-info" title="খতিয়ান দেখুন">
-                                            <i class="fa-solid fa-book-open"></i>
-                                        </a>
-                                    @endif
-                                    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editModal{{ $acc->id }}" title="সম্পাদনা">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Edit Modal -->
-                        <div class="modal fade" id="editModal{{ $acc->id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <form method="POST" action="{{ route('chart_of_accounts.update', $acc) }}" class="modal-content">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"><i class="fa-solid fa-pen-to-square me-2 text-primary"></i>হিসাব কোড সম্পাদনা</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">হিসাব কোড <span class="text-danger">*</span></label>
-                                            <input type="text" name="account_code" class="form-control" value="{{ $acc->account_code }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">বাংলা নাম <span class="text-danger">*</span></label>
-                                            <input type="text" name="account_name_bn" class="form-control" value="{{ $acc->account_name_bn }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">ইংরেজি নাম <span class="text-danger">*</span></label>
-                                            <input type="text" name="account_name" class="form-control" value="{{ $acc->account_name }}" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">হিসাবের ধরন <span class="text-danger">*</span></label>
-                                            <select name="account_type" class="form-select" required>
-                                                <option value="asset" @selected($acc->account_type === 'asset')>Asset (সম্পদ)</option>
-                                                <option value="liability" @selected($acc->account_type === 'liability')>Liability (দায়)</option>
-                                                <option value="equity" @selected($acc->account_type === 'equity')>Equity (মালিকানা স্বত্ব)</option>
-                                                <option value="revenue" @selected($acc->account_type === 'revenue')>Revenue (আয়)</option>
-                                                <option value="expense" @selected($acc->account_type === 'expense')>Expense (ব্যয়)</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-semibold">স্বাভাবিক ব্যালেন্স <span class="text-danger">*</span></label>
-                                            <select name="normal_balance" class="form-select" required>
-                                                <option value="debit" @selected($acc->normal_balance === 'debit')>Debit</option>
-                                                <option value="credit" @selected($acc->normal_balance === 'credit')>Credit</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">বাতিল</button>
-                                        <button type="submit" class="btn btn-success rounded-pill">আপডেট করুন</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Assign Users Modal -->
-                        <div class="modal fade" id="assignModal{{ $acc->id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <form method="POST" action="{{ route('chart_of_accounts.assign_users', $acc) }}" class="modal-content">
-                                    @csrf
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"><i class="fa-solid fa-user-plus me-2 text-success"></i>ব্যবহারকারী দায়িত্ব বণ্টন - {{ $acc->account_code }}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p class="small text-muted mb-3">যেসব ব্যবহারকারীকে এই হিসাব খাতের অধীনে ভাউচার পোস্টিংয়ের অনুমতি দিতে চান তাদের নির্বাচন করুন:</p>
-                                        <div class="d-flex flex-column gap-2" style="max-height: 300px; overflow-y: auto;">
-                                            @foreach ($users as $u)
-                                                <div class="form-check p-2 border rounded-3 bg-light">
-                                                    <input type="checkbox" name="user_ids[]" value="{{ $u->id }}" id="coauser_{{ $acc->id }}_{{ $u->id }}" class="form-check-input ms-0 me-2" @checked($acc->users->contains('id', $u->id))>
-                                                    <label class="form-check-label fw-medium text-dark" for="coauser_{{ $acc->id }}_{{ $u->id }}">
-                                                        {{ $u->name_bn ?: $u->name }} ({{ $u->username }})
-                                                        <small class="text-muted d-block">{{ $u->designation ?: 'হিসাব শাখা' }}</small>
-                                                    </label>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">বাতিল</button>
-                                        <button type="submit" class="btn btn-success rounded-pill">অ্যাসাইন সংরক্ষণ করুন</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     @empty
                         <tr>
                             <td colspan="7" class="text-center py-4 text-muted">কোনো হিসাব খাত পাওয়া যায়নি।</td>
@@ -282,57 +188,180 @@
     </div>
 </div>
 
+<!-- Edit & Assign Modals (Outside table and card) -->
+@foreach ($accounts as $acc)
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal{{ $acc->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $acc->id }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form method="POST" action="{{ route('chart_of_accounts.update', $acc) }}" class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
+                @csrf
+                @method('PUT')
+                <div class="modal-header bg-light border-bottom px-4 py-3">
+                    <h5 class="modal-title fw-bold text-dark mb-0" id="editModalLabel{{ $acc->id }}">
+                        <i class="fa-solid fa-pen-to-square me-2 text-success"></i>হিসাব কোড সম্পাদনা
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-white">
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">হিসাব কোড <span class="text-danger">*</span></label>
+                        <input type="text" name="account_code" class="form-control" value="{{ $acc->account_code }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">হিসাব খাতের নাম (Chart of Accounts Name) <span class="text-danger">*</span></label>
+                        <input type="text" name="account_name" class="form-control" value="{{ $acc->account_name }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">বাংলা নাম (ঐচ্ছিক)</label>
+                        <input type="text" name="account_name_bn" class="form-control" value="{{ $acc->account_name_bn ?: $acc->account_name }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">কন্ট্রোল হেড (Control Head)</label>
+                        <input type="text" name="control_head" class="form-control" value="{{ $acc->control_head }}" placeholder="যেমন: Property,plant and equipment (PPE) (net)">
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold text-dark">ক্যাটাগরি (Category) <span class="text-danger">*</span></label>
+                            <select name="account_type" class="form-select" required>
+                                <option value="asset" @selected($acc->account_type === 'asset')>Assets (সম্পদ)</option>
+                                <option value="liability" @selected($acc->account_type === 'liability')>Liabilities (দায়)</option>
+                                <option value="equity" @selected($acc->account_type === 'equity')>Equity (মালিকানা স্বত্ব)</option>
+                                <option value="revenue" @selected($acc->account_type === 'revenue')>Income (রাজস্ব / আয়)</option>
+                                <option value="expense" @selected($acc->account_type === 'expense')>Expense (ব্যয় / খরচ)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold text-dark">স্টেটমেন্ট (Income / Balance)</label>
+                            <select name="income_balance" class="form-select">
+                                <option value="Balance Sheet" @selected($acc->income_balance === 'Balance Sheet')>Balance Sheet</option>
+                                <option value="Income Statement" @selected($acc->income_balance === 'Income Statement')>Income Statement</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row g-2 mb-2">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold text-dark">স্বাভাবিক ব্যালেন্স <span class="text-danger">*</span></label>
+                            <select name="normal_balance" class="form-select" required>
+                                <option value="debit" @selected($acc->normal_balance === 'debit')>Debit (ডেবিট)</option>
+                                <option value="credit" @selected($acc->normal_balance === 'credit')>Credit (ক্রেডিট)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-end">
+                            <div class="form-check mb-2">
+                                <input type="checkbox" name="direct_posting" value="1" id="dp_{{ $acc->id }}" class="form-check-input" @checked($acc->direct_posting)>
+                                <label class="form-check-label small fw-semibold text-dark" for="dp_{{ $acc->id }}">সরাসরি পোস্টিংযোগ্য (Direct)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-top px-4 py-3">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="submit" class="btn btn-success rounded-pill px-4">আপডেট করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Assign Users Modal -->
+    @if ($acc->direct_posting)
+    <div class="modal fade" id="assignModal{{ $acc->id }}" tabindex="-1" aria-labelledby="assignModalLabel{{ $acc->id }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form method="POST" action="{{ route('chart_of_accounts.assign_users', $acc) }}" class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
+                @csrf
+                <div class="modal-header bg-light border-bottom px-4 py-3">
+                    <h5 class="modal-title fw-bold text-dark mb-0" id="assignModalLabel{{ $acc->id }}">
+                        <i class="fa-solid fa-user-plus me-2 text-success"></i>ব্যবহারকারী দায়িত্ব বণ্টন - {{ $acc->account_code }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-white">
+                    <p class="small text-muted mb-3">যেসব ব্যবহারকারীকে এই হিসাব খাতের অধীনে ভাউচার পোস্টিংয়ের অনুমতি দিতে চান তাদের নির্বাচন করুন:</p>
+                    <div class="d-flex flex-column gap-2" style="max-height: 300px; overflow-y: auto;">
+                        @foreach ($users as $u)
+                            <div class="form-check p-2 border rounded-3 bg-light">
+                                <input type="checkbox" name="user_ids[]" value="{{ $u->id }}" id="coauser_{{ $acc->id }}_{{ $u->id }}" class="form-check-input ms-0 me-2" @checked($acc->users->contains('id', $u->id))>
+                                <label class="form-check-label fw-medium text-dark" for="coauser_{{ $acc->id }}_{{ $u->id }}">
+                                    {{ $u->name_bn ?: $u->name }} ({{ $u->username }})
+                                    <small class="text-muted d-block">{{ $u->designation ?: 'হিসাব শাখা' }}</small>
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-top px-4 py-3">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="submit" class="btn btn-success rounded-pill px-4">সংরক্ষণ করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    @endif
+@endforeach
+
 <!-- Create Modal -->
 <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <form method="POST" action="{{ route('chart_of_accounts.store') }}" class="modal-content">
+    <div class="modal-dialog modal-dialog-centered">
+        <form method="POST" action="{{ route('chart_of_accounts.store') }}" class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
             @csrf
-            <div class="modal-header">
-                <h5 class="modal-title"><i class="fa-solid fa-plus-circle me-2 text-success"></i>নতুন হিসাব কোড তৈরি</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-header bg-light border-bottom px-4 py-3">
+                <h5 class="modal-title fw-bold text-dark mb-0"><i class="fa-solid fa-plus-circle me-2 text-success"></i>নতুন হিসাব কোড তৈরি</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-4 bg-white">
                 <div class="mb-3">
-                    <label class="form-label small fw-semibold">হিসাব কোড <span class="text-danger">*</span></label>
-                    <input type="text" name="account_code" class="form-control" placeholder="যেমন: 502150" required>
+                    <label class="form-label small fw-semibold text-dark">হিসাব কোড <span class="text-danger">*</span></label>
+                    <input type="text" name="account_code" class="form-control" placeholder="যেমন: 501.08" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label small fw-semibold">বাংলা নাম <span class="text-danger">*</span></label>
-                    <input type="text" name="account_name_bn" class="form-control" placeholder="যেমন: আইসিটি ও সফটওয়্যার রক্ষণাবেক্ষণ" required>
+                    <label class="form-label small fw-semibold text-dark">হিসাব খাতের নাম (Chart of Accounts Name) <span class="text-danger">*</span></label>
+                    <input type="text" name="account_name" class="form-control" placeholder="যেমন: Communication Equipment" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label small fw-semibold">ইংরেজি নাম <span class="text-danger">*</span></label>
-                    <input type="text" name="account_name" class="form-control" placeholder="যেমন: ICT & Software Maintenance" required>
+                    <label class="form-label small fw-semibold text-dark">বাংলা নাম (ঐচ্ছিক)</label>
+                    <input type="text" name="account_name_bn" class="form-control" placeholder="যেমন: যোগাযোগ সরঞ্জামাদি">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label small fw-semibold">হিসাবের ধরন <span class="text-danger">*</span></label>
-                    <select name="account_type" class="form-select" required>
-                        <option value="expense">Expense (ব্যয় / পরিচালনা খরচ)</option>
-                        <option value="revenue">Revenue (রাজস্ব / আয়)</option>
-                        <option value="asset">Asset (সম্পদ)</option>
-                        <option value="liability">Liability (দায়)</option>
-                        <option value="equity">Equity (মালিকানা স্বত্ব)</option>
-                    </select>
+                    <label class="form-label small fw-semibold text-dark">কন্ট্রোল হেড (Control Head)</label>
+                    <input type="text" name="control_head" class="form-control" placeholder="যেমন: Property,plant and equipment (PPE) (net)">
                 </div>
-                <div class="mb-3">
-                    <label class="form-label small fw-semibold">স্বাভাবিক জের <span class="text-danger">*</span></label>
-                    <select name="normal_balance" class="form-select" required>
-                        <option value="debit">Debit</option>
-                        <option value="credit">Credit</option>
-                    </select>
+                <div class="row g-2 mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label small fw-semibold text-dark">ক্যাটাগরি (Category) <span class="text-danger">*</span></label>
+                        <select name="account_type" class="form-select" required>
+                            <option value="expense">Expense (ব্যয় / খরচ)</option>
+                            <option value="revenue">Income (রাজস্ব / আয়)</option>
+                            <option value="asset">Assets (সম্পদ)</option>
+                            <option value="liability">Liabilities (দায়)</option>
+                            <option value="equity">Equity (মালিকানা স্বত্ব)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label small fw-semibold text-dark">স্টেটমেন্ট (Income / Balance)</label>
+                        <select name="income_balance" class="form-select">
+                            <option value="Balance Sheet">Balance Sheet</option>
+                            <option value="Income Statement">Income Statement</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label small fw-semibold">প্রারম্ভিক ব্যালেন্স (৳)</label>
-                    <input type="number" step="0.01" name="opening_balance" class="form-control" value="0.00">
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" name="is_leaf" value="1" id="is_leaf" class="form-check-input" checked>
-                    <label class="form-check-label small" for="is_leaf">এটি সরাসরি পোস্টিংযোগ্য লিফ অ্যাকাউন্ট (Leaf Account)</label>
+                <div class="row g-2 mb-2">
+                    <div class="col-md-6">
+                        <label class="form-label small fw-semibold text-dark">স্বাভাবিক ব্যালেন্স <span class="text-danger">*</span></label>
+                        <select name="normal_balance" class="form-select" required>
+                            <option value="debit">Debit (ডেবিট)</option>
+                            <option value="credit">Credit (ক্রেডিট)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-end">
+                        <div class="form-check mb-2">
+                            <input type="checkbox" name="direct_posting" value="1" id="create_direct_posting" class="form-check-input" checked>
+                            <label class="form-check-label small fw-semibold text-dark" for="create_direct_posting">সরাসরি পোস্টিংযোগ্য (Direct)</label>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">বাতিল</button>
-                <button type="submit" class="btn btn-success rounded-pill">সংরক্ষণ করুন</button>
+            <div class="modal-footer bg-light border-top px-4 py-3">
+                <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                <button type="submit" class="btn btn-success rounded-pill px-4">সংরক্ষণ করুন</button>
             </div>
         </form>
     </div>
@@ -340,14 +369,14 @@
 
 <!-- Import Modal -->
 <div class="modal fade" id="importModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <form method="POST" action="{{ route('chart_of_accounts.import') }}" enctype="multipart/form-data" class="modal-content">
+    <div class="modal-dialog modal-dialog-centered">
+        <form method="POST" action="{{ route('chart_of_accounts.import') }}" enctype="multipart/form-data" class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
             @csrf
-            <div class="modal-header">
-                <h5 class="modal-title"><i class="fa-solid fa-file-arrow-up me-2 text-primary"></i>এক্সেল / সিএসভি ফাইল আপলোড</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-header bg-light border-bottom px-4 py-3">
+                <h5 class="modal-title fw-bold text-dark mb-0"><i class="fa-solid fa-file-arrow-up me-2 text-primary"></i>এক্সেল / সিএসভি ফাইল আপলোড</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-4 bg-white">
                 <p class="small text-muted">
                     আপনার তৈরি এক্সেল বা সিএসভি ফাইল আপলোড করে এক ক্লিকে সকল হিসাব কোড ইম্পোর্ট বা আপডেট করতে পারেন।
                 </p>
@@ -357,13 +386,13 @@
                     </a>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label small fw-semibold">ফাইল নির্বাচন করুন <span class="text-danger">*</span></label>
+                    <label class="form-label small fw-semibold text-dark">ফাইল নির্বাচন করুন <span class="text-danger">*</span></label>
                     <input type="file" name="file" class="form-control" accept=".csv,.xlsx,.xls,.txt" required>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">বাতিল</button>
-                <button type="submit" class="btn btn-primary rounded-pill">আপলোড ও ইম্পোর্ট</button>
+            <div class="modal-footer bg-light border-top px-4 py-3">
+                <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                <button type="submit" class="btn btn-primary rounded-pill px-4">আপলোড ও ইম্পোর্ট</button>
             </div>
         </form>
     </div>
