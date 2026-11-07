@@ -31,11 +31,9 @@
             <table class="table table-hover align-middle mb-0 table-custom">
                 <thead>
                     <tr>
-                        <th style="width: 10%;">কোড</th>
-                        <th style="width: 25%;">দপ্তর / কস্ট সেন্টারের নাম</th>
-                        <th style="width: 15%;">অবস্থান ও জোন</th>
-                        <th style="width: 15%;">দায়িত্বপ্রাপ্ত কর্মকর্তা</th>
-                        <th style="width: 20%;">অ্যাসাইনকৃত ব্যবহারকারী (Users)</th>
+                        <th style="width: 15%;">কোড</th>
+                        <th style="width: 45%;">দপ্তর / কস্ট সেন্টারের নাম</th>
+                        <th style="width: 25%;">অ্যাসাইনকৃত ব্যবহারকারী (Users)</th>
                         <th style="width: 15%; text-align: end;">অ্যাকশন</th>
                     </tr>
                 </thead>
@@ -46,14 +44,6 @@
                             <td>
                                 <strong class="text-dark">{{ $cc->name_bn }}</strong>
                                 <small class="text-muted d-block">{{ $cc->name }}</small>
-                            </td>
-                            <td class="small">
-                                <div>{{ $cc->location ?: '-' }}</div>
-                                <span class="badge bg-light text-dark border">{{ $cc->division_or_zone ?: 'Default' }}</span>
-                            </td>
-                            <td class="small">
-                                <div>{{ $cc->contact_person ?: '-' }}</div>
-                                <small class="text-muted">{{ $cc->phone ?: '' }}</small>
                             </td>
                             <td>
                                 @forelse ($cc->users as $u)
@@ -77,7 +67,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="text-center py-4 text-muted">কোনো কস্ট সেন্টার পাওয়া যায়নি।</td>
+                            <td colspan="4" class="text-center py-4 text-muted">কোনো কস্ট সেন্টার পাওয়া যায়নি।</td>
                         </tr>
                     @endforelse
                 </tbody>
