@@ -81,10 +81,6 @@ class UserSeeder extends Seeder
             ->orWhereNull('prepared_by_id')
             ->update(['prepared_by_id' => $user1->id]);
 
-        Voucher::whereNotIn('reviewed_by_id', [$user1->id, $user2->id])
-            ->whereNotNull('reviewed_by_id')
-            ->update(['reviewed_by_id' => $user2->id]);
-
         Voucher::whereNotIn('approved_by_id', [$user1->id, $user2->id])
             ->whereNotNull('approved_by_id')
             ->update(['approved_by_id' => $user1->id]);
