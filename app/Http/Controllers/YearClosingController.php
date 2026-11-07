@@ -82,7 +82,8 @@ class YearClosingController extends Controller
 
         DB::transaction(function () use ($currentFy, $nextFy, $user) {
             $headCostCenter = CostCenter::where('code', 'CC-101')->first() ?? CostCenter::first();
-            $retainedEarningsCoa = ChartOfAccount::where('account_code', '301020')->first();
+            $retainedEarningsCoa = ChartOfAccount::where('account_code', '202')->first() 
+                ?? ChartOfAccount::where('account_type', 'equity')->first();
 
             // 1. Calculate revenues and expenses balances to close
             $revenueHeads = ChartOfAccount::leaf()->where('account_type', 'revenue')->get();

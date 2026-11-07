@@ -15,11 +15,14 @@ class ChartOfAccount extends Model
         'account_name',
         'account_name_bn',
         'account_type',
+        'income_balance',
+        'control_head',
         'parent_id',
         'normal_balance',
         'opening_balance',
         'current_balance',
         'is_leaf',
+        'direct_posting',
         'is_active',
         'description',
     ];
@@ -28,6 +31,7 @@ class ChartOfAccount extends Model
         'opening_balance' => 'decimal:2',
         'current_balance' => 'decimal:2',
         'is_leaf'         => 'boolean',
+        'direct_posting'  => 'boolean',
         'is_active'       => 'boolean',
     ];
 
@@ -64,7 +68,10 @@ class ChartOfAccount extends Model
 
     public function getFormattedNameAttribute(): string
     {
-        return "{$this->account_code} - {$this->account_name_bn} ({$this->account_name})";
+        if ($this->account_name_bn && $this->account_name_bn !== $this->account_name) {
+            return "{$this->account_code} - {$this->account_name} ({$this->account_name_bn})";
+        }
+        return "{$this->account_code} - {$this->account_name}";
     }
 
     public function scopeActive($query)

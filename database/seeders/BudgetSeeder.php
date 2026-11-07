@@ -16,7 +16,7 @@ class BudgetSeeder extends Seeder
         if (! $currentFy) return;
 
         $costCenters = CostCenter::take(4)->get();
-        $expenseHeads = ChartOfAccount::leaf()->where('account_type', 'expense')->get();
+        $expenseHeads = ChartOfAccount::leaf()->where('account_type', 'expense')->take(20)->get();
 
         foreach ($costCenters as $cc) {
             foreach ($expenseHeads as $head) {

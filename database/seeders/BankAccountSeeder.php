@@ -11,9 +11,9 @@ class BankAccountSeeder extends Seeder
 {
     public function run(): void
     {
-        $sonaliCoa = ChartOfAccount::where('account_code', '101020')->first();
-        $janataCoa = ChartOfAccount::where('account_code', '101030')->first();
-        $agraniCoa = ChartOfAccount::where('account_code', '101040')->first();
+        $sonaliCoa = ChartOfAccount::where('account_code', '139')->first() ?? ChartOfAccount::first();
+        $janataCoa = ChartOfAccount::where('account_code', '133')->first() ?? $sonaliCoa;
+        $agraniCoa = ChartOfAccount::where('account_code', '135')->first() ?? $sonaliCoa;
 
         $dhakaCc = CostCenter::where('code', 'CC-101')->first();
         $ctgCc   = CostCenter::where('code', 'CC-102')->first();

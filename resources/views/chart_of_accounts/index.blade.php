@@ -26,7 +26,7 @@
     </div>
 
     <!-- Category Filter Pills -->
-    <div class="d-flex flex-wrap gap-2 mb-4">
+    <div class="d-flex flex-wrap gap-2 mb-3">
         <a href="{{ route('chart_of_accounts.index') }}" class="btn btn-sm rounded-pill {{ empty($type) ? 'btn-success' : 'btn-outline-secondary bg-white' }}">
             সকল হিসাব (All Accounts)
         </a>
@@ -47,57 +47,131 @@
         </a>
     </div>
 
+    <!-- Search & Filter Card -->
+    <div class="card border-0 shadow-sm rounded-4 bg-white p-3 mb-4">
+        <form method="GET" action="{{ route('chart_of_accounts.index') }}" class="row g-2 align-items-center">
+            @if ($type)
+                <input type="hidden" name="type" value="{{ $type }}">
+            @endif
+            <div class="col-md-5">
+                <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                    <input type="text" name="search" class="form-control border-start-0" placeholder="কোড, হিসাবের নাম বা কন্ট্রোল হেড দিয়ে খুঁজুন..." value="{{ $search }}">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <select name="control_head" class="form-select">
+                    <option value="">-- সকল কন্ট্রোল হেড (All Control Heads) --</option>
+                    @foreach ($controlHeads as $ch)
+                        <option value="{{ $ch }}" @selected($controlHead === $ch)>{{ $ch }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-3 d-flex gap-2">
+                <button type="submit" class="btn btn-success rounded-pill px-4 flex-grow-1">
+                    <i class="fa-solid fa-filter me-1"></i>ফিল্টার
+                </button>
+                @if ($search || $controlHead || $type)
+                    <a href="{{ route('chart_of_accounts.index') }}" class="btn btn-outline-secondary rounded-pill px-3" title="রিসেট">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </a>
+                @endif
+            </div>
+        </form>
+    </div>
+
     <!-- Table Card -->
     <div class="card border-0 shadow-sm rounded-4 bg-white overflow-hidden mb-4">
+        <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+            <span class="text-muted small">মোট প্রদর্শিত হিসাব: <strong>{{ number_format($accounts->total()) }}</strong> টি</span>
+        </div>
         <div class="table-responsive">
             <table class="table table-hover align-middle mb-0 table-custom">
                 <thead>
                     <tr>
                         <th style="width: 12%;">হিসাব কোড</th>
-                        <th style="width: 25%;">হিসাব খাতের নাম</th>
-                        <th style="width: 10%;">ধরন (Type)</th>
-                        <th style="width: 10%;">স্বাভাবিক জের</th>
-                        <th style="width: 13%; text-align: right;">প্রারম্ভিক ব্যালেন্স (৳)</th>
-                        <th style="width: 18%;">দায়িত্বপ্রাপ্ত ইউজার</th>
-                        <th style="width: 12%; text-align: end;">অ্যাকশন</th>
+                        <th style="width: 26%;">হিসাব খাতের নাম</th>
+                        <th style="width: 18%;">কন্ট্রোল হেড (Control Head)</th>
+                        <th style="width: 12%;">ক্যাটাগরি / স্টেটমেন্ট</th>
+                        <th style="width: 10%;">পোস্টিং</th>
+                        <th style="width: 12%;">দায়িত্বপ্রাপ্ত ইউজার</th>
+                        <th style="width: 10%; text-align: end;">অ্যাকশন</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($accounts as $acc)
-                        <tr class="{{ ! $acc->is_leaf ? 'table-light fw-bold' : '' }}">
-                            <td class="fw-bold {{ ! $acc->is_leaf ? 'text-dark' : 'text-success' }}">
-                                {{ $acc->account_code }}
+                        <tr class="{{ ! $acc->direct_posting ? 'table-light fw-bold' : '' }}">
+                            <td class="fw-bold {{ $acc->direct_posting ? 'text-success' : 'text-dark' }}">
+                                <code>{{ $acc->account_code }}</code>
                             </td>
                             <td>
-                                <div>{{ $acc->account_name_bn }}</div>
-                                <small class="text-muted">{{ $acc->account_name }}</small>
+                                <div class="fw-semibold text-dark">{{ $acc->account_name }}</div>
+                                @if ($acc->account_name_bn && $acc->account_name_bn !== $acc->account_name)
+                                    <small class="text-muted">{{ $acc->account_name_bn }}</small>
+                                @endif
                             </td>
                             <td>
-                                <span class="badge bg-light text-dark border">{{ strtoupper($acc->account_type) }}</span>
+                                @if ($acc->control_head)
+                                    <span class="badge bg-light text-secondary border fw-normal">{{ $acc->control_head }}</span>
+                                @else
+                                    <span class="text-muted small">-</span>
+                                @endif
                             </td>
                             <td>
-                                <span class="badge {{ $acc->normal_balance === 'debit' ? 'bg-success bg-opacity-10 text-success' : 'bg-primary bg-opacity-10 text-primary' }}">
-                                    {{ strtoupper($acc->normal_balance) }}
-                                </span>
-                            </td>
-                            <td class="text-end fw-semibold">
-                                {{ $acc->opening_balance > 0 ? '৳ ' . number_format($acc->opening_balance, 2) : '-' }}
+                                <div>
+                                    <span class="badge {{ match($acc->account_type) {
+                                        'asset' => 'bg-info bg-opacity-10 text-info',
+                                        'liability' => 'bg-warning bg-opacity-10 text-warning',
+                                        'equity' => 'bg-primary bg-opacity-10 text-primary',
+                                        'revenue' => 'bg-success bg-opacity-10 text-success',
+                                        'expense' => 'bg-danger bg-opacity-10 text-danger',
+                                        default => 'bg-light text-dark'
+                                    } }} border">
+                                        {{ ucfirst($acc->account_type) }}
+                                    </span>
+                                </div>
+                                <small class="text-muted d-block mt-1">{{ $acc->income_balance ?: ($acc->account_type === 'expense' || $acc->account_type === 'revenue' ? 'Income Statement' : 'Balance Sheet') }}</small>
                             </td>
                             <td>
-                                @if ($acc->is_leaf)
+                                @if ($acc->direct_posting)
+                                    <span class="badge bg-success bg-opacity-10 text-success">
+                                        <i class="fa-solid fa-check me-1"></i>Direct
+                                    </span>
+                                @else
+                                    <span class="badge bg-secondary bg-opacity-10 text-secondary">
+                                        <i class="fa-solid fa-folder me-1"></i>Header
+                                    </span>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($acc->direct_posting)
                                     @forelse ($acc->users as $u)
                                         <span class="badge bg-success bg-opacity-10 text-success me-1 mb-1">
                                             <i class="fa-solid fa-user me-1"></i>{{ $u->name_bn ?: $u->name }}
                                         </span>
                                     @empty
-                                        <span class="text-muted small">সকলের জন্য উন্মুক্ত</span>
+                                        <span class="text-muted small">সকলের উন্মুক্ত</span>
                                     @endforelse
                                 @else
-                                    <span class="text-muted small">মূল খাত (Parent)</span>
+                                    <span class="text-muted small">-</span>
                                 @endif
                             </td>
                             <td class="text-end">
                                 <div class="btn-group btn-group-sm">
+                                    @if ($acc->direct_posting)
+                                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#assignModal{{ $acc->id }}" title="ইউজার দায়িত্ব বণ্টন">
+                                            <i class="fa-solid fa-user-plus"></i>
+                                        </button>
+                                        <a href="{{ route('ledger.index', ['chart_of_account_id' => $acc->id]) }}" class="btn btn-outline-info" title="খতিয়ান দেখুন">
+                                            <i class="fa-solid fa-book-open"></i>
+                                        </a>
+                                    @endif
+                                    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editModal{{ $acc->id }}" title="সম্পাদনা">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
                                     @if ($acc->is_leaf)
                                         <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#assignModal{{ $acc->id }}" title="ইউজার দায়িত্ব বণ্টন">
                                             <i class="fa-solid fa-user-plus"></i>

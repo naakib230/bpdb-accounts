@@ -1,0 +1,1576 @@
+Chart of Accounts Code,Chart of Accounts Name,Income/Balance,Account Category,Control Head,Direct Posting
+101.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.86A,Transformer Manufacturing,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.86A,Transformer Manufacturing,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+101A.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.86A,Transformer Manufacturing,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.86A,Transformer Manufacturing  ,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+102A.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.86A,Transformer Manufacturing,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.86A,Transformer Manufacturing,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+103A.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.86A,Transformer Manufacturing,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.86A,Transformer Manufacturing,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+104A.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.86A,Transformer Manufacturing,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+107.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.70,Land and Land Rights,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.72,Boiler Plant Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.74,Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.75,Prime Movers,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.78,Water Wheels and Turbines,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.83,Poles and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.86,Line Transformer -Purchase,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.86A,Transformer Manufacturing,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.87,Street Lighting and Single System,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.88,Meters,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.92,Communication Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.94,Laboratory Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.95,Store Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.96,Fire Fighting Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+108.99,Miscellaneous Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+109.70,Land and Land Rights,Balance Sheet,Assets,Capital work in progress,True
+109.71,Structures and Improvement,Balance Sheet,Assets,Capital work in progress,True
+109.72,Boiler Plant Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.73,Engine and Engine Driven Generators,Balance Sheet,Assets,Capital work in progress,True
+109.74,Generators,Balance Sheet,Assets,Capital work in progress,True
+109.75,Prime Movers,Balance Sheet,Assets,Capital work in progress,True
+109.76,Accessory Electric Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.77,"Reservoir, Dams and Water Ways",Balance Sheet,Assets,Capital work in progress,True
+109.78,Water Wheels and Turbines,Balance Sheet,Assets,Capital work in progress,True
+109.79,"Roads, Rail Roads and Bridge",Balance Sheet,Assets,Capital work in progress,True
+109.80,"Fuel Holders, Producers and Accessories",Balance Sheet,Assets,Capital work in progress,True
+109.81,Station Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.82,Tower and Fixtures,Balance Sheet,Assets,Capital work in progress,True
+109.83,Poles and Fixtures,Balance Sheet,Assets,Capital work in progress,True
+109.84,Overhead Conductor and Devices,Balance Sheet,Assets,Capital work in progress,True
+109.85,"Underground Conduct, Conductors and Devices",Balance Sheet,Assets,Capital work in progress,True
+109.86,Line Transformer -Purchase,Balance Sheet,Assets,Capital work in progress,True
+109.86A,Transformer Manufacturing,Balance Sheet,Assets,Capital work in progress,True
+109.87,Street Lighting and Single System,Balance Sheet,Assets,Capital work in progress,True
+109.88,Meters,Balance Sheet,Assets,Capital work in progress,True
+109.89,Transportation Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.90,Heavy and Other Power Operated Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.91,Office Furniture and Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,Capital work in progress,True
+109.92,Communication Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.93,"Tools, Shop and Garage Equipment",Balance Sheet,Assets,Capital work in progress,True
+109.94,Laboratory Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.95,Store Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.96,Fire Fighting Equipment,Balance Sheet,Assets,Capital work in progress,True
+109.97,Renewable Energy promotion (Solar Power),Balance Sheet,Assets,Capital work in progress,True
+109.99,Miscellaneous Equipment,Balance Sheet,Assets,Capital work in progress,True
+110,Nonutility Property,Balance Sheet,Assets,,True
+111.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+111.73,Engine and Engine Driven Generators,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+111.81,Station Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+111.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+111.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+112.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+112.82,Tower and Fixtures,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+112.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+112.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+113.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+113.76,Accessory Electric Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+113.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+113.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+113.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+113.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+114.71,Structures and Improvement,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+114.84,Overhead Conductor and Devices,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+114.89,Transportation Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+114.91,Office Furniture and Equipment,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+114.91A,"Office equipment (Computer, Monitor & Others)",Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+115,Accumulated Depreciation Utility Plant in Process Re Classification,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+116,Accumulated Depreciation Utility Plant in Held for use,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+122,Accumulated Depreciation Non-Utility Property,Balance Sheet,Assets,"Property,plant and equipment (PPE) (net)",True
+129,FDR- Against Miscellaneous/Revenue Fund,Balance Sheet,Assets,Fixed Deposit,True
+129A,FDR- Against GPF/CPF,Balance Sheet,Assets,Fixed Deposit,True
+129B,FDR- Against Pension/Gratuity Fund,Balance Sheet,Assets,Fixed Deposit,True
+129C,Investment against Share/Stock,Balance Sheet,Assets,Investment in associated company,True
+129D,Other Investment (Savings Certificate)),Balance Sheet,Assets,Other long term investments,True
+129E,Investment In FDR Against PSDF,Balance Sheet,Assets,,True
+129F,Investment In Different Project From PSDF,Balance Sheet,Assets,,True
+130,Cash in Bank-Assets Insurance Fund,Balance Sheet,Assets,Cash & Cash Equivalents,False
+130A,Cash in Bank-Power Sector Development Fund,Balance Sheet,Assets,Cash & Cash Equivalents,False
+131,Petty Cash Fund,Balance Sheet,Assets,Cash & Cash Equivalents,True
+132,Cash in Bank-Pension Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+133,Cash in Bank-Local Collection Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+134,Cash in Bank-Miscellaneous Collection Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+134A,Cash in Bank-Consumers Security Deposit Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+135,Cash in Bank-Regional Accounting Office,Balance Sheet,Assets,Cash & Cash Equivalents,False
+136,Cash in Bank-Collection Retention Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+137,Cash in Bank-Regional Collection Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+137A,Cash in Bank- Regional Miscellaneous Collection Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+137B,Cash in Bank-Regional Consumers Security Deposit Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+138,Cash in Bank- Deposit Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+139,Cash in Bank- Central Bank Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+139A,Cash in Bank- Zonal Central Bank Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+140,Cash in Bank- Benevolent Fund/ Group Insurance Account,Balance Sheet,Assets,Cash & Cash Equivalents,False
+141.01,Sales-LT-A-Residential,Balance Sheet,Assets,Accounts Receivable,True
+141.01A,Sales-LT-B-Irrigation/Agricultural Pump,Balance Sheet,Assets,Accounts Receivable,True
+141.01B,Sales-LT-C1-Small Industry,Balance Sheet,Assets,Accounts Receivable,True
+141.01C,Sales-LT-C2-Construction,Balance Sheet,Assets,Accounts Receivable,True
+141.01D,"Sales-LT-D1-Education,Religious & Charitable Institution and Hospital",Balance Sheet,Assets,Accounts Receivable,True
+141.01E,"Sales-LT-D2-Street Light, Water Pump",Balance Sheet,Assets,Accounts Receivable,True
+141.01F,Sales-LT-D3-Battery Charging Station,Balance Sheet,Assets,Accounts Receivable,True
+141.01G,Sales-LT-E-Commercial & Office,Balance Sheet,Assets,Accounts Receivable,True
+141.01H,Sales-LT-T-Temporary,Balance Sheet,Assets,Accounts Receivable,True
+141.02,Sales-MT-1-Residential,Balance Sheet,Assets,Accounts Receivable,True
+141.02A,Sales-MT-2-Commercial & Office,Balance Sheet,Assets,Accounts Receivable,True
+141.02B,Sales-MT-3-Industry,Balance Sheet,Assets,Accounts Receivable,True
+141.02C,Sales-MT-4-Construction,Balance Sheet,Assets,Accounts Receivable,True
+141.02D,Sales-MT-5-General,Balance Sheet,Assets,Accounts Receivable,True
+141.02E,Sales-MT-6-Temporary,Balance Sheet,Assets,Accounts Receivable,True
+141.02F,Sales-MT-7- Battery Charging Station,Balance Sheet,Assets,Accounts Receivable,True
+141.02G,Sales-MT-8- Irrigation/Agricultural Pump,Balance Sheet,Assets,Accounts Receivable,True
+141.03,Sales-HT-1-General,Balance Sheet,Assets,Accounts Receivable,True
+141.03A,Sales-HT-2-Commercial & Office,Balance Sheet,Assets,Accounts Receivable,True
+141.03B,Sales-HT-3-Industry,Balance Sheet,Assets,Accounts Receivable,True
+141.03C,Sales-HT-4-Construction,Balance Sheet,Assets,Accounts Receivable,True
+141.04,Sales-EHT-1-General,Balance Sheet,Assets,Accounts Receivable,True
+141.04A,Sales-EHT-2-General,Balance Sheet,Assets,Accounts Receivable,True
+141.05,Sales-KCJAL,Balance Sheet,Assets,Accounts Receivable,True
+141.06,Sales-GK Project,Balance Sheet,Assets,Accounts Receivable,True
+141.07,Sales-PGCB,Balance Sheet,Assets,Accounts Receivable,True
+141.08,Sales -DPDC,Balance Sheet,Assets,Accounts Receivable,True
+141.08A,Sales -REB/PBS,Balance Sheet,Assets,Accounts Receivable,True
+141.08B,Sales-DESCO,Balance Sheet,Assets,Accounts Receivable,True
+141.08C,Sales-WZPDC,Balance Sheet,Assets,Accounts Receivable,True
+141.08D,Sales-NESCO,Balance Sheet,Assets,Accounts Receivable,True
+141.09,Sales-BPDB's Distribution Zone,Balance Sheet,Assets,Accounts Receivable,True
+141.10A,Sales-Demand Charge,Balance Sheet,Assets,Accounts Receivable,True
+141.10B,Sales-Minimum Charge,Balance Sheet,Assets,Accounts Receivable,True
+141A,Accounts Receivable from BPDB's SPC-Distribution,Balance Sheet,Assets,Accounts Receivable,True
+141B,Accounts Receivable From BPDB by SBU-Generation,Balance Sheet,Assets,Accounts Receivable,True
+142,Accounts Receivable- Others,Balance Sheet,Assets,Other receivables,True
+142A,Accounts Receivable for DSL - PGCB,Balance Sheet,Assets,Other receivables,True
+142B,Accounts Receivable for DSL - APSCL,Balance Sheet,Assets,Other receivables,True
+142C,Accounts Receivable for DSL - WZPDC,Balance Sheet,Assets,Other receivables,True
+142D,Accounts Receivable for DSL-DPDC,Balance Sheet,Assets,Other receivables,True
+142E,Accounts Receivable for DSL - REB,Balance Sheet,Assets,Other receivables,True
+142F,Accounts Receivable for DSL-NESCO,Balance Sheet,Assets,Other receivables,True
+142G,Accounts Receivable for Government Subsidy,Balance Sheet,Assets,Receivable against Govt. subsidy,True
+143,Accumulated Provision for Uncollectable Accounts,Balance Sheet,Assets,Accounts Receivable,True
+144,Advances to Contractors and Suppliers,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+144A,Advances to Fuel Suppliers,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+145,GPF Advances to Officers and Employees,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+146,Adv. to Officers & Emp. Nonint. Bearing,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+146A,Advances to Officers and Employees-Noninterest Bearing,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+147,Temporary Advances,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+147A,Advance to CFL Bulb,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+148,House Building/Land Purchase/ House Repairing Ad,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+149,Deposit on Letter of Credit,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+150,Motor Cycle/ Bi-cycle Advance,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+151,Fuel Stock,Balance Sheet,Assets,Inventories,True
+152,Stores & Spares Purchase - Local,Balance Sheet,Assets,Inventories,True
+152A,Stores & Spares Purchase - Foreign,Balance Sheet,Assets,Inventories,True
+152B,Stores & Spares - Received from other stores,Balance Sheet,Assets,Inventories,True
+153,Construction Stores.,Balance Sheet,Assets,Inventories,True
+154,Stock of P.C. Pole.,Balance Sheet,Assets,Inventories,True
+159,Goods in Transit.,Balance Sheet,Assets,Inventories,True
+161,Prepaid Insurance.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+162,Prepaid Rent.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+163,Advance Payment of Tax (TDS),Balance Sheet,Assets,"Advances,deposits and prepayments",True
+169,Other Prepaid Expenses.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+181,Pre - transfer Claims Receivable from Government.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+182,Claims Receivable from Insurance Company.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+183,Security Deposit for Telephone Connection.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+184,Security Deposit for Gas Connection.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+185,Security Deposit for Water Connection.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+186,Claim Receivable from WDB for Exp. against Eng. Academy Kaptai.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+191,Accounts Receivable - Government Duty.,Balance Sheet,Assets,Other receivables,True
+192,Preliminary Survey & Investigation Charges.,Balance Sheet,Assets,,True
+193,Extraordinary Property Losses.,Balance Sheet,Assets,,True
+194,Adjustment & Suspense Account.,Balance Sheet,Liabilities,Clearing accounts,True
+195.20A,Basic Pay,Balance Sheet,Liabilities,Clearing accounts,True
+195.20B,Technical Pay,Balance Sheet,Liabilities,Clearing accounts,True
+195.20C,Additional Pay/Charge Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.20D,Special Pay,Balance Sheet,Liabilities,Clearing accounts,True
+195.20E,Personal Pay,Balance Sheet,Liabilities,Clearing accounts,True
+195.21A,Basic Pay,Balance Sheet,Liabilities,Clearing accounts,True
+195.21B,Technical Pay,Balance Sheet,Liabilities,Clearing accounts,True
+195.21C,Additional Pay/Charge Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.21D,Special Pay,Balance Sheet,Liabilities,Clearing accounts,True
+195.21E,Personal Pay,Balance Sheet,Liabilities,Clearing accounts,True
+195.22F,House Rent Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22G,Medical Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22H,Conveyance Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22I,Washing Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22J,Shift Duty Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22K,Design Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22L,Power House Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22M,Hill Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22N,Compensatory Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22O,Entertainment Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22P,Ration Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22Q,Cash Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22R,Rest and Recreation Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22S,Others (To be specified),Balance Sheet,Liabilities,Clearing accounts,True
+195.22T,Dearness Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.22U,Tiffin Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.22V,Education Support Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.22W,Training Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.22X,Deputation Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.22Y,Haor/Deep/Char Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.23F,House Rent Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23G,Medical Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23H,Conveyance Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23I,Washing Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23J,Shift Duty Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23K,Design Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23L,Power House Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23M,Hill Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23N,Compensatory Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23O,Entertainment Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23P,Ration Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23Q,Cash Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23R,Rest and Recreation Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23S,Others (To be specified),Balance Sheet,Liabilities,Clearing accounts,True
+195.23T,Dearness Allowances,Balance Sheet,Liabilities,Clearing accounts,True
+195.23U,Tiffin Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.23V,Education Support Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.23W,Training Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.23X,Deputation Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.23Y,Haor/Deep/Char Allowance,Balance Sheet,Liabilities,Clearing accounts,True
+195.24,Leave encashment,Balance Sheet,Liabilities,Clearing accounts,True
+195.25,Overtime Allowances (Single rate),Balance Sheet,Liabilities,Clearing accounts,True
+195.25A,Overtime Allowances (Double rate),Balance Sheet,Liabilities,Clearing accounts,True
+195.26,Travelling Expenses/Allowance (Official Work),Balance Sheet,Liabilities,Clearing accounts,True
+195.26A,Travelling Expenses/Allowance (Training),Balance Sheet,Liabilities,Clearing accounts,True
+195.27,Conveyance Charge,Balance Sheet,Liabilities,Clearing accounts,True
+195.28,House rent expenses,Balance Sheet,Liabilities,Clearing accounts,True
+195.29,Medical Expenses,Balance Sheet,Liabilities,Clearing accounts,True
+195.29A,Washing Expenses,Balance Sheet,Liabilities,Clearing accounts,True
+195.30,Representation and Entertainment,Balance Sheet,Liabilities,Clearing accounts,True
+195.31,Bonus for Officer,Balance Sheet,Liabilities,Clearing accounts,True
+195.31A,Bonus for Staff,Balance Sheet,Liabilities,Clearing accounts,True
+195.31B,Bangla NoboBarsho Allowance (Officer),Balance Sheet,Liabilities,Clearing accounts,True
+195.31C,Bangla NoboBarsho Allowance (Staff),Balance Sheet,Liabilities,Clearing accounts,True
+195.31D,Special Benefit to Employee,Balance Sheet,Liabilities,Clearing accounts,True
+195.32,Stationary and Printing,Balance Sheet,Liabilities,Clearing accounts,True
+195.33,"Taxes, License and Fees",Balance Sheet,Liabilities,Clearing accounts,True
+195.34,Office rent,Balance Sheet,Liabilities,Clearing accounts,True
+195.35,Water Charge,Balance Sheet,Liabilities,Clearing accounts,True
+195.35A,Electricity Charges (Own use),Balance Sheet,Liabilities,Clearing accounts,True
+195.35B,Employees Electricity Rebate,Balance Sheet,Liabilities,Clearing accounts,True
+195.35D,Interest as Subsidy on Employees House Building Loan,Balance Sheet,Liabilities,Clearing accounts,True
+195.36,Uniforms and Liveries,Balance Sheet,Liabilities,Clearing accounts,True
+195.37,Post and Telegram,Balance Sheet,Liabilities,Clearing accounts,True
+195.37A,"Telephone, Telex and Fax",Balance Sheet,Liabilities,Clearing accounts,True
+195.38,Advertising and Promotion,Balance Sheet,Liabilities,Clearing accounts,True
+195.39,Audit Fees,Balance Sheet,Liabilities,Clearing accounts,True
+195.39A,Legal Expenses,Balance Sheet,Liabilities,Clearing accounts,True
+195.40,Books and Periodicals,Balance Sheet,Liabilities,Clearing accounts,True
+195.41,Gas Used for Electricity Generation,Balance Sheet,Liabilities,Clearing accounts,True
+195.41A,Diesel/Furnace oil Used for Electricity Generation,Balance Sheet,Liabilities,Clearing accounts,True
+195.41B,Coal Used for Electricity Generation,Balance Sheet,Liabilities,Clearing accounts,True
+195.42,"Petrol, Diesel and Lubricants Used for Transport",Balance Sheet,Liabilities,Clearing accounts,True
+195.42A,CNG. Used for Vehicle,Balance Sheet,Liabilities,Clearing accounts,True
+195.43,"Petrol, Diesel and Lubricants Used for Other Equipment",Balance Sheet,Liabilities,Clearing accounts,True
+195.44,Stores and Spares Used,Balance Sheet,Liabilities,Clearing accounts,True
+195.44A,Stores & Spares Used - Foreign,Balance Sheet,Liabilities,Clearing accounts,True
+195.44B,Stores & Spares Used - Received from other stores,Balance Sheet,Liabilities,Clearing accounts,True
+195.45,Custom Duties and Sale Tax,Balance Sheet,Liabilities,Clearing accounts,True
+195.45A,Vat,Balance Sheet,Liabilities,Clearing accounts,True
+195.45B,VAT - For Asset Manufacturing by BPDB,Balance Sheet,Liabilities,Clearing accounts,True
+195.46,Demurrage,Balance Sheet,Liabilities,Clearing accounts,True
+195.47,Depreciation,Balance Sheet,Liabilities,Clearing accounts,True
+195.48,Hire of Equipment,Balance Sheet,Liabilities,Clearing accounts,True
+195.49,Freight and Handling,Balance Sheet,Liabilities,Clearing accounts,True
+195.50,Works man Compensation,Balance Sheet,Liabilities,Clearing accounts,True
+195.51,Gratuity,Balance Sheet,Liabilities,Clearing accounts,True
+195.52,Donation and Contribution,Balance Sheet,Liabilities,Clearing accounts,True
+195.52A,Donation to sick Employees from Benevolent fund,Balance Sheet,Liabilities,Clearing accounts,True
+195.53,Income Tax of Officers and Staff,Balance Sheet,Liabilities,Clearing accounts,True
+195.54,Training and Education Expense Local,Balance Sheet,Liabilities,Clearing accounts,True
+195.54A,Training Expense - Foreign,Balance Sheet,Liabilities,Clearing accounts,True
+195.55,Employees Others Benefit and Welfare Expenses,Balance Sheet,Liabilities,Clearing accounts,True
+195.55A,Reimbursement for Treatment of Accident (on duty) affected employees,Balance Sheet,Liabilities,Clearing accounts,True
+195.56,Board's Contribution to CPF,Balance Sheet,Liabilities,Clearing accounts,True
+195.57,Board's Contribution to Pension Fund,Balance Sheet,Liabilities,Clearing accounts,True
+195.58,Leave encashment on Retirement,Balance Sheet,Liabilities,Clearing accounts,True
+195.59,Leave Salary and Pension Contribution for Transfer,Balance Sheet,Liabilities,Clearing accounts,True
+195.60,Insurance (for Goods and Property),Balance Sheet,Liabilities,Clearing accounts,True
+195.60A,Insurance for Vehicles & Others,Balance Sheet,Liabilities,Clearing accounts,True
+195.60B,Group Insurance Premium,Balance Sheet,Liabilities,Clearing accounts,True
+195.61,Bank Charge and Commission,Balance Sheet,Liabilities,Clearing accounts,True
+195.62,Bad-debts,Balance Sheet,Liabilities,Clearing accounts,True
+195.63,Honorarium - Punishment/Reward scheme,Balance Sheet,Liabilities,Clearing accounts,True
+195.63A,Honorarium - Others,Balance Sheet,Liabilities,Clearing accounts,True
+195.64,Contractors Fees,Balance Sheet,Liabilities,Clearing accounts,True
+195.64A,Office Maintenance,Balance Sheet,Liabilities,Clearing accounts,True
+195.64B,Store Maintenance,Balance Sheet,Liabilities,Clearing accounts,True
+195.65,Consultant's fee - Local,Balance Sheet,Liabilities,Clearing accounts,True
+195.65A,Consultant's fee - Foreign,Balance Sheet,Liabilities,Clearing accounts,True
+195.66,Wages for Hired Labour,Balance Sheet,Liabilities,Clearing accounts,True
+195.66A,Computerization of Commercial Operation,Balance Sheet,Liabilities,Clearing accounts,True
+195.66B,Service Charge for Collection of Electricity bill by Mobile phone Companies,Balance Sheet,Liabilities,Clearing accounts,True
+195.66C,Contract out - Commercial Operation activities,Balance Sheet,Liabilities,Clearing accounts,True
+195.67,Interest on GPF and CPF,Balance Sheet,Liabilities,Clearing accounts,True
+195.68,Allocation of Generation Administration Expenses,Balance Sheet,Liabilities,Clearing accounts,True
+195.69,Miscellaneous Expenses,Balance Sheet,Liabilities,Clearing accounts,True
+195.70,Land and Land Rights,Balance Sheet,Liabilities,Clearing accounts,True
+195.71,Structures and Improvement,Balance Sheet,Liabilities,Clearing accounts,True
+195.72,Boiler Plant Equipment,Balance Sheet,Liabilities,Clearing accounts,True
+195.73,Engine and Engine Driven Generators,Balance Sheet,Liabilities,Clearing accounts,True
+195.84,Overhead Conductor and Devices,Balance Sheet,Liabilities,Clearing accounts,True
+195.89,Transportation Equipment,Balance Sheet,Liabilities,Clearing accounts,True
+195.91,Office Furniture and Equipment,Balance Sheet,Liabilities,Clearing accounts,True
+196,Deferred Tax Assets,Balance Sheet,Assets,Deffered Tax Assets,True
+198,Loan from other Gov./Autonomous/Semi Gvt. Agencies,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+198A,Loan/Advance to other Companies,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+198B,Deposit to Govt as Surplus Fund Calculated by Govt,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+199,Other Deferred Debits.,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+199A,Portion of Loan - Principal to PGCB,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+199B,Portion of Loan - Principal to APSCL,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+199C,Portion of Loan - Principal to WZPDC,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+199D,Portion of Loan - Principal to NESCO,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+201,Capital.,Balance Sheet,Equity,Paid-Up Capital,True
+201A,Power Sector Development Fund,Balance Sheet,Equity,Paid-Up Capital,True
+202,Un-appropriated Earned Surplus (Deficit).,Balance Sheet,Equity,Retained earnings,True
+203,Appropriated Earned Surplus.,Balance Sheet,Equity,,True
+204,Appraisal Surplus.,Balance Sheet,Equity,Revaluation reserve,True
+205,Previous Year Expenses.,Balance Sheet,Equity,Retained earnings,True
+206,Receipts for Deposit Work.,Balance Sheet,Equity,Funds and other reserves,True
+251,Grant from Foreign Government & Agencies.,Balance Sheet,Equity,Grants,True
+252,Grant from National Government & Agencies.,Balance Sheet,Equity,Grants,True
+301,Due to National Government & its Agencies.,Balance Sheet,Liabilities,Long term loans and  borrowings,True
+301A,Budgetary Support as Subsidy from Government,Balance Sheet,Liabilities,Long term loans and  borrowings,True
+301B,Loan From Power Sector Development Fund,Balance Sheet,Liabilities,Long term loans and  borrowings,True
+302,Foreign Loans.,Balance Sheet,Liabilities,Long term loans and  borrowings,True
+303,Debenture.,Balance Sheet,Liabilities,,True
+308,Liquidity Damage Reserve,Balance Sheet,Equity,Funds and other reserves,True
+309,Other Long Term Liabilities.,Balance Sheet,Liabilities,,True
+310,Accounts Payable - CDST.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+310A,Accounts Payable - VAT.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+311,Accounts Payable - Contractors & Suppliers.,Balance Sheet,Liabilities,Accounts Payable,True
+311A,Accounts Payable to BPDB by SPC-Distribution,Balance Sheet,Liabilities,,True
+311B,Accounts Payable to SBU Generation by BPDB,Balance Sheet,Liabilities,,True
+311C,Accounts Payable to Power Sector Development Fund,Balance Sheet,Liabilities,Payables to Power Sector Development Fund,True
+312,Accounts Payable - Others.,Balance Sheet,Liabilities,Accounts Payable,True
+313,Current Portion of Long Term Liabilities.,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+314,Accrued Salaries & Allowances.,Balance Sheet,Liabilities,Other current liabilities,True
+315,Accrued Expenses Others.,Balance Sheet,Liabilities,Other current liabilities,True
+316,Local BPDB's own,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+316A,Foreign - PDB's own,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+316B,PGCB,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+316C,APSCL,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+316D,WZPDC,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+316E,Budgetary Support from Government,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+316F,Accrued Interest on Loan - NESCO,Balance Sheet,Liabilities,Current obligations on long term loans and borrowings,True
+317,Accrued Interest on CPF.,Balance Sheet,Liabilities,Long term employee benefit obligations,True
+318,Assets Insurance Fund Accounts.,Balance Sheet,Equity,Funds and other reserves,True
+319,Loan on Trust Receipt (LTR).,Balance Sheet,Liabilities,,True
+320,Bank overdraft (O/D).,Balance Sheet,Liabilities,,True
+321,Security Deposit - Consumers.,Balance Sheet,Liabilities,Consumers' security deposits,True
+322,Security Deposit - Contractors & Suppliers.,Balance Sheet,Liabilities,Other current liabilities,True
+324,Other Deposits.,Balance Sheet,Liabilities,Other current liabilities,True
+325,Deduction for CBA's Subscription.,Balance Sheet,Liabilities,Other current liabilities,True
+331,Boards CPF Contribution.,Balance Sheet,Liabilities,Long term employee benefit obligations,True
+332,Interest on CPF Contribution.,Balance Sheet,Liabilities,Long term employee benefit obligations,True
+341,Employees CPF Contribution.,Balance Sheet,Liabilities,Long term employee benefit obligations,True
+342,Employees Benevolent Fund Contribution.,Balance Sheet,Liabilities,Other current liabilities,True
+343,Employees Other Salary Deduction.,Balance Sheet,Liabilities,Other current liabilities,True
+344,Withholding Taxes.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+344A,Withholding Taxes From Employees,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+345,Current Tax Liabilities,Balance Sheet,Liabilities,,True
+351,Government Duty Payable.,Balance Sheet,Assets,Other receivables,True
+352,Deduction for Group Insurance.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+353,Provision for Gratuity.,Balance Sheet,Liabilities,Long term employee benefit obligations,True
+354,Pension Fund Account.,Balance Sheet,Liabilities,Long term employee benefit obligations,True
+355,Employees GPF Account.,Balance Sheet,Liabilities,Long term employee benefit obligations,True
+356,Interest on GPF.,Balance Sheet,Liabilities,Long term employee benefit obligations,True
+357,Fund for Employees Honorarium,Balance Sheet,Liabilities,Other current liabilities,True
+358,Insurance claim received for Deceased Employees.,Balance Sheet,Assets,"Advances,deposits and prepayments",True
+359,Other Liabilities.,Balance Sheet,Liabilities,Other current liabilities,True
+391,Uncollected Government Duty.,Balance Sheet,Assets,Other receivables,True
+391A,VAT Collected-On Vending Electricity by Mobile Phone Companies,Balance Sheet,Assets,Other receivables,True
+392,Other Deferred Credit,Balance Sheet,Liabilities,Other current liabilities,True
+392A,Deferred Credit - Portion of Local Loan,Balance Sheet,Liabilities,,True
+392B,Deferred Credit - Portion of Foreign Loan,Balance Sheet,Liabilities,,True
+393,Deferred Revenue-For Vending Electricity by Mobile Phone Companies,Balance Sheet,Liabilities,,True
+394,Deferred Tax Liabilities,Balance Sheet,Liabilities,Deferred tax liabilities,True
+501.01,Sales-LT-A-Residential,Income Statement,Income,Sales Revenue,True
+501.01A,Sales-LT-B-Irrigation/Agricultural Pump,Income Statement,Income,Sales Revenue,True
+501.01B,Sales-LT-C1-Small Industry,Income Statement,Income,Sales Revenue,True
+501.01C,Sales-LT-C2-Construction,Income Statement,Income,Sales Revenue,True
+501.01D,"Sales-LT-D1-Education,Religious & Charitable Institution and Hospital",Income Statement,Income,Sales Revenue,True
+501.01E,"Sales-LT-D2-Street Light, Water Pump",Income Statement,Income,Sales Revenue,True
+501.01F,Sales-LT-D3-Battery Charging Station,Income Statement,Income,Sales Revenue,True
+501.01G,Sales-LT-E-Commercial & Office,Income Statement,Income,Sales Revenue,True
+501.01H,Sales-LT-T-Temporary,Income Statement,Income,Sales Revenue,True
+501.02,Sales-MT-1-Residential,Income Statement,Income,Sales Revenue,True
+501.02A,Sales-MT-2-Commercial & Office,Income Statement,Income,Sales Revenue,True
+501.02B,Sales-MT-3-Industry,Income Statement,Income,Sales Revenue,True
+501.02C,Sales-MT-4-Construction,Income Statement,Income,Sales Revenue,True
+501.02D,Sales-MT-5-General,Income Statement,Income,Sales Revenue,True
+501.02E,Sales-MT-6-Temporary,Income Statement,Income,Sales Revenue,True
+501.02F,Sales-MT-7- Battery Charging Station,Income Statement,Income,Sales Revenue,True
+501.02G,Sales-MT-8- Irrigation/Agricultural Pump,Income Statement,Income,Sales Revenue,True
+501.03,Sales-HT-1-General,Income Statement,Income,Sales Revenue,True
+501.03A,Sales-HT-2-Commercial & Office,Income Statement,Income,Sales Revenue,True
+501.03B,Sales-HT-3-Industry,Income Statement,Income,Sales Revenue,True
+501.03C,Sales-HT-4-Construction,Income Statement,Income,Sales Revenue,True
+501.04,Sales-EHT-1-General,Income Statement,Income,Sales Revenue,True
+501.04A,Sales-EHT-2-General,Income Statement,Income,Sales Revenue,True
+501.05,Sales-KCJAL,Income Statement,Income,Sales Revenue,True
+501.06,Sales-GK Project,Income Statement,Income,Sales Revenue,True
+501.07,Sales-PGCB,Income Statement,Income,Sales Revenue,True
+501.08,Sales -DPDC,Income Statement,Income,Sales Revenue,True
+501.08A,Sales -REB/PBS,Income Statement,Income,Sales Revenue,True
+501.08B,Sales-DESCO,Income Statement,Income,Sales Revenue,True
+501.08C,Sales-WZPDC,Income Statement,Income,Sales Revenue,True
+501.08D,Sales-NESCO,Income Statement,Income,Sales Revenue,True
+501.09,Sales-BPDB's Distribution Zone,Income Statement,Income,Sales Revenue,True
+501.10A,Sales-Demand Charge,Income Statement,Income,Sales Revenue,True
+501.10B,Sales-Minimum Charge,Income Statement,Income,Sales Revenue,True
+502,Accrued Sales,Income Statement,Expense,,True
+503,Income on Sale of P.C. Pole.,Income Statement,Income,Other operating income,True
+504,Energy Sales to BPDB's SPC-Distribution,Income Statement,Income,Energy Sales to BPDB's SPC-Distribution,True
+505,Energy Sale to BPDB by SBU Generation,Income Statement,Income,Energy Sale to BPDB by SBU Generation,True
+511.11,Connection and Disconnection Fees,Income Statement,Income,Other operating revenue,True
+511.12,Late Payment Surcharge/Interest on consumers Bill,Income Statement,Income,Other operating revenue,True
+511.13A,Interest on Bank Account,Income Statement,Income,Interest Income,True
+511.13B,Interest on Security Deposit,Income Statement,Income,Interest Income,True
+511.13C,Interest on Investment,Income Statement,Income,Interest Income,True
+511.13D,Interest on HB Loan etc.,Income Statement,Income,Interest Income,True
+511.14,Rebate on Govt. Electricity Duty.,Income Statement,Income,,True
+511.15,Sale of Tender Document,Income Statement,Income,Other operating income,True
+511.16,House Rent Recovery,Income Statement,Income,Other operating income,True
+511.17,Transport Charge,Income Statement,Income,Other operating income,True
+511.18,Meter Rent/Service Charge,Income Statement,Income,Other operating revenue,True
+511.18A,Transport Rent,Income Statement,Income,Other operating income,True
+511.18B,Pre-Paid Meter Rent,Income Statement,Income,Other operating revenue,True
+511.18C,Supervision Charge for Deposit Work,Income Statement,Income,Other operating revenue,True
+511.19,Sale of Scrap Materials,Income Statement,Income,Other operating revenue,True
+511.19A,Misc. Income,Income Statement,Income,Other operating income,True
+511.19B,Income from Cargo Transfer,Income Statement,Income,Other operating income,True
+511.19C,Penalty for Unauthorized Connection,Income Statement,Income,Other operating revenue,True
+511.19D,Rental Income - Land Lease,Income Statement,Income,Other operating income,True
+511.19E,Rental Income - Building,Income Statement,Income,Other operating income,True
+511.19F,Meter Testing Fees,Income Statement,Income,,True
+511.19G,Liquidity Damage Received,Income Statement,Income,Other operating income,True
+511.19H,Dividend Received from other Company,Income Statement,Income,Dividend Income,True
+511.19I,Income from Medical Centers,Income Statement,Income,Other operating income,True
+512,Income as Subsidy From Government.,Income Statement,Income,Subsidy from Government,True
+513,Gain on Sale of Shares,Income Statement,Income,Gain on Sale of Shares,True
+611.20A,Basic Pay,Income Statement,Expense,Cost of Goods Sold,True
+611.20B,Technical Pay,Income Statement,Expense,Cost of Goods Sold,True
+611.20C,Additional Pay/Charge Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.20D,Special Pay,Income Statement,Expense,Cost of Goods Sold,True
+611.20E,Personal Pay,Income Statement,Expense,Cost of Goods Sold,True
+611.21A,Basic Pay,Income Statement,Expense,Cost of Goods Sold,True
+611.21B,Technical Pay,Income Statement,Expense,Cost of Goods Sold,True
+611.21C,Additional Pay/Charge Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.21D,Special Pay,Income Statement,Expense,Cost of Goods Sold,True
+611.21E,Personal Pay,Income Statement,Expense,Cost of Goods Sold,True
+611.22F,House Rent Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22G,Medical Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22H,Conveyance Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22I,Washing Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22J,Shift Duty Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22K,Design Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22L,Power House Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22M,Hill Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22N,Compensatory Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22O,Entertainment Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22P,Ration Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22Q,Cash Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22R,Rest and Recreation Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22S,Others (To be specified),Income Statement,Expense,Cost of Goods Sold,True
+611.22T,Dearness Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.22U,Tiffin Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.22V,Education Support Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.22W,Training Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.22X,Deputation Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.22Y,Haor/Deep/Char Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.23F,House Rent Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23G,Medical Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23H,Conveyance Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23I,Washing Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23J,Shift Duty Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23K,Design Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23L,Power House Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23M,Hill Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23N,Compensatory Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23O,Entertainment Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23P,Ration Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23Q,Cash Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23R,Rest and Recreation Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23S,Others (To be specified),Income Statement,Expense,Cost of Goods Sold,True
+611.23T,Dearness Allowances,Income Statement,Expense,Cost of Goods Sold,True
+611.23U,Tiffin Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.23V,Education Support Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.23W,Training Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.23X,Deputation Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.23Y,Haor/Deep/Char Allowance,Income Statement,Expense,Cost of Goods Sold,True
+611.24,Leave encashment,Income Statement,Expense,Cost of Goods Sold,True
+611.25,Overtime Allowances (Single rate),Income Statement,Expense,Cost of Goods Sold,True
+611.25A,Overtime Allowances (Double rate),Income Statement,Expense,Cost of Goods Sold,True
+611.26,Travelling Expenses/Allowance (Official Work),Income Statement,Expense,Cost of Goods Sold,True
+611.26A,Travelling Expenses/Allowance (Training),Income Statement,Expense,Cost of Goods Sold,True
+611.27,Conveyance Charge,Income Statement,Expense,Cost of Goods Sold,True
+611.28,House rent expenses,Income Statement,Expense,Cost of Goods Sold,True
+611.29,Medical Expenses,Income Statement,Expense,Cost of Goods Sold,True
+611.29A,Washing Expenses,Income Statement,Expense,Cost of Goods Sold,True
+611.30,Representation and Entertainment,Income Statement,Expense,Cost of Goods Sold,True
+611.31,Bonus for Officer,Income Statement,Expense,Cost of Goods Sold,True
+611.31A,Bonus for Staff,Income Statement,Expense,Cost of Goods Sold,True
+611.31B,Bangla NoboBarsho Allowance (Officer),Income Statement,Expense,Cost of Goods Sold,True
+611.31C,Bangla NoboBarsho Allowance (Staff),Income Statement,Expense,Cost of Goods Sold,True
+611.31D,Special Benefit to Employee,Income Statement,Expense,Cost of Goods Sold,True
+611.32,Stationary and Printing,Income Statement,Expense,Cost of Goods Sold,True
+611.33,"Taxes, License and Fees",Income Statement,Expense,Cost of Goods Sold,True
+611.34,Office rent,Income Statement,Expense,Cost of Goods Sold,True
+611.35,Water Charge,Income Statement,Expense,Cost of Goods Sold,True
+611.35A,Electricity Charges (Own use),Income Statement,Expense,Cost of Goods Sold,True
+611.35B,Employees Electricity Rebate,Income Statement,Expense,Cost of Goods Sold,True
+611.35C,Electricity Rebate - Freedom fighters,Income Statement,Expense,Cost of Goods Sold,True
+611.35D,Interest as Subsidy on Employees House Building Loan,Income Statement,Expense,Cost of Goods Sold,True
+611.36,Uniforms and Liveries,Income Statement,Expense,Cost of Goods Sold,True
+611.37,Post and Telegram,Income Statement,Expense,Cost of Goods Sold,True
+611.37A,"Telephone, Telex and Fax",Income Statement,Expense,Cost of Goods Sold,True
+611.38,Advertising and Promotion,Income Statement,Expense,Cost of Goods Sold,True
+611.39,Audit Fees,Income Statement,Expense,Cost of Goods Sold,True
+611.39A,Legal Expenses,Income Statement,Expense,Cost of Goods Sold,True
+611.40,Books and Periodicals,Income Statement,Expense,Cost of Goods Sold,True
+611.41,Gas Used for Electricity Generation,Income Statement,Expense,Cost of Goods Sold,True
+611.41A,Diesel/Furnace oil Used for Electricity Generation,Income Statement,Expense,Cost of Goods Sold,True
+611.41B,Coal Used for Electricity Generation,Income Statement,Expense,Cost of Goods Sold,True
+611.42,"Petrol, Diesel and Lubricants Used for Transport",Income Statement,Expense,Cost of Goods Sold,True
+611.42A,CNG. Used for Vehicle,Income Statement,Expense,Cost of Goods Sold,True
+611.43,"Petrol, Diesel and Lubricants Used for Other Equipment",Income Statement,Expense,Cost of Goods Sold,True
+611.44,Stores and Spares Used,Income Statement,Expense,Cost of Goods Sold,True
+611.44A,Stores & Spares Used - Foreign,Income Statement,Expense,Cost of Goods Sold,True
+611.44B,Stores & Spares Used - Received from other stores,Income Statement,Expense,Cost of Goods Sold,True
+611.45,Custom Duties and Sale Tax,Income Statement,Expense,Cost of Goods Sold,True
+611.45A,Vat,Income Statement,Expense,Cost of Goods Sold,True
+611.45B,VAT - For Asset Manufacturing by BPDB,Income Statement,Expense,Cost of Goods Sold,True
+611.46,Demurrage,Income Statement,Expense,Cost of Goods Sold,True
+611.47,Depreciation,Income Statement,Expense,Cost of Goods Sold,True
+611.48,Hire of Equipment,Income Statement,Expense,Cost of Goods Sold,True
+611.49,Freight and Handling,Income Statement,Expense,Cost of Goods Sold,True
+611.50,Works man Compensation,Income Statement,Expense,Cost of Goods Sold,True
+611.51,Gratuity,Income Statement,Expense,Cost of Goods Sold,True
+611.52,Donation and Contribution,Income Statement,Expense,Cost of Goods Sold,True
+611.52A,Donation to sick Employees from Benevolent fund,Income Statement,Expense,Cost of Goods Sold,True
+611.53,Income Tax of Officers and Staff,Income Statement,Expense,Cost of Goods Sold,True
+611.54,Training and Education Expense Local,Income Statement,Expense,Cost of Goods Sold,True
+611.54A,Training Expense - Foreign,Income Statement,Expense,Cost of Goods Sold,True
+611.55,Employees Others Benefit and Welfare Expenses,Income Statement,Expense,Cost of Goods Sold,True
+611.55A,Reimbursement for Treatment of Accident (on duty) affected employees,Income Statement,Expense,Cost of Goods Sold,True
+611.56,Board's Contribution to CPF,Income Statement,Expense,Cost of Goods Sold,True
+611.57,Board's Contribution to Pension Fund,Income Statement,Expense,Cost of Goods Sold,True
+611.58,Leave encashment on Retirement,Income Statement,Expense,Cost of Goods Sold,True
+611.59,Leave Salary and Pension Contribution for Transfer,Income Statement,Expense,Cost of Goods Sold,True
+611.60,Insurance (for Goods and Property),Income Statement,Expense,Cost of Goods Sold,True
+611.60A,Insurance for Vehicles & Others,Income Statement,Expense,Cost of Goods Sold,True
+611.60B,Group Insurance Premium,Income Statement,Expense,Cost of Goods Sold,True
+611.61,Bank Charge and Commission,Income Statement,Expense,Cost of Goods Sold,True
+611.61A,CDBL & Related Charges,Income Statement,Expense,Cost of Goods Sold,True
+611.61B,Recruitment Expenses,Income Statement,Expense,Cost of Goods Sold,True
+611.62,Bad-debts,Income Statement,Expense,Cost of Goods Sold,True
+611.63,Honorarium - Punishment/Reward scheme,Income Statement,Expense,Cost of Goods Sold,True
+611.63A,Honorarium - Others,Income Statement,Expense,Cost of Goods Sold,True
+611.64,Contractors Fees,Income Statement,Expense,Cost of Goods Sold,True
+611.64A,Office Maintenance,Income Statement,Expense,Cost of Goods Sold,True
+611.64B,Store Maintenance,Income Statement,Expense,Cost of Goods Sold,True
+611.65,Consultant's fee - Local,Income Statement,Expense,Cost of Goods Sold,True
+611.65A,Consultant's fee - Foreign,Income Statement,Expense,Cost of Goods Sold,True
+611.66,Wages for Hired Labour,Income Statement,Expense,Cost of Goods Sold,True
+611.66A,Computerization of Commercial Operation,Income Statement,Expense,Cost of Goods Sold,True
+611.66B,Service Charge for Collection of Electricity bill by Mobile phone Companies,Income Statement,Expense,Cost of Goods Sold,True
+611.66C,Contract out - Commercial Operation activities,Income Statement,Expense,Cost of Goods Sold,True
+611.67,Interest on GPF and CPF,Income Statement,Expense,Cost of Goods Sold,True
+611.68,Allocation of Generation Administration Expenses,Income Statement,Expense,Cost of Goods Sold,True
+611.69,Miscellaneous Expenses,Income Statement,Expense,Cost of Goods Sold,True
+612.70,Land and Land Rights,Income Statement,Expense,Cost of Goods Sold,True
+612.71,Structures and Improvement,Income Statement,Expense,Cost of Goods Sold,True
+612.72,Boiler Plant Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.73,Engine and Engine Driven Generators,Income Statement,Expense,Cost of Goods Sold,True
+612.74,Generators,Income Statement,Expense,Cost of Goods Sold,True
+612.75,Prime Movers,Income Statement,Expense,Cost of Goods Sold,True
+612.76,Accessory Electric Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.77,"Reservoir, Dams and Water Ways",Income Statement,Expense,Cost of Goods Sold,True
+612.78,Water Wheels and Turbines,Income Statement,Expense,Cost of Goods Sold,True
+612.79,"Roads, Rail Roads and Bridge",Income Statement,Expense,Cost of Goods Sold,True
+612.80,"Fuel Holders, Producers and Accessories",Income Statement,Expense,Cost of Goods Sold,True
+612.81,Station Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.82,Tower and Fixtures,Income Statement,Expense,Cost of Goods Sold,True
+612.83,Poles and Fixtures,Income Statement,Expense,Cost of Goods Sold,True
+612.84,Overhead Conductor and Devices,Income Statement,Expense,Cost of Goods Sold,True
+612.85,"Underground Conduct, Conductors and Devices",Income Statement,Expense,Cost of Goods Sold,True
+612.86,Line Transformer -Purchase,Income Statement,Expense,Cost of Goods Sold,True
+612.86A,Transformer Manufacturing,Income Statement,Expense,Cost of Goods Sold,True
+612.87,Street Lighting and Single System,Income Statement,Expense,Cost of Goods Sold,True
+612.88,Meters,Income Statement,Expense,Cost of Goods Sold,True
+612.89,Transportation Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.90,Heavy and Other Power Operated Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.91,Office Furniture and Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.91A,"Office equipment (Computer, Monitor & Others)",Income Statement,Expense,Cost of Goods Sold,True
+612.92,Communication Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.93,"Tools, Shop and Garage Equipment",Income Statement,Expense,Cost of Goods Sold,True
+612.94,Laboratory Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.95,Store Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.96,Fire Fighting Equipment,Income Statement,Expense,Cost of Goods Sold,True
+612.97,Renewable Energy promotion (Solar Power),Income Statement,Expense,Cost of Goods Sold,True
+612.99,Miscellaneous Equipment,Income Statement,Expense,Cost of Goods Sold,True
+613.01,Non-escalable capacity payment USD,Income Statement,Expense,Cost of Goods Sold,True
+613.02,Non-escalable capacity payment BDT,Income Statement,Expense,Cost of Goods Sold,True
+613.03,Escalable capacity payment USD,Income Statement,Expense,Cost of Goods Sold,True
+613.04,Escalable capacity payment BDT,Income Statement,Expense,Cost of Goods Sold,True
+613.05,Variable and Operation Maintenance payment-Fx Portion,Income Statement,Expense,Cost of Goods Sold,True
+613.06,Variable and Operation Maintenance payment-BDT Portion,Income Statement,Expense,Cost of Goods Sold,True
+613.07,HSD,Income Statement,Expense,Cost of Goods Sold,True
+613.08,HFO,Income Statement,Expense,Cost of Goods Sold,True
+613.09,GAS,Income Statement,Expense,Cost of Goods Sold,True
+613.10,Coal,Income Statement,Expense,Cost of Goods Sold,True
+613.11,Solar,Income Statement,Expense,Cost of Goods Sold,True
+613.12,WIND,Income Statement,Expense,Cost of Goods Sold,True
+613.13,Hydro,Income Statement,Expense,Cost of Goods Sold,True
+613.14,WASTE,Income Statement,Expense,Cost of Goods Sold,True
+613.15,Nuclear,Income Statement,Expense,Cost of Goods Sold,True
+613.16,Advance Income Tax,Income Statement,Expense,Cost of Goods Sold,True
+613.17,Custom Duty,Income Statement,Expense,Cost of Goods Sold,True
+614.01,Non escalable Capacity Payment Fx portion,Income Statement,Expense,Cost of Goods Sold,True
+614.02,Non escalable Capacity Payment-BDT portion,Income Statement,Expense,Cost of Goods Sold,True
+614.03,Escalable Capacity Payment Fx portion,Income Statement,Expense,Cost of Goods Sold,True
+614.04,Escalable Capacity Payment-BDT portion,Income Statement,Expense,Cost of Goods Sold,True
+614.05,Variable and Operation Maintenance payment-Fx Portion,Income Statement,Expense,Cost of Goods Sold,True
+614.06,Variable and Operation Maintenance payment-BDT Portion,Income Statement,Expense,Cost of Goods Sold,True
+614.07,HSD,Income Statement,Expense,Cost of Goods Sold,True
+614.08,HFO,Income Statement,Expense,Cost of Goods Sold,True
+614.09,GAS,Income Statement,Expense,Cost of Goods Sold,True
+614.10,Coal,Income Statement,Expense,Cost of Goods Sold,True
+614.11,Solar,Income Statement,Expense,Cost of Goods Sold,True
+614.12,Wind,Income Statement,Expense,Cost of Goods Sold,True
+614.13,Hydro,Income Statement,Expense,Cost of Goods Sold,True
+614.14,Wastage,Income Statement,Expense,Cost of Goods Sold,True
+614.15,Nuclear,Income Statement,Expense,Cost of Goods Sold,True
+614.16,AIT,Income Statement,Expense,Cost of Goods Sold,True
+614.17,CD,Income Statement,Expense,Cost of Goods Sold,True
+614.18,Others,Income Statement,Expense,Cost of Goods Sold,True
+615.01,Non escalable Capacity Payment Fx portion,Income Statement,Expense,Cost of Goods Sold,True
+615.01A,Non escalable Capacity Payment,Income Statement,Expense,Cost of Goods Sold,True
+615.02,Non escalable Capacity Payment-BDT portion,Income Statement,Expense,Cost of Goods Sold,True
+615.03,Escalable Capacity Payment Fx portion,Income Statement,Expense,Cost of Goods Sold,True
+615.04,Escalable Capacity Payment-BDT portion,Income Statement,Expense,Cost of Goods Sold,True
+615.05,Variable and Operation Maintenance payment-Fx Portion,Income Statement,Expense,Cost of Goods Sold,True
+615.06,Variable and Operation Maintenance payment-BDT Portion,Income Statement,Expense,Cost of Goods Sold,True
+615.07,HSD,Income Statement,Expense,Cost of Goods Sold,True
+615.08,HFO,Income Statement,Expense,Cost of Goods Sold,True
+615.09,GAS,Income Statement,Expense,Cost of Goods Sold,True
+615.10,Coal,Income Statement,Expense,Cost of Goods Sold,True
+615.11,Solar,Income Statement,Expense,Cost of Goods Sold,True
+615.12,Wind,Income Statement,Expense,Cost of Goods Sold,True
+615.13,Hydro,Income Statement,Expense,Cost of Goods Sold,True
+615.14,Wastage,Income Statement,Expense,Cost of Goods Sold,True
+615.15,Nuclear,Income Statement,Expense,Cost of Goods Sold,True
+615.16,AIT,Income Statement,Expense,Cost of Goods Sold,True
+615.17,CD,Income Statement,Expense,Cost of Goods Sold,True
+615.18,Others,Income Statement,Expense,Cost of Goods Sold,True
+616.01,Non escalable Capacity Payment Fx portion,Income Statement,Expense,Cost of Goods Sold,True
+616.01A,Non escalable Capacity Payment,Income Statement,Expense,Cost of Goods Sold,True
+616.02,Non escalable Capacity Payment-BDT portion,Income Statement,Expense,Cost of Goods Sold,True
+616.03,Escalable Capacity Payment Fx portion,Income Statement,Expense,Cost of Goods Sold,True
+616.04,Escalable Capacity Payment-BDT portion,Income Statement,Expense,Cost of Goods Sold,True
+616.05,Variable and Operation Maintenance payment-Fx Portion,Income Statement,Expense,Cost of Goods Sold,True
+616.06,Variable and Operation Maintenance payment-BDT Portion,Income Statement,Expense,Cost of Goods Sold,True
+616.07,HSD,Income Statement,Expense,Cost of Goods Sold,True
+616.08,HFO,Income Statement,Expense,Cost of Goods Sold,True
+616.09,GAS,Income Statement,Expense,Cost of Goods Sold,True
+616.10,Coal,Income Statement,Expense,Cost of Goods Sold,True
+616.11,Solar,Income Statement,Expense,Cost of Goods Sold,True
+616.12,Wind,Income Statement,Expense,Cost of Goods Sold,True
+616.13,Hydro,Income Statement,Expense,Cost of Goods Sold,True
+616.14,Wastage,Income Statement,Expense,Cost of Goods Sold,True
+616.15,Neo-clear,Income Statement,Expense,Cost of Goods Sold,True
+616.16,AIT,Income Statement,Expense,Cost of Goods Sold,True
+616.17,CD,Income Statement,Expense,Cost of Goods Sold,True
+616.18,Others,Income Statement,Expense,Cost of Goods Sold,True
+617,Electricity Purchase  from BPDB by SPC,Income Statement,Expense,,True
+618.01,Non escalable Capacity Payment Fx portion,Income Statement,Expense,,True
+618.02,Non escalable Capacity Payment-BDT portion,Income Statement,Expense,,True
+618.03,Escalable Capacity Payment Fx portion,Income Statement,Expense,,True
+618.04,Escalable Capacity Payment-BDT portion,Income Statement,Expense,,True
+618.05,Variable and Operation Maintenance payment-Fx Portion,Income Statement,Expense,,True
+618.06,Variable and Operation Maintenance payment-BDT Portion,Income Statement,Expense,,True
+618.07,HSD,Income Statement,Expense,,True
+618.08,HFO,Income Statement,Expense,,True
+618.09,GAS,Income Statement,Expense,,True
+618.10,Coal,Income Statement,Expense,,True
+618.11,Solar,Income Statement,Expense,,True
+618.12,Wind,Income Statement,Expense,,True
+618.13,Hydro,Income Statement,Expense,,True
+618.14,Wastage,Income Statement,Expense,,True
+618.15,Nuclear,Income Statement,Expense,,True
+618.16,AIT,Income Statement,Expense,,True
+618.17,CD,Income Statement,Expense,,True
+618.18,Others,Income Statement,Expense,,True
+619,Power Purchase from Renewable Energy,Income Statement,Expense,,True
+621.20A,Basic Pay,Income Statement,Expense,,False
+621.21A,Basic Pay,Income Statement,Expense,,False
+621.22F,House Rent Allowances,Income Statement,Expense,,False
+621.22G,Medical Allowances,Income Statement,Expense,,False
+621.22H,Conveyance Allowances,Income Statement,Expense,,False
+621.22J,Shift Duty Allowances,Income Statement,Expense,,False
+621.22L,Power House Allowances,Income Statement,Expense,,False
+621.22V,Education Support Allowance,Income Statement,Expense,,False
+621.23F,House Rent Allowances,Income Statement,Expense,,False
+621.23G,Medical Allowances,Income Statement,Expense,,False
+621.23H,Conveyance Allowances,Income Statement,Expense,,False
+621.23I,Washing Allowances,Income Statement,Expense,,False
+621.23J,Shift Duty Allowances,Income Statement,Expense,,False
+621.23L,Power House Allowances,Income Statement,Expense,,False
+621.23U,Tiffin Allowance,Income Statement,Expense,,False
+621.23V,Education Support Allowance,Income Statement,Expense,,False
+621.23W,Training Allowance,Income Statement,Expense,,False
+621.24,Leave encashment,Income Statement,Expense,,False
+621.25,Overtime Allowances (Single rate),Income Statement,Expense,,False
+621.25A,Overtime Allowances (Double rate),Income Statement,Expense,,False
+621.26,Travelling Expenses/Allowance (Official Work),Income Statement,Expense,,False
+621.27,Conveyance Charge,Income Statement,Expense,,False
+621.29,Medical Expenses,Income Statement,Expense,,False
+621.30,Representation and Entertainment,Income Statement,Expense,,False
+621.31,Bonus for Officer,Income Statement,Expense,,False
+621.31B,Bangla NoboBarsho Allowance (Officer),Income Statement,Expense,,False
+621.31C,Bangla NoboBarsho Allowance (Staff),Income Statement,Expense,,False
+621.32,Stationary and Printing,Income Statement,Expense,,False
+621.33,"Taxes, License and Fees",Income Statement,Expense,,False
+621.35A,Electricity Charges (Own use),Income Statement,Expense,,False
+621.35B,Employees Electricity Rebate,Income Statement,Expense,,False
+621.36,Uniforms and Liveries,Income Statement,Expense,,False
+621.37,Post and Telegram,Income Statement,Expense,,False
+621.37A,"Telephone, Telex and Fax",Income Statement,Expense,,False
+621.40,Books and Periodicals,Income Statement,Expense,,False
+621.42,"Petrol, Diesel and Lubricants Used for Transport",Income Statement,Expense,,False
+621.44,Stores and Spares Used,Income Statement,Expense,,False
+621.45A,Vat,Income Statement,Expense,,False
+621.45B,VAT - For Asset Manufacturing by BPDB ,Income Statement,Expense,,False
+621.58,Leave encashment on Retirement,Income Statement,Expense,,False
+621.61,Bank Charge and Commission,Income Statement,Expense,,False
+621.63,Honorarium - Punishment/Reward scheme  ,Income Statement,Expense,,False
+621.63A,Honorarium - Others  ,Income Statement,Expense,,False
+621.66,Wages for Hired Labour,Income Statement,Expense,,False
+622.71,Structures and Improvement,Income Statement,Expense,,False
+622.72,Boiler Plant Equipment,Income Statement,Expense,,False
+622.76,Accessory Electric Equipment,Income Statement,Expense,,False
+622.84,Overhead Conductor and Devices,Income Statement,Expense,,False
+622.89,Transportation Equipment,Income Statement,Expense,,False
+622.91,Office Furniture and Equipment,Income Statement,Expense,,False
+622.93,"Tools, Shop and Garage Equipment",Income Statement,Expense,,False
+623,Wheeling Charge - Transmission Expenses,Income Statement,Expense,Cost of Goods Sold,True
+631.20A,Basic Pay,Income Statement,Expense,Operating Expenditure,True
+631.20B,Technical Pay,Income Statement,Expense,Operating Expenditure,True
+631.20C,Additional Pay/Charge Allowances,Income Statement,Expense,Operating Expenditure,True
+631.20D,Special Pay,Income Statement,Expense,Operating Expenditure,True
+631.20E,Personal Pay,Income Statement,Expense,Operating Expenditure,True
+631.21A,Basic Pay,Income Statement,Expense,Operating Expenditure,True
+631.21B,Technical Pay,Income Statement,Expense,Operating Expenditure,True
+631.21C,Additional Pay/Charge Allowances,Income Statement,Expense,Operating Expenditure,True
+631.21D,Special Pay,Income Statement,Expense,Operating Expenditure,True
+631.21E,Personal Pay,Income Statement,Expense,Operating Expenditure,True
+631.22F,House Rent Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22G,Medical Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22H,Conveyance Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22I,Washing Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22J,Shift Duty Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22K,Design Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22L,Power House Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22M,Hill Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22N,Compensatory Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22O,Entertainment Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22P,Ration Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22Q,Cash Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22R,Rest and Recreation Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22S,Others (To be specified),Income Statement,Expense,Operating Expenditure,True
+631.22T,Dearness Allowances,Income Statement,Expense,Operating Expenditure,True
+631.22U,Tiffin Allowance,Income Statement,Expense,Operating Expenditure,True
+631.22V,Education Support Allowance,Income Statement,Expense,Operating Expenditure,True
+631.22W,Training Allowance,Income Statement,Expense,Operating Expenditure,True
+631.22X,Deputation Allowance,Income Statement,Expense,Operating Expenditure,True
+631.22Y,Haor/Deep/Char Allowance,Income Statement,Expense,Operating Expenditure,True
+631.23F,House Rent Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23G,Medical Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23H,Conveyance Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23I,Washing Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23J,Shift Duty Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23K,Design Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23L,Power House Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23M,Hill Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23N,Compensatory Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23O,Entertainment Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23P,Ration Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23Q,Cash Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23R,Rest and Recreation Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23S,Others (To be specified),Income Statement,Expense,Operating Expenditure,True
+631.23T,Dearness Allowances,Income Statement,Expense,Operating Expenditure,True
+631.23U,Tiffin Allowance,Income Statement,Expense,Operating Expenditure,True
+631.23V,Education Support Allowance,Income Statement,Expense,Operating Expenditure,True
+631.23W,Training Allowance,Income Statement,Expense,Operating Expenditure,True
+631.23X,Deputation Allowance,Income Statement,Expense,Operating Expenditure,True
+631.23Y,Haor/Deep/Char Allowance,Income Statement,Expense,Operating Expenditure,True
+631.24,Leave encashment,Income Statement,Expense,Operating Expenditure,True
+631.25,Overtime Allowances (Single rate),Income Statement,Expense,Operating Expenditure,True
+631.25A,Overtime Allowances (Double rate),Income Statement,Expense,Operating Expenditure,True
+631.26,Travelling Expenses/Allowance (Official Work),Income Statement,Expense,Operating Expenditure,True
+631.26A,Travelling Expenses/Allowance (Training),Income Statement,Expense,Operating Expenditure,True
+631.27,Conveyance Charge,Income Statement,Expense,Operating Expenditure,True
+631.28,House rent expenses,Income Statement,Expense,Operating Expenditure,True
+631.29,Medical Expenses,Income Statement,Expense,Operating Expenditure,True
+631.29A,Washing Expenses,Income Statement,Expense,Operating Expenditure,True
+631.30,Representation and Entertainment,Income Statement,Expense,Operating Expenditure,True
+631.31,Bonus for Officer,Income Statement,Expense,Operating Expenditure,True
+631.31A,Bonus for Staff,Income Statement,Expense,Operating Expenditure,True
+631.31B,Bangla NoboBarsho Allowance (Officer),Income Statement,Expense,Operating Expenditure,True
+631.31C,Bangla NoboBarsho Allowance (Staff),Income Statement,Expense,Operating Expenditure,True
+631.31D,Special Benefit to Employee,Income Statement,Expense,Operating Expenditure,True
+631.32,Stationary and Printing,Income Statement,Expense,Operating Expenditure,True
+631.33,"Taxes, License and Fees",Income Statement,Expense,Operating Expenditure,True
+631.34,Office rent,Income Statement,Expense,Operating Expenditure,True
+631.35,Water Charge,Income Statement,Expense,Operating Expenditure,True
+631.35A,Electricity Charges (Own use),Income Statement,Expense,Operating Expenditure,True
+631.35B,Employees Electricity Rebate,Income Statement,Expense,Operating Expenditure,True
+631.35C,Electricity Rebate - Freedom fighters,Income Statement,Expense,Operating Expenditure,True
+631.35D,Interest as Subsidy on Employees House Building Loan,Income Statement,Expense,Operating Expenditure,True
+631.36,Uniforms and Liveries,Income Statement,Expense,Operating Expenditure,True
+631.37,Post and Telegram,Income Statement,Expense,Operating Expenditure,True
+631.37A,"Telephone, Telex and Fax",Income Statement,Expense,Operating Expenditure,True
+631.38,Advertising and Promotion,Income Statement,Expense,Operating Expenditure,True
+631.39,Audit Fees,Income Statement,Expense,Operating Expenditure,True
+631.39A,Legal Expenses,Income Statement,Expense,Operating Expenditure,True
+631.40,Books and Periodicals,Income Statement,Expense,Operating Expenditure,True
+631.41,Gas Used for Electricity Generation,Income Statement,Expense,Operating Expenditure,True
+631.41A,Diesel/Furnace oil Used for Electricity Generation,Income Statement,Expense,Operating Expenditure,True
+631.41B,Coal Used for Electricity Generation,Income Statement,Expense,Operating Expenditure,True
+631.42,"Petrol, Diesel and Lubricants Used for Transport",Income Statement,Expense,Operating Expenditure,True
+631.42A,CNG. Used for Vehicle,Income Statement,Expense,Operating Expenditure,True
+631.43,"Petrol, Diesel and Lubricants Used for Other Equipment",Income Statement,Expense,Operating Expenditure,True
+631.44,Stores and Spares Used,Income Statement,Expense,Operating Expenditure,True
+631.44A,Stores & Spares Used - Foreign,Income Statement,Expense,Operating Expenditure,True
+631.44B,Stores & Spares Used - Received from other stores,Income Statement,Expense,Operating Expenditure,True
+631.45,Custom Duties and Sale Tax,Income Statement,Expense,Operating Expenditure,True
+631.45A,Vat,Income Statement,Expense,Operating Expenditure,True
+631.45B,VAT - For Asset Manufacturing by BPDB,Income Statement,Expense,Operating Expenditure,True
+631.46,Demurrage,Income Statement,Expense,Operating Expenditure,True
+631.47,Depreciation,Income Statement,Expense,Operating Expenditure,True
+631.48,Hire of Equipment,Income Statement,Expense,Operating Expenditure,True
+631.49,Freight and Handling,Income Statement,Expense,Operating Expenditure,True
+631.50,Works man Compensation,Income Statement,Expense,Operating Expenditure,True
+631.51,Gratuity,Income Statement,Expense,Operating Expenditure,True
+631.52,Donation and Contribution,Income Statement,Expense,Operating Expenditure,True
+631.52A,Donation to sick Employees from Benevolent fund,Income Statement,Expense,Operating Expenditure,True
+631.53,Income Tax of Officers and Staff,Income Statement,Expense,Operating Expenditure,True
+631.54,Training and Education Expense Local,Income Statement,Expense,Operating Expenditure,True
+631.54A,Training Expense - Foreign,Income Statement,Expense,Operating Expenditure,True
+631.55,Employees Others Benefit and Welfare Expenses,Income Statement,Expense,Operating Expenditure,True
+631.55A,Reimbursement for Treatment of Accident (on duty) affected employees,Income Statement,Expense,Operating Expenditure,True
+631.56,Board's Contribution to CPF,Income Statement,Expense,Operating Expenditure,True
+631.57,Board's Contribution to Pension Fund,Income Statement,Expense,Operating Expenditure,True
+631.58,Leave encashment on Retirement,Income Statement,Expense,Operating Expenditure,True
+631.59,Leave Salary and Pension Contribution for Transfer,Income Statement,Expense,Operating Expenditure,True
+631.60,Insurance (for Goods and Property),Income Statement,Expense,Operating Expenditure,True
+631.60A,Insurance for Vehicles & Others,Income Statement,Expense,Operating Expenditure,True
+631.60B,Group Insurance Premium,Income Statement,Expense,Operating Expenditure,True
+631.61,Bank Charge and Commission,Income Statement,Expense,Operating Expenditure,True
+631.61A,CDBL & Related Charges,Income Statement,Expense,Operating Expenditure,True
+631.61B,Recruitment Expenses,Income Statement,Expense,Operating Expenditure,True
+631.62,Bad-debts,Income Statement,Expense,Operating Expenditure,True
+631.63,Honorarium - Punishment/Reward scheme,Income Statement,Expense,Operating Expenditure,True
+631.63A,Honorarium - Others,Income Statement,Expense,Operating Expenditure,True
+631.64,Contractors Fees,Income Statement,Expense,Operating Expenditure,True
+631.64A,Office Maintenance,Income Statement,Expense,Operating Expenditure,True
+631.64B,Store Maintenance,Income Statement,Expense,Operating Expenditure,True
+631.65,Consultant's fee - Local,Income Statement,Expense,Operating Expenditure,True
+631.65A,Consultant's fee - Foreign,Income Statement,Expense,Operating Expenditure,True
+631.66,Wages for Hired Labour,Income Statement,Expense,Operating Expenditure,True
+631.66A,Computerization of Commercial Operation,Income Statement,Expense,Operating Expenditure,True
+631.66B,Service Charge for Collection of Electricity bill by Mobile phone Companies,Income Statement,Expense,Operating Expenditure,True
+631.66C,Contract out - Commercial Operation activities,Income Statement,Expense,Operating Expenditure,True
+631.67,Interest on GPF and CPF,Income Statement,Expense,Operating Expenditure,True
+631.68,Allocation of Generation Administration Expenses,Income Statement,Expense,Operating Expenditure,True
+631.69,Miscellaneous Expenses,Income Statement,Expense,Operating Expenditure,True
+632.70,Land and Land Rights,Income Statement,Expense,Operating Expenditure,True
+632.71,Structures and Improvement,Income Statement,Expense,Operating Expenditure,True
+632.72,Boiler Plant Equipment,Income Statement,Expense,Operating Expenditure,True
+632.73,Engine and Engine Driven Generators,Income Statement,Expense,Operating Expenditure,True
+632.74,Generators,Income Statement,Expense,Operating Expenditure,True
+632.75,Prime Movers,Income Statement,Expense,Operating Expenditure,True
+632.76,Accessory Electric Equipment,Income Statement,Expense,Operating Expenditure,True
+632.77,"Reservoir, Dams and Water Ways",Income Statement,Expense,Operating Expenditure,True
+632.78,Water Wheels and Turbines,Income Statement,Expense,Operating Expenditure,True
+632.79,"Roads, Rail Roads and Bridge",Income Statement,Expense,Operating Expenditure,True
+632.80,"Fuel Holders, Producers and Accessories",Income Statement,Expense,Operating Expenditure,True
+632.81,Station Equipment,Income Statement,Expense,Operating Expenditure,True
+632.82,Tower and Fixtures,Income Statement,Expense,Operating Expenditure,True
+632.83,Poles and Fixtures,Income Statement,Expense,Operating Expenditure,True
+632.84,Overhead Conductor and Devices,Income Statement,Expense,Operating Expenditure,True
+632.85,"Underground Conduct, Conductors and Devices",Income Statement,Expense,Operating Expenditure,True
+632.86,Line Transformer -Purchase,Income Statement,Expense,Operating Expenditure,True
+632.86A,Transformer Manufacturing,Income Statement,Expense,Operating Expenditure,True
+632.87,Street Lighting and Single System,Income Statement,Expense,Operating Expenditure,True
+632.88,Meters,Income Statement,Expense,Operating Expenditure,True
+632.89,Transportation Equipment,Income Statement,Expense,Operating Expenditure,True
+632.90,Heavy and Other Power Operated Equipment,Income Statement,Expense,Operating Expenditure,True
+632.91,Office Furniture and Equipment,Income Statement,Expense,Operating Expenditure,True
+632.91A,"Office equipment (Computer, Monitor & Others)",Income Statement,Expense,Operating Expenditure,True
+632.92,Communication Equipment,Income Statement,Expense,Operating Expenditure,True
+632.93,"Tools, Shop and Garage Equipment",Income Statement,Expense,Operating Expenditure,True
+632.94,Laboratory Equipment,Income Statement,Expense,Operating Expenditure,True
+632.95,Store Equipment,Income Statement,Expense,Operating Expenditure,True
+632.96,Fire Fighting Equipment,Income Statement,Expense,Operating Expenditure,True
+632.97,Renewable Energy promotion (Solar Power),Income Statement,Expense,Operating Expenditure,True
+632.99,Miscellaneous Equipment,Income Statement,Expense,Operating Expenditure,True
+641.20A,Basic Pay,Income Statement,Expense,,False
+641.21A,Basic Pay,Income Statement,Expense,,False
+641.22F,House Rent Allowances,Income Statement,Expense,,False
+641.22G,Medical Allowances,Income Statement,Expense,,False
+641.22L,Power House Allowances,Income Statement,Expense,,False
+641.22V,Education Support Allowance,Income Statement,Expense,,False
+641.23F,House Rent Allowances,Income Statement,Expense,,False
+641.23G,Medical Allowances,Income Statement,Expense,,False
+641.23H,Conveyance Allowances,Income Statement,Expense,,False
+641.23I,Washing Allowances,Income Statement,Expense,,False
+641.23J,Shift Duty Allowances,Income Statement,Expense,,False
+641.23L,Power House Allowances,Income Statement,Expense,,False
+641.23U,Tiffin Allowance,Income Statement,Expense,,False
+641.23V,Education Support Allowance,Income Statement,Expense,,False
+641.25,Overtime Allowances (Single rate),Income Statement,Expense,,False
+641.25A,Overtime Allowances (Double rate),Income Statement,Expense,,False
+641.26,Travelling Expenses/Allowance (Official Work),Income Statement,Expense,,False
+641.27,Conveyance Charge,Income Statement,Expense,,False
+641.31,Bonus for Officer,Income Statement,Expense,,False
+641.32,Stationary and Printing,Income Statement,Expense,,False
+641.35B,Employees Electricity Rebate,Income Statement,Expense,,False
+641.35D,Interest as Subsidy on Employees House Building Loan,Income Statement,Expense,,False
+641.37A,"Telephone, Telex and Fax",Income Statement,Expense,,False
+641.40,Books and Periodicals,Income Statement,Expense,,False
+641.42,"Petrol, Diesel and Lubricants Used for Transport",Income Statement,Expense,,False
+641.42A,CNG. Used for Vehicle,Income Statement,Expense,,False
+641.44,Stores and Spares Used,Income Statement,Expense,,False
+641.54,Training and Education Expense Local,Income Statement,Expense,,False
+641.54A,Training Expense - Foreign,Income Statement,Expense,,False
+641.61,Bank Charge and Commission,Income Statement,Expense,,False
+641.63,Honorarium - Punishment/Reward scheme  ,Income Statement,Expense,,False
+641.66,Wages for Hired Labour,Income Statement,Expense,,False
+642.71,Structures and Improvement,Income Statement,Expense,,False
+642.84,Overhead Conductor and Devices,Income Statement,Expense,,False
+642.89,Transportation Equipment,Income Statement,Expense,,False
+642.91,Office Furniture and Equipment,Income Statement,Expense,,False
+642.93,"Tools, Shop and Garage Equipment",Income Statement,Expense,,False
+651.20A,Basic Pay,Income Statement,Expense,Operating Expenditure,True
+651.20B,Technical Pay,Income Statement,Expense,Operating Expenditure,True
+651.20C,Additional Pay/Charge Allowances,Income Statement,Expense,Operating Expenditure,True
+651.20D,Special Pay,Income Statement,Expense,Operating Expenditure,True
+651.20E,Personal Pay,Income Statement,Expense,Operating Expenditure,True
+651.21A,Basic Pay,Income Statement,Expense,Operating Expenditure,True
+651.21B,Technical Pay,Income Statement,Expense,Operating Expenditure,True
+651.21C,Additional Pay/Charge Allowances,Income Statement,Expense,Operating Expenditure,True
+651.21D,Special Pay,Income Statement,Expense,Operating Expenditure,True
+651.21E,Personal Pay,Income Statement,Expense,Operating Expenditure,True
+651.22F,House Rent Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22G,Medical Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22H,Conveyance Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22I,Washing Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22J,Shift Duty Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22K,Design Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22L,Power House Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22M,Hill Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22N,Compensatory Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22O,Entertainment Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22P,Ration Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22Q,Cash Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22R,Rest and Recreation Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22S,Others (To be specified),Income Statement,Expense,Operating Expenditure,True
+651.22T,Dearness Allowances,Income Statement,Expense,Operating Expenditure,True
+651.22U,Tiffin Allowance,Income Statement,Expense,Operating Expenditure,True
+651.22V,Education Support Allowance,Income Statement,Expense,Operating Expenditure,True
+651.22W,Training Allowance,Income Statement,Expense,Operating Expenditure,True
+651.22X,Deputation Allowance,Income Statement,Expense,Operating Expenditure,True
+651.22Y,          651.22y-Haor/Deep/Char Allowance,Income Statement,Expense,Operating Expenditure,True
+651.23F,House Rent Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23G,Medical Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23H,Conveyance Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23I,Washing Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23J,Shift Duty Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23K,Design Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23L,Power House Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23M,Hill Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23N,Compensatory Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23O,Entertainment Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23P,Ration Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23Q,Cash Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23R,Rest and Recreation Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23S,Others (To be specified),Income Statement,Expense,Operating Expenditure,True
+651.23T,Dearness Allowances,Income Statement,Expense,Operating Expenditure,True
+651.23U,Tiffin Allowance,Income Statement,Expense,Operating Expenditure,True
+651.23V,Education Support Allowance,Income Statement,Expense,Operating Expenditure,True
+651.23W,Training Allowance,Income Statement,Expense,Operating Expenditure,True
+651.23X,Deputation Allowance,Income Statement,Expense,Operating Expenditure,True
+651.23Y,          651.23y-Haor/Deep/Char Allowance,Income Statement,Expense,Operating Expenditure,True
+651.24,Leave encashment,Income Statement,Expense,Operating Expenditure,True
+651.25,Overtime Allowances (Single rate),Income Statement,Expense,Operating Expenditure,True
+651.25A,Overtime Allowances (Double rate),Income Statement,Expense,Operating Expenditure,True
+651.26,Travelling Expenses/Allowance (Official Work),Income Statement,Expense,Operating Expenditure,True
+651.26A,Travelling Expenses/Allowance (Training),Income Statement,Expense,Operating Expenditure,True
+651.27,Conveyance Charge,Income Statement,Expense,Operating Expenditure,True
+651.28,House rent expenses,Income Statement,Expense,Operating Expenditure,True
+651.29,Medical Expenses,Income Statement,Expense,Operating Expenditure,True
+651.29A,Washing Expenses,Income Statement,Expense,Operating Expenditure,True
+651.30,Representation and Entertainment,Income Statement,Expense,Operating Expenditure,True
+651.31,Bonus for Officer,Income Statement,Expense,Operating Expenditure,True
+651.31A,Bonus for Staff,Income Statement,Expense,Operating Expenditure,True
+651.31B,Bangla NoboBarsho Allowance (Officer),Income Statement,Expense,Operating Expenditure,True
+651.31C,Bangla NoboBarsho Allowance (Staff),Income Statement,Expense,Operating Expenditure,True
+651.31D,Special Benefit to Employee,Income Statement,Expense,Operating Expenditure,True
+651.32,Stationary and Printing,Income Statement,Expense,Operating Expenditure,True
+651.33,"Taxes, License and Fees",Income Statement,Expense,Operating Expenditure,True
+651.34,Office rent,Income Statement,Expense,Operating Expenditure,True
+651.35,Water Charge,Income Statement,Expense,Operating Expenditure,True
+651.35A,Electricity Charges (Own use),Income Statement,Expense,Operating Expenditure,True
+651.35B,Employees Electricity Rebate,Income Statement,Expense,Operating Expenditure,True
+651.35C,Electricity Rebate - Freedom fighters,Income Statement,Expense,Operating Expenditure,True
+651.35D,       651.35d-Interest as Subsidy on Employees House Building Loan,Income Statement,Expense,Operating Expenditure,True
+651.36,Uniforms and Liveries,Income Statement,Expense,Operating Expenditure,True
+651.37,Post and Telegram,Income Statement,Expense,Operating Expenditure,True
+651.37A,"Telephone, Telex and Fax",Income Statement,Expense,Operating Expenditure,True
+651.38,Advertising and Promotion,Income Statement,Expense,Operating Expenditure,True
+651.39,Audit Fees,Income Statement,Expense,Operating Expenditure,True
+651.39A,Legal Expenses,Income Statement,Expense,Operating Expenditure,True
+651.40,Books and Periodicals,Income Statement,Expense,Operating Expenditure,True
+651.41,Gas Used for Electricity Generation,Income Statement,Expense,Operating Expenditure,True
+651.41A,Diesel/Furnace oil Used for Electricity Generation,Income Statement,Expense,Operating Expenditure,True
+651.41B,Coal Used for Electricity Generation,Income Statement,Expense,Operating Expenditure,True
+651.42,"Petrol, Diesel and Lubricants Used for Transport",Income Statement,Expense,Operating Expenditure,True
+651.42A,CNG. Used for Vehicle,Income Statement,Expense,Operating Expenditure,True
+651.43,"Petrol, Diesel and Lubricants Used for Other Equipment",Income Statement,Expense,Operating Expenditure,True
+651.44,Stores and Spares Used,Income Statement,Expense,Operating Expenditure,True
+651.44A,Stores & Spares Used - Foreign,Income Statement,Expense,Operating Expenditure,True
+651.44B,Stores & Spares Used - Received from other stores,Income Statement,Expense,Operating Expenditure,True
+651.45,Custom Duties and Sale Tax,Income Statement,Expense,Operating Expenditure,True
+651.45A,Vat,Income Statement,Expense,Operating Expenditure,True
+651.45B,VAT - For Asset Manufacturing by BPDB,Income Statement,Expense,Operating Expenditure,True
+651.46,Demurrage,Income Statement,Expense,Operating Expenditure,True
+651.47,Depreciation,Income Statement,Expense,Operating Expenditure,True
+651.48,Hire of Equipment,Income Statement,Expense,Operating Expenditure,True
+651.49,Freight and Handling,Income Statement,Expense,Operating Expenditure,True
+651.50,Works man Compensation,Income Statement,Expense,Operating Expenditure,True
+651.51,Gratuity,Income Statement,Expense,Operating Expenditure,True
+651.52,Donation and Contribution,Income Statement,Expense,Operating Expenditure,True
+651.52A,Donation to sick Employees from Benevolent fund,Income Statement,Expense,Operating Expenditure,True
+651.53,Income Tax of Officers and Staff,Income Statement,Expense,Operating Expenditure,True
+651.54,Training and Education Expense Local,Income Statement,Expense,Operating Expenditure,True
+651.54A,Training Expense - Foreign,Income Statement,Expense,Operating Expenditure,True
+651.55,Employees Others Benefit and Welfare Expenses,Income Statement,Expense,Operating Expenditure,True
+651.55A,Reimbursement for Treatment of Accident (on duty) affected employees,Income Statement,Expense,Operating Expenditure,True
+651.56,Board's Contribution to CPF,Income Statement,Expense,Operating Expenditure,True
+651.57,Board's Contribution to Pension Fund,Income Statement,Expense,Operating Expenditure,True
+651.58,Leave encashment on Retirement,Income Statement,Expense,Operating Expenditure,True
+651.59,Leave Salary and Pension Contribution for Transfer,Income Statement,Expense,Operating Expenditure,True
+651.60,Insurance (for Goods and Property),Income Statement,Expense,Operating Expenditure,True
+651.60A,Insurance for Vehicles & Others,Income Statement,Expense,Operating Expenditure,True
+651.60B,Group Insurance Premium,Income Statement,Expense,Operating Expenditure,True
+651.61,Bank Charge and Commission,Income Statement,Expense,Operating Expenditure,True
+651.61A,       651.61a-CDBL & Related Charges,Income Statement,Expense,Operating Expenditure,True
+651.61B,       651.61b-Recruitment Expenses,Income Statement,Expense,Operating Expenditure,True
+651.62,Bad-debts,Income Statement,Expense,Operating Expenditure,True
+651.63,Honorarium - Punishment/Reward scheme,Income Statement,Expense,Operating Expenditure,True
+651.63A,Honorarium - Others,Income Statement,Expense,Operating Expenditure,True
+651.64,Contractors Fees,Income Statement,Expense,Operating Expenditure,True
+651.64A,Office Maintenance,Income Statement,Expense,Operating Expenditure,True
+651.64B,Store Maintenance,Income Statement,Expense,Operating Expenditure,True
+651.65,Consultant's fee - Local,Income Statement,Expense,Operating Expenditure,True
+651.65A,Consultant's fee - Foreign,Income Statement,Expense,Operating Expenditure,True
+651.66,Wages for Hired Labour,Income Statement,Expense,Operating Expenditure,True
+651.66A,Computerization of Commercial Operation,Income Statement,Expense,Operating Expenditure,True
+651.66B,Service Charge for Collection of Electricity bill by Mobile phone Companies,Income Statement,Expense,Operating Expenditure,True
+651.66C,Contract out - Commercial Operation activities,Income Statement,Expense,Operating Expenditure,True
+651.67,Interest on GPF and CPF,Income Statement,Expense,Operating Expenditure,True
+651.68,Allocation of Generation Administration Expenses,Income Statement,Expense,Operating Expenditure,True
+651.69,Miscellaneous Expenses,Income Statement,Expense,Operating Expenditure,True
+652.70,Land and Land Rights,Income Statement,Expense,Operating Expenditure,True
+652.71,Structures and Improvement,Income Statement,Expense,Operating Expenditure,True
+652.72,Boiler Plant Equipment,Income Statement,Expense,Operating Expenditure,True
+652.73,Engine and Engine Driven Generators,Income Statement,Expense,Operating Expenditure,True
+652.74,Generators,Income Statement,Expense,Operating Expenditure,True
+652.75,Prime Movers,Income Statement,Expense,Operating Expenditure,True
+652.76,Accessory Electric Equipment,Income Statement,Expense,Operating Expenditure,True
+652.77,"Reservoir, Dams and Water Ways",Income Statement,Expense,Operating Expenditure,True
+652.78,Water Wheels and Turbines,Income Statement,Expense,Operating Expenditure,True
+652.79,"Roads, Rail Roads and Bridge",Income Statement,Expense,Operating Expenditure,True
+652.80,"Fuel Holders, Producers and Accessories",Income Statement,Expense,Operating Expenditure,True
+652.81,Station Equipment,Income Statement,Expense,Operating Expenditure,True
+652.82,Tower and Fixtures,Income Statement,Expense,Operating Expenditure,True
+652.83,Poles and Fixtures,Income Statement,Expense,Operating Expenditure,True
+652.84,Overhead Conductor and Devices,Income Statement,Expense,Operating Expenditure,True
+652.85,"Underground Conduct, Conductors and Devices",Income Statement,Expense,Operating Expenditure,True
+652.86,Line Transformer -Purchase,Income Statement,Expense,Operating Expenditure,True
+652.86A,Transformer Manufacturing,Income Statement,Expense,Operating Expenditure,True
+652.87,Street Lighting and Single System,Income Statement,Expense,Operating Expenditure,True
+652.88,Meters,Income Statement,Expense,Operating Expenditure,True
+652.89,Transportation Equipment,Income Statement,Expense,Operating Expenditure,True
+652.90,Heavy and Other Power Operated Equipment,Income Statement,Expense,Operating Expenditure,True
+652.91,Office Furniture and Equipment,Income Statement,Expense,Operating Expenditure,True
+652.91A,"Office equipment (Computer, Monitor & Others)",Income Statement,Expense,Operating Expenditure,True
+652.92,Communication Equipment,Income Statement,Expense,Operating Expenditure,True
+652.93,"Tools, Shop and Garage Equipment",Income Statement,Expense,Operating Expenditure,True
+652.94,Laboratory Equipment,Income Statement,Expense,Operating Expenditure,True
+652.95,Store Equipment,Income Statement,Expense,Operating Expenditure,True
+652.96,Fire Fighting Equipment,Income Statement,Expense,Operating Expenditure,True
+652.97,Renewable Energy promotion (Solar Power),Income Statement,Expense,Operating Expenditure,True
+652.99,Miscellaneous Equipment,Income Statement,Expense,Operating Expenditure,True
+671,Interest Expenses Loans (Foreign).,Income Statement,Expense,Non-operating Expenses,True
+672,Interest Expenses Loans (Local).,Income Statement,Expense,Non-operating Expenses,True
+672A,Interest on Budgetary Support from Govt.,Income Statement,Expense,Non-operating Expenses,True
+672B,Interest on Loan Form Power Sector Development Fund,Income Statement,Expense,Non-operating Expenses,True
+673,Losses on Foreign Exchange Fluctuations.,Income Statement,Expense,Non-operating Expenses,True
+674,Revaluation of Accumulated Depreciation.,Income Statement,Expense,,True
+675,Interest on GPF / CPF.,Income Statement,Expense,Non-operating Expenses,True
+676,Interest of Bank O/D / LTR (Short Term Loan).,Income Statement,Expense,,True
+677,Provision for Assets Insurance Fund.,Income Statement,Expense,Operating Expenditure,True
+678,Provision for Power Sector Development Fund.,Income Statement,Expense,Cost of Goods Sold,True
+681,Amortizations Extraordinary Property Loss.,Income Statement,Expense,,True
+682,Amortizations other Deferred Debits.,Income Statement,Expense,,True
+701.20A,Basic Pay,Balance Sheet,Assets,Capital work in progress,True
+701.20B,Technical Pay,Balance Sheet,Assets,Capital work in progress,True
+701.20C,Additional Pay/Charge Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.20D,Special Pay,Balance Sheet,Assets,Capital work in progress,True
+701.20E,Personal Pay,Balance Sheet,Assets,Capital work in progress,True
+701.21A,Basic Pay,Balance Sheet,Assets,Capital work in progress,True
+701.21B,Technical Pay,Balance Sheet,Assets,Capital work in progress,True
+701.21C,Additional Pay/Charge Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.21D,Special Pay,Balance Sheet,Assets,Capital work in progress,True
+701.21E,Personal Pay,Balance Sheet,Assets,Capital work in progress,True
+701.22F,House Rent Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22G,Medical Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22H,Conveyance Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22I,Washing Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22J,Shift Duty Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22K,Design Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22L,Power House Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22M,Hill Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22N,Compensatory Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22O,Entertainment Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22P,Ration Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22Q,Cash Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22R,Rest and Recreation Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22S,Others (To be specified),Balance Sheet,Assets,Capital work in progress,True
+701.22T,Dearness Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.22U,Tiffin Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.22V,Education Support Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.22W,Training Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.22X,Deputation Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.22Y,Haor/Deep/Char Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.23F,House Rent Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23G,Medical Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23H,Conveyance Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23I,Washing Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23J,Shift Duty Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23K,Design Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23L,Power House Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23M,Hill Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23N,Compensatory Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23O,Entertainment Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23P,Ration Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23Q,Cash Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23R,Rest and Recreation Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23S,Others (To be specified),Balance Sheet,Assets,Capital work in progress,True
+701.23T,Dearness Allowances,Balance Sheet,Assets,Capital work in progress,True
+701.23U,Tiffin Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.23V,Education Support Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.23W,Training Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.23X,Deputation Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.23Y,Haor/Deep/Char Allowance,Balance Sheet,Assets,Capital work in progress,True
+701.24,Leave encashment,Balance Sheet,Assets,Capital work in progress,True
+701.25,Overtime Allowances (Single rate),Balance Sheet,Assets,Capital work in progress,True
+701.25A,Overtime Allowances (Double rate),Balance Sheet,Assets,Capital work in progress,True
+701.26,Travelling Expenses/Allowance (Official Work),Balance Sheet,Assets,Capital work in progress,True
+701.26A,Travelling Expenses/Allowance (Training),Balance Sheet,Assets,Capital work in progress,True
+701.27,Conveyance Charge,Balance Sheet,Assets,Capital work in progress,True
+701.28,House rent expenses,Balance Sheet,Assets,Capital work in progress,True
+701.29,Medical Expenses,Balance Sheet,Assets,Capital work in progress,True
+701.29A,Washing Expenses,Balance Sheet,Assets,Capital work in progress,True
+701.30,Representation and Entertainment,Balance Sheet,Assets,Capital work in progress,True
+701.31,Bonus for Officer,Balance Sheet,Assets,Capital work in progress,True
+701.31A,Bonus for Staff,Balance Sheet,Assets,Capital work in progress,True
+701.31B,Bangla NoboBarsho Allowance (Officer),Balance Sheet,Assets,Capital work in progress,True
+701.31C,Bangla NoboBarsho Allowance (Staff),Balance Sheet,Assets,Capital work in progress,True
+701.31D,Special Benefit to Employee,Balance Sheet,Assets,Capital work in progress,True
+701.32,Stationary and Printing,Balance Sheet,Assets,Capital work in progress,True
+701.33,"Taxes, License and Fees",Balance Sheet,Assets,Capital work in progress,True
+701.34,Office rent,Balance Sheet,Assets,Capital work in progress,True
+701.35,Water Charge,Balance Sheet,Assets,Capital work in progress,True
+701.35A,Electricity Charges (Own use),Balance Sheet,Assets,Capital work in progress,True
+701.35B,Employees Electricity Rebate,Balance Sheet,Assets,Capital work in progress,True
+701.35C,Electricity Rebate - Freedom fighters,Balance Sheet,Assets,Capital work in progress,True
+701.35D,Interest as Subsidy on Employees House Building Loan,Balance Sheet,Assets,Capital work in progress,True
+701.36,Uniforms and Liveries,Balance Sheet,Assets,Capital work in progress,True
+701.37,Post and Telegram,Balance Sheet,Assets,Capital work in progress,True
+701.37A,"Telephone, Telex and Fax",Balance Sheet,Assets,Capital work in progress,True
+701.38,Advertising and Promotion,Balance Sheet,Assets,Capital work in progress,True
+701.39,Audit Fees,Balance Sheet,Assets,Capital work in progress,True
+701.39A,Legal Expenses,Balance Sheet,Assets,Capital work in progress,True
+701.40,Books and Periodicals,Balance Sheet,Assets,Capital work in progress,True
+701.41,Gas Used for Electricity Generation,Balance Sheet,Assets,Capital work in progress,True
+701.41A,Diesel/Furnace oil Used for Electricity Generation,Balance Sheet,Assets,Capital work in progress,True
+701.41B,Coal Used for Electricity Generation,Balance Sheet,Assets,Capital work in progress,True
+701.42,"Petrol, Diesel and Lubricants Used for Transport",Balance Sheet,Assets,Capital work in progress,True
+701.42A,CNG. Used for Vehicle,Balance Sheet,Assets,Capital work in progress,True
+701.43,"Petrol, Diesel and Lubricants Used for Other Equipment",Balance Sheet,Assets,Capital work in progress,True
+701.44,Stores and Spares Used,Balance Sheet,Assets,Capital work in progress,True
+701.44A,Stores & Spares Used - Foreign,Balance Sheet,Assets,Capital work in progress,True
+701.44B,Stores & Spares Used - Received from other stores,Balance Sheet,Assets,Capital work in progress,True
+701.45,Custom Duties and Sale Tax,Balance Sheet,Assets,Capital work in progress,True
+701.45A,Vat,Balance Sheet,Assets,Capital work in progress,True
+701.45B,VAT - For Asset Manufacturing by BPDB,Balance Sheet,Assets,Capital work in progress,True
+701.46,Demurrage,Balance Sheet,Assets,Capital work in progress,True
+701.47,Depreciation,Balance Sheet,Assets,Capital work in progress,True
+701.48,Hire of Equipment,Balance Sheet,Assets,Capital work in progress,True
+701.49,Freight and Handling,Balance Sheet,Assets,Capital work in progress,True
+701.50,Works man Compensation,Balance Sheet,Assets,Capital work in progress,True
+701.51,Gratuity,Balance Sheet,Assets,Capital work in progress,True
+701.52,Donation and Contribution,Balance Sheet,Assets,Capital work in progress,True
+701.52A,Donation to sick Employees from Benevolent fund,Balance Sheet,Assets,Capital work in progress,True
+701.53,Income Tax of Officers and Staff,Balance Sheet,Assets,Capital work in progress,True
+701.54,Training and Education Expense Local,Balance Sheet,Assets,Capital work in progress,True
+701.54A,Training Expense - Foreign,Balance Sheet,Assets,Capital work in progress,True
+701.55,Employees Others Benefit and Welfare Expenses,Balance Sheet,Assets,Capital work in progress,True
+701.55A,Reimbursement for Treatment of Accident (on duty) affected employees,Balance Sheet,Assets,Capital work in progress,True
+701.56,Board's Contribution to CPF,Balance Sheet,Assets,Capital work in progress,True
+701.57,Board's Contribution to Pension Fund,Balance Sheet,Assets,Capital work in progress,True
+701.58,Leave encashment on Retirement,Balance Sheet,Assets,Capital work in progress,True
+701.59,Leave Salary and Pension Contribution for Transfer,Balance Sheet,Assets,Capital work in progress,True
+701.60,Insurance (for Goods and Property),Balance Sheet,Assets,Capital work in progress,True
+701.60A,Insurance for Vehicles & Others,Balance Sheet,Assets,Capital work in progress,True
+701.60B,Group Insurance Premium,Balance Sheet,Assets,Capital work in progress,True
+701.61,Bank Charge and Commission,Balance Sheet,Assets,Capital work in progress,True
+701.61A,CDBL & Related Charges,Balance Sheet,Assets,Capital work in progress,True
+701.61B,Recruitment Expenses,Balance Sheet,Assets,Capital work in progress,True
+701.62,Bad-debts,Balance Sheet,Assets,Capital work in progress,True
+701.63,Honorarium - Punishment/Reward scheme,Balance Sheet,Assets,Capital work in progress,True
+701.63A,Honorarium - Others,Balance Sheet,Assets,Capital work in progress,True
+701.64,Contractors Fees,Balance Sheet,Assets,Capital work in progress,True
+701.64A,Office Maintenance,Balance Sheet,Assets,Capital work in progress,True
+701.64B,Store Maintenance,Balance Sheet,Assets,Capital work in progress,True
+701.65,Consultant's fee - Local,Balance Sheet,Assets,Capital work in progress,True
+701.65A,Consultant's fee - Foreign,Balance Sheet,Assets,Capital work in progress,True
+701.66,Wages for Hired Labour,Balance Sheet,Assets,Capital work in progress,True
+701.66A,Computerization of Commercial Operation,Balance Sheet,Assets,Capital work in progress,True
+701.66B,Service Charge for Collection of Electricity bill by Mobile phone Companies,Balance Sheet,Assets,Capital work in progress,True
+701.66C,Contract out - Commercial Operation activities,Balance Sheet,Assets,Capital work in progress,True
+701.67,Interest on GPF and CPF,Balance Sheet,Assets,Capital work in progress,True
+701.68,Allocation of Generation Administration Expenses,Balance Sheet,Assets,Capital work in progress,True
+701.69,Miscellaneous Expenses,Balance Sheet,Assets,Capital work in progress,True
+801,Current Tax Expenses,Balance Sheet,Liabilities,Current tax liabilities,True
+802,Deferred Tax Expenses,Income Statement,Expense,Deffered Tax Expense,True
+901,Remittance to Regional Collection Accounts.,Balance Sheet,Liabilities,Clearing accounts,True
+902,Retention Remittance to Regional Collection Accounts.,Balance Sheet,Liabilities,Clearing accounts,True
+903,Principal Remittance from Local Coll. Accounts.,Balance Sheet,Liabilities,Clearing accounts,True
+904,Retention Remittance from Local Collection Accounts.,Balance Sheet,Liabilities,Clearing accounts,True
+905,Remittance to Central Bank Account.,Balance Sheet,Liabilities,Clearing accounts,True
+905A,Remittance to Zonal Central Bank Account.,Balance Sheet,Liabilities,Clearing accounts,True
+906,Remitt. from Regional Collection Account.,Balance Sheet,Liabilities,Clearing accounts,True
+906A,Remitt. from Regional Coll. A/C(Zonal Central A/C),Balance Sheet,Liabilities,Clearing accounts,True
+907,remittance to regional accounting office.,Balance Sheet,Liabilities,Clearing accounts,True
+907A,Remittance to Regional Accounting Office.,Balance Sheet,Liabilities,Clearing accounts,True
+908,Remittance from Central Bank Account.,Balance Sheet,Liabilities,Clearing accounts,True
+908A,Remittance from Zonal Central Bank Account.,Balance Sheet,Liabilities,Clearing accounts,True
+909,Remittance from Retention Account.,Balance Sheet,Liabilities,Clearing accounts,True
+910,Remittance to Unit from Retention Account.,Balance Sheet,Liabilities,Clearing accounts,True
+911,Remittance to Zonal Fund.,Balance Sheet,Liabilities,Clearing accounts,True
+912,Remittance Pension Account.,Balance Sheet,Liabilities,Clearing accounts,True
+913,Remittance Benevolent Fund Account.,Balance Sheet,Liabilities,Clearing accounts,True
+914,Remittance Group Insurance Account.,Balance Sheet,Liabilities,Clearing accounts,True
+915,Remittance GPF / CPF Account.,Balance Sheet,Liabilities,Clearing accounts,True
+916,Clearing Account - Local Office.,Balance Sheet,Liabilities,Clearing accounts,True
+917,Clearing Account - Regional Accounting Office (To be used by HO).,Balance Sheet,Liabilities,Clearing accounts,True
+918,Clearing Account-Central Office(To be used by RAO),Balance Sheet,Liabilities,Clearing accounts,True
+918A,Clearing Ac-Central Office-For Ven Elety by Mob,Balance Sheet,Liabilities,Clearing accounts,True
+919,Remittance Miscellaneous Account.,Balance Sheet,Liabilities,Clearing accounts,True
+920,Remittance to Regional Consumers S/D Account.,Balance Sheet,Liabilities,Clearing accounts,True
+921,Remitt. to Central Bank Misc. Collection Account.,Balance Sheet,Liabilities,Clearing accounts,True
+922,Remittance to Central Bank Consumers S/D Account.,Balance Sheet,Liabilities,Clearing accounts,True
+923,Remittance to PGCB,Balance Sheet,Liabilities,Clearing accounts,True
+924,Clearance From Water Development Board,Balance Sheet,Liabilities,Clearing accounts,True
+925,Remittance - Deduction of LPA,Balance Sheet,Liabilities,Clearing accounts,True

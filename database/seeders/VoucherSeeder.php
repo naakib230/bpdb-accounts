@@ -31,20 +31,20 @@ class VoucherSeeder extends Seeder
         $bankSonali = BankAccount::where('bank_name', 'Sonali Bank PLC')->first();
         $bankJanata = BankAccount::where('bank_name', 'Janata Bank PLC')->first();
 
-        // Chart of Accounts lookup
-        $coaCash       = ChartOfAccount::where('account_code', '101010')->first();
-        $coaBankSonali = ChartOfAccount::where('account_code', '101020')->first();
-        $coaBankJanata = ChartOfAccount::where('account_code', '101030')->first();
-        $coaBulkRev    = ChartOfAccount::where('account_code', '401010')->first();
-        $coaFuel       = ChartOfAccount::where('account_code', '501010')->first();
-        $coaOffSalary  = ChartOfAccount::where('account_code', '502010')->first();
-        $coaStaffSal   = ChartOfAccount::where('account_code', '502020')->first();
-        $coaHouseRent  = ChartOfAccount::where('account_code', '502030')->first();
-        $coaStationery = ChartOfAccount::where('account_code', '502070')->first();
-        $coaTaxPayable = ChartOfAccount::where('account_code', '201030')->first();
-        $coaGpfPayable = ChartOfAccount::where('account_code', '201040')->first();
-        $coaAdvance    = ChartOfAccount::where('account_code', '101060')->first();
-        $coaPayable    = ChartOfAccount::where('account_code', '201010')->first();
+        // Chart of Accounts lookup (New BPDB Chart of Accounts)
+        $coaCash       = ChartOfAccount::where('account_code', '131')->first() ?? ChartOfAccount::first();
+        $coaBankSonali = ChartOfAccount::where('account_code', '139')->first() ?? $coaCash;
+        $coaBankJanata = ChartOfAccount::where('account_code', '133')->first() ?? $coaBankSonali;
+        $coaBulkRev    = ChartOfAccount::where('account_code', '501.08')->first() ?? ChartOfAccount::where('account_type', 'revenue')->first();
+        $coaFuel       = ChartOfAccount::where('account_code', '611.41')->first() ?? ChartOfAccount::where('account_type', 'expense')->first();
+        $coaOffSalary  = ChartOfAccount::where('account_code', '611.20A')->first() ?? ChartOfAccount::where('account_type', 'expense')->first();
+        $coaStaffSal   = ChartOfAccount::where('account_code', '611.21A')->first() ?? $coaOffSalary;
+        $coaHouseRent  = ChartOfAccount::where('account_code', '611.22F')->first() ?? $coaOffSalary;
+        $coaStationery = ChartOfAccount::where('account_code', '631.32')->first() ?? $coaOffSalary;
+        $coaTaxPayable = ChartOfAccount::where('account_code', '344')->first() ?? ChartOfAccount::where('account_type', 'liability')->first();
+        $coaGpfPayable = ChartOfAccount::where('account_code', '355')->first() ?? $coaTaxPayable;
+        $coaAdvance    = ChartOfAccount::where('account_code', '147')->first() ?? $coaCash;
+        $coaPayable    = ChartOfAccount::where('account_code', '311')->first() ?? $coaTaxPayable;
 
         // Voucher 1: CV (Bank Payment for Fuel)
         $v1 = Voucher::updateOrCreate(
