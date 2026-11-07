@@ -1,0 +1,77 @@
+# Logs and operating system files
+*.log
+.DS_Store
+Thumbs.db
+
+# Environment and local configuration
+.env
+.env.backup
+.env.production
+.phpactor.json
+/auth.json
+
+# IDEs and editors
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+
+# PHPUnit
+/.phpunit.result.cache
+/.phpunit.cache
+
+# Dependencies and package managers
+/vendor/
+/node_modules/
+/.pnpm-store/
+/.cache
+
+# Laravel generated assets
+/public/build/
+/public/hot
+/public/storage
+
+# Laravel storage runtime files
+/storage/*.key
+/storage/pail
+/storage/framework/maintenance.php
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/framework/testing/
+
+# Laravel Excel temporary/cache files
+/storage/framework/cache/laravel-excel/
+
+# Private application files and backups
+/storage/app/private/backups/
+/storage/app/private/backup-temp/
+/storage/app/private/restore-temp/
+/storage/restore-verification-*/
+
+# Certificates
+/certificates
+
+# Homestead
+Homestead.json
+Homestead.yaml
+
+# Uploaded files
+Thumbs.db/uploads
+uploads/
+
+# Tests
+tests/*
+!tests/Feature/
+tests/Feature/*
+!tests/Feature/CreatorApplicationDeletionTest.php
+!tests/Feature/WorkflowQueueConsistencyTest.php
+
+# Nginx emergency maintenance flag (environment-specific)
+docker/nginx/maintenance.flag
+
+
+# Python cache
+__pycache__/
+*.pyc

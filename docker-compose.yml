@@ -1,0 +1,81 @@
+services:
+  # -------------------------------------------------------------
+  # 1. Web Reverse Proxy (Nginx) - Port 1972
+  # -------------------------------------------------------------
+  web:
+    image: nginx:alpine
+    container_name: bpdb_accounts_web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-1972}:80"
+    volumes:
+      - ./:/var/www/html:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    networks:
+      - bpdb_accounts_network
+
+  # -------------------------------------------------------------
+  # 2. PHP 8.3-FPM Application
+  # -------------------------------------------------------------
+  app:
+    image: bpdb-accounts-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bpdb_accounts_app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    environment:
+      APP_NAME: "${APP_NAME:-BPDB Accounts Portal}"
+      APP_ENV: "${APP_ENV:-production}"
+      APP_DEBUG: "${APP_DEBUG:-true}"
+      APP_URL: "${APP_URL:-http://180.211.137.10:1972}"
+      DB_CONNECTION: "${DB_CONNECTION:-pgsql}"
+      DB_HOST: "${DOCKER_DB_HOST:-db}"
+      DB_PORT: "${DOCKER_DB_PORT:-5432}"
+      DB_DATABASE: "${DB_DATABASE:-bpdb_accounts}"
+      DB_USERNAME: "${DB_USERNAME:-bpdb_admin}"
+      DB_PASSWORD: "${DB_PASSWORD:-bpdb_accounts_secret2026!}"
+      SESSION_DRIVER: "${SESSION_DRIVER:-file}"
+      CACHE_STORE: "${CACHE_STORE:-file}"
+      QUEUE_CONNECTION: sync
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - bpdb_accounts_network
+
+  # -------------------------------------------------------------
+  # 3. PostgreSQL 17 Database
+  # -------------------------------------------------------------
+  db:
+    image: postgres:17-alpine
+    container_name: bpdb_accounts_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "${DB_DATABASE:-bpdb_accounts}"
+      POSTGRES_USER: "${DB_USERNAME:-bpdb_admin}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD:-bpdb_accounts_secret2026!}"
+    volumes:
+      - accounts_pgdata:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:${DB_PUBLISHED_PORT:-5438}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - bpdb_accounts_network
+
+networks:
+  bpdb_accounts_network:
+    driver: bridge
+
+volumes:
+  accounts_pgdata:
+    driver: local

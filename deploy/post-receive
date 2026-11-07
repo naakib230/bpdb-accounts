@@ -1,0 +1,70 @@
+#!/bin/bash
+set -e
+TARGET="/home/bpdb/projects/bpdb-accounts"
+GIT_DIR="/home/bpdb/repo/bpdb-accounts.git"
+
+echo ""
+echo "=========================================================="
+echo " BPDB Accounts Live Deployment Started..."
+echo "=========================================================="
+
+while read oldrev newrev ref
+do
+    BRANCH=$(git rev-parse --symbolic --abbrev-ref "$ref" 2>/dev/null || echo "$ref" | sed 's#refs/heads/##')
+    echo " Deploying branch: $BRANCH to $TARGET"
+    git --work-tree="$TARGET" --git-dir="$GIT_DIR" checkout -f "$BRANCH"
+done
+
+cd "$TARGET"
+
+# Ensure vendor exists (fallback copy from sibling if needed)
+if [ ! -d vendor ] && [ -d /home/bpdb/projects/bpdb-pay-fixation/vendor ]; then
+    echo " Copying baseline vendor..."
+    cp -r /home/bpdb/projects/bpdb-pay-fixation/vendor ./vendor
+fi
+
+# Ensure .env exists with WEB_PORT=1972
+if [ ! -f .env ]; then
+    cp .env.example .env
+fi
+if ! grep -q "^WEB_PORT=" .env; then
+    echo "WEB_PORT=1972" >> .env
+else
+    sed -i 's/^WEB_PORT=.*/WEB_PORT=1972/' .env
+fi
+
+# Ensure storage & runtime directories and permissions
+mkdir -p storage/app/public storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache database public/uploads 2>/dev/null || true
+chmod -R 777 storage bootstrap/cache database public 2>/dev/null || true
+
+# Launch using docker-compose.yml
+echo " Launching Docker Compose stack (Port 1972)..."
+docker compose up -d
+
+# Wait for DB to be healthy
+echo " Checking database health..."
+sleep 4
+
+# Dump autoload in container
+echo " Optimizing class autoloading..."
+docker exec bpdb_accounts_app composer dump-autoload -o 2>/dev/null || true
+
+# Run database migrations and seeders
+echo " Running database migrations and seeders..."
+docker exec bpdb_accounts_app php artisan migrate --force --seed 2>/dev/null || true
+
+# Clear Laravel view, route, config caches
+docker exec bpdb_accounts_app php artisan view:clear 2>/dev/null || true
+docker exec bpdb_accounts_app php artisan route:clear 2>/dev/null || true
+docker exec bpdb_accounts_app php artisan config:clear 2>/dev/null || true
+
+# Ensure container runtime permissions for www-data
+docker exec -u 0 bpdb_accounts_app chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache 2>/dev/null || true
+docker exec -u 0 bpdb_accounts_app chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache 2>/dev/null || true
+
+echo ""
+echo "=========================================================="
+echo " LIVE DEPLOYMENT COMPLETE!"
+echo " URL: http://180.211.137.10:1972"
+echo "=========================================================="
+echo ""
