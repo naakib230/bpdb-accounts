@@ -32,4 +32,7 @@ curl -s -b /tmp/c.txt http://localhost:1972/trial-balance | grep -E "রেও�
 echo "=== Test 8: Check Cost Centers ==="
 curl -s -b /tmp/c.txt http://localhost:1972/cost-centers | grep -E "কস্ট সেন্টার তালিকা|CC-101|WAPDA" | head -2
 
+echo "=== Test 9: Check Chart of Accounts ==="
+curl -s -b /tmp/c.txt http://localhost:1972/chart-of-accounts | grep -E "চার্ট অব অ্যাকাউন্টস|মোট প্রদর্শিত হিসাব|Land and Land Rights" | head -3
+
 echo "=== ALL E2E SMOKE TESTS PASSED! ==="
