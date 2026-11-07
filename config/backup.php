@@ -6,10 +6,10 @@ use Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumAgeInDays;
 
 return [
     'backup' => [
-        'name' => env('BACKUP_NAME', 'BPDB Pay Fixation 2026'),
+        'name' => env('BACKUP_NAME', 'BPDB Accounts Portal'),
         'source' => [
             'files' => [
-                'include' => [storage_path('app/private/uploads')],
+                'include' => [storage_path('app/public')],
                 'exclude' => [],
                 'follow_links' => false,
                 'ignore_unreadable_directories' => false,
@@ -24,28 +24,26 @@ return [
         'destination' => [
             'compression_method' => ZipArchive::CM_DEFLATE,
             'compression_level' => 6,
-            'filename_prefix' => '',
-            'disks' => [env('BACKUP_DISK', 'backups')],
+            'filename_prefix' => 'bpdb_accounts_',
+            'disks' => [env('BACKUP_DISK', 'local')],
         ],
-        'temporary_directory' => storage_path('app/private/backup-temp'),
+        'temporary_directory' => storage_path('app/backup-temp'),
         'password' => null,
         'encryption' => 'default',
         'tries' => 1,
         'retry_delay' => 0,
     ],
-    // Status and failures are reported through the portal and structured worker logs.
     'notifications' => [
         'notifications' => [],
         'notifiable' => Notifiable::class,
     ],
     'monitor_backups' => [[
-        'name' => env('BACKUP_NAME', 'BPDB Pay Fixation 2026'),
-        'disks' => [env('BACKUP_DISK', 'backups')],
+        'name' => env('BACKUP_NAME', 'BPDB Accounts Portal'),
+        'disks' => [env('BACKUP_DISK', 'local')],
         'health_checks' => [
             MaximumAgeInDays::class => 30,
         ],
     ]],
-    // Cleanup is deliberately manual; creating a backup never deletes an older one.
     'cleanup' => [
         'strategy' => DefaultStrategy::class,
         'default_strategy' => [

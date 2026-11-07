@@ -45,9 +45,12 @@ docker compose up -d
 echo " Checking database health..."
 sleep 4
 
+# Clean any bootstrap cache
+docker exec -u 0 bpdb_accounts_app rm -f /var/www/html/bootstrap/cache/packages.php /var/www/html/bootstrap/cache/services.php /var/www/html/bootstrap/cache/config.php /var/www/html/bootstrap/cache/routes-v7.php 2>/dev/null || true
+
 # Dump autoload in container
 echo " Optimizing class autoloading..."
-docker exec bpdb_accounts_app composer dump-autoload -o 2>/dev/null || true
+docker exec bpdb_accounts_app composer dump-autoload -o
 
 # Run database migrations and seeders
 echo " Running database migrations and seeders..."
