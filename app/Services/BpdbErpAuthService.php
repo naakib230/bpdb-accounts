@@ -292,7 +292,7 @@ class BpdbErpAuthService
         $endpoint = (string) (config('services.erp.endpoint') ?: "http://bc1.bdpowersectorerp.com:7048/POWERDIVBCONE/ODataV4/Company('BPDB')/Employee_Card");
         $username = (string) (config('services.erp.username') ?: "bpdb_diraccounts_admin");
         $password = (string) (config('services.erp.password') ?: "Bpdb12345");
-        $timeout  = (int) (config('services.erp.timeout') ?: 15);
+        $timeout  = (int) (config('services.erp.timeout') ?: 30);
 
         $cleanIdentifier = str_replace("'", "''", $originalIdentifier);
         $cleanNoSpaces = str_replace([' ', '-'], '', $cleanIdentifier);
@@ -355,7 +355,7 @@ class BpdbErpAuthService
         $endpoint = (string) (config('services.erp.endpoint') ?: "http://bc1.bdpowersectorerp.com:7048/POWERDIVBCONE/ODataV4/Company('BPDB')/Employee_Card");
         $username = (string) (config('services.erp.username') ?: "bpdb_diraccounts_admin");
         $password = (string) (config('services.erp.password') ?: "Bpdb12345");
-        $timeout  = (int) (config('services.erp.timeout') ?: 15);
+        $timeout  = (int) (config('services.erp.timeout') ?: 30);
 
         $offset = strpos($endpoint, '/ODataV4/');
         if ($offset === false) {

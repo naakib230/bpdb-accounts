@@ -29,4 +29,11 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+
+    'erp' => [
+        'endpoint' => env('ERP_ODATA_ENDPOINT', "http://bc1.bdpowersectorerp.com:7048/POWERDIVBCONE/ODataV4/Company('BPDB')/Employee_Card"),
+        'username' => env('ERP_ODATA_USERNAME', 'bpdb_diraccounts_admin'),
+        'password' => env('ERP_ODATA_PASSWORD', 'Bpdb12345'),
+        'timeout'  => (int) env('ERP_ODATA_TIMEOUT', 30),
+    ],
 ];

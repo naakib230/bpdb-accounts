@@ -44,7 +44,9 @@ if ! grep -q "^ERP_ODATA_PASSWORD=" .env; then
     echo "ERP_ODATA_PASSWORD=\"Bpdb12345\"" >> .env
 fi
 if ! grep -q "^ERP_ODATA_TIMEOUT=" .env; then
-    echo "ERP_ODATA_TIMEOUT=15" >> .env
+    echo "ERP_ODATA_TIMEOUT=30" >> .env
+else
+    sed -i 's/^ERP_ODATA_TIMEOUT=.*/ERP_ODATA_TIMEOUT=30/' .env
 fi
 
 # Ensure storage & runtime directories and permissions
