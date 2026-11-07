@@ -72,7 +72,7 @@
         </div>
         @if ($reconciliations->hasPages())
             <div class="card-footer bg-white border-0 py-3">
-                {{ $reconciliations->links() }}
+                {{ $reconciliations->links('pagination::bootstrap-5') }}
             </div>
         @endif
     </div>

@@ -160,7 +160,7 @@
         </div>
         @if ($vouchers->hasPages())
             <div class="card-footer bg-white border-0 py-3">
-                {{ $vouchers->links() }}
+                {{ $vouchers->links('pagination::bootstrap-5') }}
             </div>
         @endif
     </div>

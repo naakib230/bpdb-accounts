@@ -156,7 +156,7 @@
         </div>
         @if ($costCenters->hasPages())
             <div class="card-footer bg-white border-0 py-3">
-                {{ $costCenters->links() }}
+                {{ $costCenters->links('pagination::bootstrap-5') }}
             </div>
         @endif
     </div>
