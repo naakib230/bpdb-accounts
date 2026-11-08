@@ -114,6 +114,7 @@ Route::middleware('auth')->group(function () {
 
     // Bank Reconciliation
     Route::get('/reconciliation', [BankReconciliationController::class, 'index'])->name('reconciliation.index');
+    Route::get('/reconciliation/export', [BankReconciliationController::class, 'export'])->name('reconciliation.export');
     Route::get('/reconciliation/create', [BankReconciliationController::class, 'create'])->name('reconciliation.create');
     Route::post('/reconciliation', [BankReconciliationController::class, 'store'])->name('reconciliation.store');
     Route::get('/reconciliation/{reconciliation}', [BankReconciliationController::class, 'show'])->name('reconciliation.show');

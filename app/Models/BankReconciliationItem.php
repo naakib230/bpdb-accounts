@@ -9,6 +9,7 @@ class BankReconciliationItem extends Model
 {
     protected $fillable = [
         'bank_reconciliation_id',
+        'schedule',
         'type',
         'item_date',
         'reference_no',

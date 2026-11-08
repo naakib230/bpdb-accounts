@@ -9,7 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class BankReconciliation extends Model
 {
     protected $fillable = [
+        'cost_center_id',
         'bank_account_id',
+        'from_date',
+        'to_date',
         'statement_date',
         'bank_statement_balance',
         'cash_book_balance',
@@ -22,6 +25,8 @@ class BankReconciliation extends Model
     ];
 
     protected $casts = [
+        'from_date'              => 'date',
+        'to_date'                => 'date',
         'statement_date'         => 'date',
         'bank_statement_balance' => 'decimal:2',
         'cash_book_balance'      => 'decimal:2',
@@ -29,6 +34,11 @@ class BankReconciliation extends Model
         'difference'             => 'decimal:2',
         'reconciled_at'          => 'datetime',
     ];
+
+    public function costCenter(): BelongsTo
+    {
+        return $this->belongsTo(CostCenter::class);
+    }
 
     public function bankAccount(): BelongsTo
     {
