@@ -177,15 +177,19 @@ body {
 }
 
 .sidebar-item a i {
-  width: 20px;
+  width: 22px;
   text-align: center;
-  font-size: 1.05rem;
-  color: #718096;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.sidebar-item.active a i,
 .sidebar-item a:hover i {
-  color: var(--bpdb-green);
+  transform: scale(1.18);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 /* App Content */
