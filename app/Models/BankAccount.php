@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class BankAccount extends Model
 {
     protected $fillable = [
+        'regional_accounts_office_id',
         'bank_name',
         'branch_name',
         'account_number',
@@ -27,6 +28,11 @@ class BankAccount extends Model
         'current_balance' => 'decimal:2',
         'is_active'       => 'boolean',
     ];
+
+    public function regionalAccountsOffice(): BelongsTo
+    {
+        return $this->belongsTo(RegionalAccountsOffice::class);
+    }
 
     public function chartOfAccount(): BelongsTo
     {

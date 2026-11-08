@@ -77,6 +77,11 @@
 
             <!-- 5. Configuration & Management -->
             <li class="sidebar-heading">কনফিগারেশন ও অ্যাকাউন্টিং</li>
+            <li class="sidebar-item {{ request()->routeIs('raos.*') ? 'active' : '' }}">
+                <a href="{{ route('raos.index') }}">
+                    <i class="fa-solid fa-building-shield"></i>আঞ্চলিক হিসাব দপ্তর (RAO)
+                </a>
+            </li>
             <li class="sidebar-item {{ request()->routeIs('cost_centers.*') ? 'active' : '' }}">
                 <a href="{{ route('cost_centers.index') }}">
                     <i class="fa-solid fa-sitemap"></i>কস্ট সেন্টার (Cost Centers)

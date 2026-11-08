@@ -15,28 +15,43 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class BankAccountController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $bankAccounts = BankAccount::with(['chartOfAccount', 'costCenter', 'users'])->orderBy('bank_name')->paginate(15);
+        $raoId = $request->input('rao_id');
+        $query = BankAccount::with(['chartOfAccount', 'costCenter', 'users', 'regionalAccountsOffice'])->orderBy('bank_name');
+
+        if ($raoId) {
+            $query->where('regional_accounts_office_id', $raoId);
+        }
+
+        $bankAccounts = $query->paginate(15)->withQueryString();
         $users = User::where('is_active', true)->orderBy('name')->get();
         $costCenters = CostCenter::active()->orderBy('name_bn')->get();
+        $raos = \App\Models\RegionalAccountsOffice::active()->orderBy('code')->get();
         $bankCoas = ChartOfAccount::leaf()->where('account_type', 'asset')->where('account_code', 'like', '101%')->get();
 
-        return view('bank_accounts.index', compact('bankAccounts', 'users', 'costCenters', 'bankCoas'));
+        return view('bank_accounts.index', compact('bankAccounts', 'users', 'costCenters', 'raos', 'bankCoas', 'raoId'));
     }
 
     public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'bank_name'           => ['required', 'string', 'max:100'],
-            'branch_name'         => ['required', 'string', 'max:100'],
-            'account_number'      => ['required', 'string', 'max:50', 'unique:bank_accounts,account_number'],
-            'account_title'       => ['required', 'string', 'max:191'],
-            'account_type'        => ['required', 'string', 'max:50'],
-            'chart_of_account_id' => ['required', 'exists:chart_of_accounts,id'],
-            'cost_center_id'      => ['nullable', 'exists:cost_centers,id'],
-            'opening_balance'     => ['required', 'numeric', 'min:0'],
+            'regional_accounts_office_id' => ['nullable', 'exists:regional_accounts_offices,id'],
+            'bank_name'                   => ['required', 'string', 'max:100'],
+            'branch_name'                 => ['required', 'string', 'max:100'],
+            'account_number'              => ['required', 'string', 'max:50', 'unique:bank_accounts,account_number'],
+            'account_title'               => ['required', 'string', 'max:191'],
+            'account_type'                => ['required', 'string', 'max:50'],
+            'chart_of_account_id'         => ['required', 'exists:chart_of_accounts,id'],
+            'cost_center_id'              => ['nullable', 'exists:cost_centers,id'],
+            'opening_balance'             => ['required', 'numeric', 'min:0'],
         ]);
+
+        // কস্ট সেন্টার দেওয়া থাকলে এবং RAO না দেওয়া থাকলে স্বয়ংক্রিয়ভাবে কস্ট সেন্টারের RAO নির্ধারণ
+        if (empty($data['regional_accounts_office_id']) && ! empty($data['cost_center_id'])) {
+            $cc = CostCenter::find($data['cost_center_id']);
+            $data['regional_accounts_office_id'] = $cc?->regional_accounts_office_id;
+        }
 
         $data['current_balance'] = $data['opening_balance'];
         $bank = BankAccount::create($data);
@@ -49,20 +64,27 @@ class BankAccountController extends Controller
     public function update(Request $request, BankAccount $bankAccount): RedirectResponse
     {
         $data = $request->validate([
-            'bank_name'           => ['required', 'string', 'max:100'],
-            'branch_name'         => ['required', 'string', 'max:100'],
-            'account_number'      => ['required', 'string', 'max:50', 'unique:bank_accounts,account_number,' . $bankAccount->id],
-            'account_title'       => ['required', 'string', 'max:191'],
-            'account_type'        => ['required', 'string', 'max:50'],
-            'chart_of_account_id' => ['required', 'exists:chart_of_accounts,id'],
-            'cost_center_id'      => ['nullable', 'exists:cost_centers,id'],
-            'is_active'           => ['nullable', 'boolean'],
+            'regional_accounts_office_id' => ['nullable', 'exists:regional_accounts_offices,id'],
+            'bank_name'                   => ['required', 'string', 'max:100'],
+            'branch_name'                 => ['required', 'string', 'max:100'],
+            'account_number'              => ['required', 'string', 'max:50', 'unique:bank_accounts,account_number,' . $bankAccount->id],
+            'account_title'               => ['required', 'string', 'max:191'],
+            'account_type'                => ['required', 'string', 'max:50'],
+            'chart_of_account_id'         => ['required', 'exists:chart_of_accounts,id'],
+            'cost_center_id'              => ['nullable', 'exists:cost_centers,id'],
+            'is_active'                   => ['nullable', 'boolean'],
         ]);
 
         $data['is_active'] = $request->boolean('is_active', true);
+
+        if (empty($data['regional_accounts_office_id']) && ! empty($data['cost_center_id'])) {
+            $cc = CostCenter::find($data['cost_center_id']);
+            $data['regional_accounts_office_id'] = $cc?->regional_accounts_office_id;
+        }
+
         $bankAccount->update($data);
 
-        AuditLog::log('UPDATE_BANK_ACCOUNT', "ব্যাংক হিসাব '{$bankAccount->account_number}' আপডেট করা হয়েছে।");
+        AuditLog::log('UPDATE_BANK_ACCOUNT', "ব্যাংক হিসাব '{$bankAccount->bank_name}' আপডেট করা হয়েছে।");
 
         return back()->with('success', 'ব্যাংক হিসাব সফলভাবে আপডেট করা হয়েছে।');
     }

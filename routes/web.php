@@ -9,6 +9,7 @@ use App\Http\Controllers\ChartOfAccountController;
 use App\Http\Controllers\CostCenterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LedgerController;
+use App\Http\Controllers\RegionalAccountsOfficeController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TrialBalanceController;
 use App\Http\Controllers\UserController;
@@ -63,6 +64,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/reports/bank-book', [ReportController::class, 'bankBook'])->name('reports.bank_book');
     Route::get('/reports/cost-center-expenditure', [ReportController::class, 'costCenterExpenditure'])->name('reports.cost_center_expenditure');
     Route::get('/reports/budget-variance', [ReportController::class, 'budgetVariance'])->name('reports.budget_variance');
+
+    // Regional Accounts Offices (আহিদ - RAO)
+    Route::get('/raos', [RegionalAccountsOfficeController::class, 'index'])->name('raos.index');
+    Route::post('/raos', [RegionalAccountsOfficeController::class, 'store'])->name('raos.store');
+    Route::put('/raos/{rao}', [RegionalAccountsOfficeController::class, 'update'])->name('raos.update');
+    Route::delete('/raos/{rao}', [RegionalAccountsOfficeController::class, 'destroy'])->name('raos.destroy');
+    Route::post('/raos/{rao}/assign', [RegionalAccountsOfficeController::class, 'assign'])->name('raos.assign');
 
     // Cost Centers (with Excel upload/download & user assignment)
     Route::get('/cost-centers', [CostCenterController::class, 'index'])->name('cost_centers.index');

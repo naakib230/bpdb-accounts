@@ -13,23 +13,47 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class CostCenterController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $costCenters = CostCenter::with('users')->orderBy('code')->paginate(15);
+        $raoId  = $request->input('rao_id');
+        $tbType = $request->input('tb_type');
+        $search = $request->input('search');
+
+        $query = CostCenter::with(['users', 'regionalAccountsOffice'])->orderBy('code');
+
+        if ($raoId) {
+            $query->where('regional_accounts_office_id', $raoId);
+        }
+        if ($tbType) {
+            $query->where('trial_balance_type', $tbType);
+        }
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('code', 'like', "%{$search}%")
+                  ->orWhere('name', 'like', "%{$search}%")
+                  ->orWhere('name_bn', 'like', "%{$search}%");
+            });
+        }
+
+        $costCenters = $query->paginate(15)->withQueryString();
         $users = User::where('is_active', true)->orderBy('name')->get();
-        return view('cost_centers.index', compact('costCenters', 'users'));
+        $raos = \App\Models\RegionalAccountsOffice::active()->orderBy('code')->get();
+
+        return view('cost_centers.index', compact('costCenters', 'users', 'raos', 'raoId', 'tbType', 'search'));
     }
 
     public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'code'             => ['required', 'string', 'max:50', 'unique:cost_centers,code'],
-            'name'             => ['required', 'string', 'max:191'],
-            'name_bn'          => ['required', 'string', 'max:191'],
-            'location'         => ['nullable', 'string', 'max:100'],
-            'division_or_zone' => ['nullable', 'string', 'max:100'],
-            'contact_person'   => ['nullable', 'string', 'max:100'],
-            'phone'            => ['nullable', 'string', 'max:50'],
+            'regional_accounts_office_id' => ['nullable', 'exists:regional_accounts_offices,id'],
+            'trial_balance_type'          => ['required', 'string', 'in:revenue_generation,revenue_distribution,overhead,deposit_works,development'],
+            'code'                        => ['required', 'string', 'max:50', 'unique:cost_centers,code'],
+            'name'                        => ['required', 'string', 'max:191'],
+            'name_bn'                     => ['required', 'string', 'max:191'],
+            'location'                    => ['nullable', 'string', 'max:100'],
+            'division_or_zone'            => ['nullable', 'string', 'max:100'],
+            'contact_person'              => ['nullable', 'string', 'max:100'],
+            'phone'                       => ['nullable', 'string', 'max:50'],
         ]);
 
         $cc = CostCenter::create($data);
@@ -41,14 +65,16 @@ class CostCenterController extends Controller
     public function update(Request $request, CostCenter $costCenter): RedirectResponse
     {
         $data = $request->validate([
-            'code'             => ['required', 'string', 'max:50', 'unique:cost_centers,code,' . $costCenter->id],
-            'name'             => ['required', 'string', 'max:191'],
-            'name_bn'          => ['required', 'string', 'max:191'],
-            'location'         => ['nullable', 'string', 'max:100'],
-            'division_or_zone' => ['nullable', 'string', 'max:100'],
-            'contact_person'   => ['nullable', 'string', 'max:100'],
-            'phone'            => ['nullable', 'string', 'max:50'],
-            'is_active'        => ['nullable', 'boolean'],
+            'regional_accounts_office_id' => ['nullable', 'exists:regional_accounts_offices,id'],
+            'trial_balance_type'          => ['required', 'string', 'in:revenue_generation,revenue_distribution,overhead,deposit_works,development'],
+            'code'                        => ['required', 'string', 'max:50', 'unique:cost_centers,code,' . $costCenter->id],
+            'name'                        => ['required', 'string', 'max:191'],
+            'name_bn'                     => ['required', 'string', 'max:191'],
+            'location'                    => ['nullable', 'string', 'max:100'],
+            'division_or_zone'            => ['nullable', 'string', 'max:100'],
+            'contact_person'              => ['nullable', 'string', 'max:100'],
+            'phone'                       => ['nullable', 'string', 'max:50'],
+            'is_active'                   => ['nullable', 'boolean'],
         ]);
 
         $data['is_active'] = $request->boolean('is_active', true);

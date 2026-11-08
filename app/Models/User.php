@@ -26,6 +26,7 @@ class User extends Authenticatable
         'post_type',
         'photo_path',
         'office_name',
+        'regional_accounts_office_id',
         'password',
         'is_active',
         'last_login_at',
@@ -63,6 +64,11 @@ class User extends Authenticatable
         }
 
         return null;
+    }
+
+    public function regionalAccountsOffice(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(RegionalAccountsOffice::class);
     }
 
     public function roles(): BelongsToMany
@@ -107,12 +113,27 @@ class User extends Authenticatable
 
     public function isSystemAdmin(): bool
     {
-        return $this->hasRole('system_admin');
+        return $this->hasRole('system_admin') || $this->hasRole('admin');
     }
 
     public function isDirectorAccounts(): bool
     {
-        return $this->hasRole('director_accounts');
+        return $this->hasRole('dir_accounts') || $this->hasRole('director_accounts');
+    }
+
+    public function isCentralUser(): bool
+    {
+        if ($this->isSystemAdmin() || $this->isDirectorAccounts()) {
+            return true;
+        }
+
+        foreach ($this->roles as $role) {
+            if (str_starts_with($role->name, 'bkc_')) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function activeRole(): ?Role
@@ -138,23 +159,47 @@ class User extends Authenticatable
 
     public function canAccessCostCenter(int $costCenterId): bool
     {
-        if ($this->isSystemAdmin() || $this->isDirectorAccounts()) {
+        if ($this->isCentralUser()) {
             return true;
         }
-        return $this->costCenters->contains('id', $costCenterId);
+
+        if ($this->costCenters->contains('id', $costCenterId)) {
+            return true;
+        }
+
+        if ($this->regional_accounts_office_id) {
+            $cc = CostCenter::find($costCenterId);
+            if ($cc && $cc->regional_accounts_office_id === $this->regional_accounts_office_id) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function canAccessBankAccount(int $bankAccountId): bool
     {
-        if ($this->isSystemAdmin() || $this->isDirectorAccounts()) {
+        if ($this->isCentralUser()) {
             return true;
         }
-        return $this->bankAccounts->contains('id', $bankAccountId);
+
+        if ($this->bankAccounts->contains('id', $bankAccountId)) {
+            return true;
+        }
+
+        if ($this->regional_accounts_office_id) {
+            $ba = BankAccount::find($bankAccountId);
+            if ($ba && $ba->regional_accounts_office_id === $this->regional_accounts_office_id) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function canAccessChartOfAccount(int $coaId): bool
     {
-        if ($this->isSystemAdmin() || $this->isDirectorAccounts()) {
+        if ($this->isCentralUser()) {
             return true;
         }
         if ($this->chartOfAccounts()->count() === 0) {

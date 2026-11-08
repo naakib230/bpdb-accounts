@@ -25,19 +25,48 @@
         </div>
     </div>
 
+    <!-- Filter Card -->
+    <div class="card border-0 shadow-sm rounded-4 bg-white mb-3">
+        <div class="card-body py-2 px-3">
+            <form method="GET" action="{{ route('bank_accounts.index') }}" class="row g-2 align-items-center">
+                <div class="col-md-5">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text bg-light border-0"><i class="fa-solid fa-building-shield text-muted"></i></span>
+                        <select name="rao_id" class="form-select form-select-sm border-0 bg-light" onchange="this.form.submit()">
+                            <option value="">-- সকল আঞ্চলিক হিসাব দপ্তর (All RAOs) --</option>
+                            @foreach ($raos as $r)
+                                <option value="{{ $r->id }}" @selected($raoId == $r->id)>
+                                    [{{ $r->code }}] {{ $r->name_bn }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    @if ($raoId)
+                        <a href="{{ route('bank_accounts.index') }}" class="btn btn-sm btn-outline-secondary rounded-pill">
+                            <i class="fa-solid fa-xmark me-1"></i>ফিল্টার রিসেট
+                        </a>
+                    @endif
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Table Card -->
     <div class="card border-0 shadow-sm rounded-4 bg-white overflow-hidden mb-4">
         <div class="table-responsive">
             <table class="table table-hover align-middle mb-0 table-custom">
                 <thead>
                     <tr>
-                        <th style="width: 20%;">ব্যাংকের নাম ও শাখা</th>
-                        <th style="width: 15%;">হিসাব নম্বর</th>
-                        <th style="width: 15%;">শিরোনাম ও ধরন</th>
-                        <th style="width: 12%;">জিএল কোড</th>
-                        <th style="width: 13%; text-align: right;">বর্তমান স্থিতি (৳)</th>
-                        <th style="width: 15%;">দায়িত্বপ্রাপ্ত ইউজার</th>
-                        <th style="width: 10%; text-align: end;">অ্যাকশন</th>
+                        <th style="width: 18%;">ব্যাংকের নাম ও শাখা</th>
+                        <th style="width: 14%;">হিসাব নম্বর</th>
+                        <th style="width: 16%;">আঞ্চলিক দপ্তর (RAO)</th>
+                        <th style="width: 14%;">শিরোনাম ও ধরন</th>
+                        <th style="width: 10%;">জিএল কোড</th>
+                        <th style="width: 11%; text-align: right;">স্থিতি (৳)</th>
+                        <th style="width: 12%;">দায়িত্বপ্রাপ্ত ইউজার</th>
+                        <th style="width: 5%; text-align: end;">অ্যাকশন</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +77,15 @@
                                 <small class="text-muted d-block">{{ $acc->branch_name }}</small>
                             </td>
                             <td class="fw-bold text-success">{{ $acc->account_number }}</td>
+                            <td>
+                                @if ($acc->regionalAccountsOffice)
+                                    <span class="badge bg-primary bg-opacity-10 text-primary border border-primary px-2 py-1">
+                                        <i class="fa-solid fa-building-shield me-1"></i>{{ $acc->regionalAccountsOffice->code }} - {{ $acc->regionalAccountsOffice->name_bn }}
+                                    </span>
+                                @else
+                                    <span class="badge bg-secondary bg-opacity-10 text-muted">অ্যাসাইন করা হয়নি</span>
+                                @endif
+                            </td>
                             <td>
                                 <div class="small fw-semibold">{{ $acc->account_title }}</div>
                                 <span class="badge bg-light text-dark border">{{ $acc->account_type }}</span>
@@ -130,6 +168,17 @@
                             <option value="SND" @selected($acc->account_type === 'SND')>SND</option>
                             <option value="STD" @selected($acc->account_type === 'STD')>STD</option>
                             <option value="Savings" @selected($acc->account_type === 'Savings')>Savings</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-dark">আঞ্চলিক হিসাব দপ্তর (RAO)</label>
+                        <select name="regional_accounts_office_id" class="form-select">
+                            <option value="">-- কোনো RAO নির্ধারিত নেই --</option>
+                            @foreach ($raos as $r)
+                                <option value="{{ $r->id }}" @selected($acc->regional_accounts_office_id == $r->id)>
+                                    [{{ $r->code }}] {{ $r->name_bn }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
@@ -217,6 +266,17 @@
                         <option value="SND">SND</option>
                         <option value="STD">STD</option>
                         <option value="Savings">Savings</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-semibold">আঞ্চলিক হিসাব দপ্তর (RAO)</label>
+                    <select name="regional_accounts_office_id" class="form-select">
+                        <option value="">-- কোনো RAO নির্ধারিত নেই --</option>
+                        @foreach ($raos as $r)
+                            <option value="{{ $r->id }}">
+                                [{{ $r->code }}] {{ $r->name_bn }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mb-3">

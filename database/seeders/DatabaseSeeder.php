@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             FiscalYearSeeder::class,
             ChartOfAccountsSeeder::class,
+            RegionalAccountsOfficeSeeder::class,
             CostCenterSeeder::class,
             BankAccountSeeder::class,
             UserSeeder::class,
