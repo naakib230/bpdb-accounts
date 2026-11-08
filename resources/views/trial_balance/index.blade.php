@@ -88,7 +88,7 @@
                             <option value="">-- কস্ট সেন্টার নির্বাচন করুন --</option>
                             @foreach ($costCenters as $cc)
                                 <option value="{{ $cc->id }}" @selected($costCenterId == $cc->id)>
-                                    [{{ $cc->code }}] {{ $cc->name_bn }} ({{ \App\Models\CostCenter::TB_TYPES[$cc->trial_balance_type] ?? $cc->trial_balance_type }})
+                                    [{{ $cc->code }}] {{ $cc->name_bn }} ({{ $cc->trial_balance_type_label }})
                                 </option>
                             @endforeach
                         </select>
