@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'রেওয়ামিল (Trial Balance) | বিউবো অ্যাকাউন্টস')
+@section('title', 'Trial Balance | BPDB Accounts')
 
 @section('content')
 <div class="container-fluid px-0">
@@ -9,36 +9,35 @@
         <div>
             <div class="d-flex align-items-center gap-2 mb-1">
                 <h4 class="fw-bold text-dark mb-0">
-                    <i class="fa-solid fa-scale-balanced text-success me-2"></i>রেওয়ামিল (Trial Balance)
+                    <i class="fa-solid fa-scale-balanced text-success me-2"></i>Trial Balance
                 </h4>
                 @if ($scopeLevel === 'grand_consolidated')
                     <span class="badge bg-primary px-3 py-2 rounded-pill shadow-sm">
-                        <i class="fa-solid fa-layer-group me-1"></i>সার্বিক বিউবো সমন্বিত (Grand Consolidated)
+                        <i class="fa-solid fa-layer-group me-1"></i>Grand Consolidated (All RAOs)
                     </span>
                 @elseif ($scopeLevel === 'rao_consolidated' && $selectedRao)
                     <span class="badge bg-info text-dark px-3 py-2 rounded-pill shadow-sm">
-                        <i class="fa-solid fa-building-shield me-1"></i>আহিদ: [{{ $selectedRao->code }}] {{ $selectedRao->name_bn }}
+                        <i class="fa-solid fa-building-shield me-1"></i>RAO: [{{ $selectedRao->code }}] {{ $selectedRao->name }}
                     </span>
                 @elseif ($scopeLevel === 'cost_center' && $selectedCostCenter)
                     <span class="badge bg-success px-3 py-2 rounded-pill shadow-sm">
-                        <i class="fa-solid fa-sitemap me-1"></i>কস্ট সেন্টার: [{{ $selectedCostCenter->code }}] {{ $selectedCostCenter->name_bn }}
+                        <i class="fa-solid fa-sitemap me-1"></i>Cost Center: [{{ $selectedCostCenter->code }}] {{ $selectedCostCenter->name }}
                     </span>
                 @endif
             </div>
             <p class="text-muted small mb-0">
-                ২৮টি আঞ্চলিক হিসাব দপ্তর (আহিদ) ও কস্ট সেন্টার সমূহের ফিগার সমন্বয়ে প্রমিত ট্রায়াল ব্যালেন্স
-                @if ($asOfDate)
-                    — <span class="fw-semibold text-dark">{{ \Carbon\Carbon::parse($asOfDate)->translatedFormat('d F Y') }}</span> তারিখ পর্যন্ত
-                @endif
+                Bangladesh Power Development Board (BPDB) — 
+                <span>From: <strong>{{ \Carbon\Carbon::parse($fromDate)->format('d-M-Y') }}</strong></span>
+                <span>To: <strong>{{ \Carbon\Carbon::parse($toDate)->format('d-M-Y') }}</strong></span>
             </p>
         </div>
 
         <div class="d-flex flex-wrap gap-2 mt-3 mt-md-0 no-print">
             <a href="{{ route('trial_balance.export', request()->all()) }}" class="btn btn-outline-success rounded-pill px-3 shadow-sm">
-                <i class="fa-solid fa-file-excel me-1"></i>এক্সেল / সিএসভি ডাউনলোড
+                <i class="fa-solid fa-file-excel me-1"></i>Download Excel / CSV
             </a>
             <button onclick="window.print()" class="btn btn-outline-dark rounded-pill px-3 shadow-sm">
-                <i class="fa-solid fa-print me-1"></i>মুদ্রণ (Print)
+                <i class="fa-solid fa-print me-1"></i>Print
             </button>
         </div>
     </div>
@@ -49,33 +48,33 @@
             <form method="GET" action="{{ route('trial_balance.index') }}" id="tbFilterForm">
                 <!-- Scope Pills -->
                 <div class="d-flex flex-wrap align-items-center gap-2 mb-3 pb-3 border-bottom">
-                    <span class="small fw-bold text-muted text-uppercase me-2">রেওয়ামিলের পরিধি (Scope):</span>
+                    <span class="small fw-bold text-muted text-uppercase me-2">Scope:</span>
                     
                     <input type="radio" class="btn-check" name="scope_level" id="scope_grand" value="grand_consolidated" autocomplete="off" @checked($scopeLevel === 'grand_consolidated') onchange="updateScopeFields()">
                     <label class="btn btn-sm btn-outline-primary rounded-pill px-3" for="scope_grand">
-                        <i class="fa-solid fa-globe me-1"></i>সার্বিক সমন্বিত বিউবো (All 28 RAOs)
+                        <i class="fa-solid fa-globe me-1"></i>Grand Consolidated (All RAOs)
                     </label>
 
                     <input type="radio" class="btn-check" name="scope_level" id="scope_rao" value="rao_consolidated" autocomplete="off" @checked($scopeLevel === 'rao_consolidated') onchange="updateScopeFields()">
                     <label class="btn btn-sm btn-outline-info rounded-pill px-3" for="scope_rao">
-                        <i class="fa-solid fa-building-shield me-1"></i>আঞ্চলিক হিসাব দপ্তর (RAO Consolidated)
+                        <i class="fa-solid fa-building-shield me-1"></i>RAO Consolidated
                     </label>
 
                     <input type="radio" class="btn-check" name="scope_level" id="scope_cc" value="cost_center" autocomplete="off" @checked($scopeLevel === 'cost_center') onchange="updateScopeFields()">
                     <label class="btn btn-sm btn-outline-success rounded-pill px-3" for="scope_cc">
-                        <i class="fa-solid fa-sitemap me-1"></i>নির্দিষ্ট কস্ট সেন্টার (Single Cost Center)
+                        <i class="fa-solid fa-sitemap me-1"></i>Single Cost Center
                     </label>
                 </div>
 
                 <div class="row g-3 align-items-end">
                     <!-- RAO Select -->
                     <div class="col-12 col-md-3" id="raoFieldCol" style="{{ $scopeLevel === 'rao_consolidated' ? '' : 'display:none;' }}">
-                        <label class="form-label small fw-semibold text-dark mb-1">আঞ্চলিক দপ্তর (RAO) নির্বাচন করুন</label>
+                        <label class="form-label small fw-semibold text-dark mb-1">Select RAO</label>
                         <select name="rao_id" class="form-select form-select-sm" id="raoSelect">
-                            <option value="">-- আহিদ নির্বাচন করুন --</option>
+                            <option value="">-- Select RAO --</option>
                             @foreach ($raos as $r)
                                 <option value="{{ $r->id }}" @selected($raoId == $r->id)>
-                                    [{{ $r->code }}] {{ $r->name_bn }}
+                                    [{{ $r->code }}] {{ $r->name }}
                                 </option>
                             @endforeach
                         </select>
@@ -83,12 +82,12 @@
 
                     <!-- Cost Center Select -->
                     <div class="col-12 col-md-3" id="ccFieldCol" style="{{ $scopeLevel === 'cost_center' ? '' : 'display:none;' }}">
-                        <label class="form-label small fw-semibold text-dark mb-1">কস্ট সেন্টার নির্বাচন করুন</label>
+                        <label class="form-label small fw-semibold text-dark mb-1">Select Cost Center</label>
                         <select name="cost_center_id" class="form-select form-select-sm" id="ccSelect">
-                            <option value="">-- কস্ট সেন্টার নির্বাচন করুন --</option>
+                            <option value="">-- Select Cost Center --</option>
                             @foreach ($costCenters as $cc)
                                 <option value="{{ $cc->id }}" @selected($costCenterId == $cc->id)>
-                                    [{{ $cc->code }}] {{ $cc->name_bn }} ({{ $cc->trial_balance_type_label }})
+                                    [{{ $cc->code }}] {{ $cc->name }} ({{ \App\Models\CostCenter::TB_TYPES[$cc->trial_balance_type]['name_en'] ?? $cc->trial_balance_type }})
                                 </option>
                             @endforeach
                         </select>
@@ -96,38 +95,44 @@
 
                     <!-- Trial Balance Type -->
                     <div class="col-12 col-md-3">
-                        <label class="form-label small fw-semibold text-dark mb-1">রেওয়ামিলের ধরন (TB Type)</label>
+                        <label class="form-label small fw-semibold text-dark mb-1">Trial Balance Type</label>
                         <select name="tb_type" class="form-select form-select-sm">
-                            <option value="all" @selected($tbType === 'all')>-- সকল ক্যাটাগরি সমন্বিত --</option>
-                            <option value="revenue_generation" @selected($tbType === 'revenue_generation')>১. রাজস্ব উৎপাদন (Revenue Generation)</option>
-                            <option value="revenue_distribution" @selected($tbType === 'revenue_distribution')>২. রাজস্ব বিতরণ (Revenue Distribution)</option>
-                            <option value="overhead" @selected($tbType === 'overhead')>৩. সাধারণ ও প্রশাসনিক উপরিখাত (Overhead)</option>
-                            <option value="deposit_works" @selected($tbType === 'deposit_works')>৪. আমানতি কাজ (Deposit Works)</option>
-                            <option value="development" @selected($tbType === 'development')>৫. উন্নয়ন প্রকল্প (Development)</option>
+                            <option value="all" @selected($tbType === 'all')>-- All Categories Consolidated --</option>
+                            <option value="revenue_generation" @selected($tbType === 'revenue_generation')>Revenue Generation</option>
+                            <option value="revenue_distribution" @selected($tbType === 'revenue_distribution')>Revenue Distribution</option>
+                            <option value="overhead" @selected($tbType === 'overhead')>Overhead</option>
+                            <option value="deposit_works" @selected($tbType === 'deposit_works')>Deposit Works</option>
+                            <option value="development" @selected($tbType === 'development')>Development</option>
                         </select>
                     </div>
 
                     <!-- View Format Toggle -->
                     <div class="col-12 col-md-2">
-                        <label class="form-label small fw-semibold text-dark mb-1">প্রদর্শন ছক (View Format)</label>
+                        <label class="form-label small fw-semibold text-dark mb-1">View Format</label>
                         <select name="view_format" class="form-select form-select-sm">
-                            <option value="matrix" @selected($viewFormat === 'matrix')>প্রমিত ছক A-1 (Matrix)</option>
-                            <option value="standard" @selected($viewFormat === 'standard')>প্রথাগত ৩-ধাপ (Standard)</option>
+                            <option value="matrix" @selected($viewFormat === 'matrix')>Format A-1 (Matrix)</option>
+                            <option value="standard" @selected($viewFormat === 'standard')>Standard (3-Stage)</option>
                         </select>
                     </div>
 
-                    <!-- As of Date -->
+                    <!-- Date Range: From Date -->
                     <div class="col-12 col-md-2">
-                        <label class="form-label small fw-semibold text-dark mb-1">তারিখ পর্যন্ত (As of Date)</label>
-                        <input type="date" name="as_of_date" class="form-control form-control-sm" value="{{ $asOfDate }}">
+                        <label class="form-label small fw-semibold text-dark mb-1">From Date</label>
+                        <input type="date" name="from_date" class="form-control form-control-sm" value="{{ $fromDate }}">
+                    </div>
+
+                    <!-- Date Range: To Date -->
+                    <div class="col-12 col-md-2">
+                        <label class="form-label small fw-semibold text-dark mb-1">To Date</label>
+                        <input type="date" name="to_date" class="form-control form-control-sm" value="{{ $toDate }}">
                     </div>
 
                     <!-- Submit & Reset -->
                     <div class="col-12 col-md-2 d-flex gap-2">
                         <button type="submit" class="btn btn-success btn-sm flex-fill rounded-pill">
-                            <i class="fa-solid fa-filter me-1"></i>প্রতিবেদন দেখুন
+                            <i class="fa-solid fa-filter me-1"></i>Filter
                         </button>
-                        <a href="{{ route('trial_balance.index') }}" class="btn btn-outline-secondary btn-sm rounded-pill" title="ফিল্টার রিসেট">
+                        <a href="{{ route('trial_balance.index') }}" class="btn btn-outline-secondary btn-sm rounded-pill" title="Reset Filter">
                             <i class="fa-solid fa-rotate-right"></i>
                         </a>
                     </div>
@@ -143,14 +148,14 @@
             <div class="flex-grow-1">
                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                     <div>
-                        <strong class="d-block text-success fs-6">রেওয়ামিল সম্পূর্ণ সমন্বিত ও নির্ভুল! (Debit = Credit Balanced)</strong>
+                        <strong class="d-block text-success fs-6">Trial Balance is Balanced! (Total Debit = Total Credit)</strong>
                         <small class="text-muted">
-                            মোট ডেবিট: ৳ {{ number_format($totals['consolidated_dr'], 2) }} | 
-                            মোট ক্রেডিট: ৳ {{ number_format($totals['consolidated_cr'], 2) }}
+                            Total Debit: ৳ {{ number_format($totals['consolidated_dr'], 2) }} | 
+                            Total Credit: ৳ {{ number_format($totals['consolidated_cr'], 2) }}
                         </small>
                     </div>
                     <span class="badge bg-success rounded-pill px-3 py-2 mt-2 mt-md-0">
-                        <i class="fa-solid fa-check-double me-1"></i>সমতা বজায় রয়েছে
+                        <i class="fa-solid fa-check-double me-1"></i>Balanced
                     </span>
                 </div>
             </div>
@@ -159,10 +164,10 @@
         <div class="alert alert-danger d-flex align-items-center shadow-sm rounded-4 mb-4 border-0 p-3">
             <i class="fa-solid fa-triangle-exclamation fs-3 me-3 text-danger"></i>
             <div class="flex-grow-1">
-                <strong class="d-block text-danger fs-6">রেওয়ামিলে ডেবিট ও ক্রেডিট অমিল রয়েছে! (Debit != Credit)</strong>
+                <strong class="d-block text-danger fs-6">Trial Balance Mismatch! (Debit != Credit)</strong>
                 <small>
-                    পার্থক্য: ৳ {{ number_format(abs($totals['consolidated_dr'] - $totals['consolidated_cr']), 2) }} 
-                    (মোট ডেবিট: ৳ {{ number_format($totals['consolidated_dr'], 2) }} বনাম মোট ক্রেডিট: ৳ {{ number_format($totals['consolidated_cr'], 2) }})
+                    Difference: ৳ {{ number_format(abs($totals['consolidated_dr'] - $totals['consolidated_cr']), 2) }} 
+                    (Total Debit: ৳ {{ number_format($totals['consolidated_dr'], 2) }} vs Total Credit: ৳ {{ number_format($totals['consolidated_cr'], 2) }})
                 </small>
             </div>
         </div>
@@ -170,67 +175,104 @@
 
     <!-- Report Printing Title (Print Only) -->
     <div class="d-none d-print-block text-center mb-4">
-        <h4 class="fw-bold mb-1">বাংলাদেশ বিদ্যুৎ উন্নয়ন বোর্ড (BPDB)</h4>
+        <h4 class="fw-bold mb-1">Bangladesh Power Development Board (BPDB)</h4>
         <h5 class="fw-semibold mb-1">
             @if ($scopeLevel === 'grand_consolidated')
-                সার্বিক সমন্বিত রেওয়ামিল (Grand Consolidated Trial Balance - Format A-1)
+                Grand Consolidated Trial Balance (Format A-1)
             @elseif ($scopeLevel === 'rao_consolidated' && $selectedRao)
-                আঞ্চলিক হিসাব দপ্তর: [{{ $selectedRao->code }}] {{ $selectedRao->name_bn }} — সমন্বিত রেওয়ামিল
+                RAO: [{{ $selectedRao->code }}] {{ $selectedRao->name }} — Consolidated Trial Balance
             @elseif ($scopeLevel === 'cost_center' && $selectedCostCenter)
-                কস্ট সেন্টার: [{{ $selectedCostCenter->code }}] {{ $selectedCostCenter->name_bn }} — রেওয়ামিল
+                Cost Center: [{{ $selectedCostCenter->code }}] {{ $selectedCostCenter->name }} — Trial Balance
             @endif
         </h5>
-        <p class="small text-muted mb-0">তারিখ: {{ \Carbon\Carbon::parse($asOfDate)->translatedFormat('d F Y') }} পর্যন্ত</p>
+        <p class="small text-muted mb-0">Period: {{ \Carbon\Carbon::parse($fromDate)->format('d-M-Y') }} to {{ \Carbon\Carbon::parse($toDate)->format('d-M-Y') }}</p>
     </div>
 
     <!-- Trial Balance Table Card -->
     <div class="card border-0 shadow-sm rounded-4 bg-white overflow-hidden mb-4">
         <div class="table-responsive">
             @if ($viewFormat === 'matrix')
-                <!-- Format A-1 Matrix View -->
-                <table class="table table-hover table-bordered align-middle mb-0" style="font-size: 12.5px;">
+                <!-- Format A-1 Matrix View (Only active categories with non-zero figures are shown) -->
+                <table class="table table-hover table-bordered align-middle mb-0" style="font-size: 13px;">
                     <thead class="table-light align-middle text-center border-bottom-2">
                         <tr>
-                            <th rowspan="2" style="width: 7%;" class="bg-light">কোড নং</th>
-                            <th rowspan="2" style="width: 21%;" class="text-start bg-light">হিসাব খাতের শিরোনাম (Head of Accounts)</th>
+                            <th rowspan="2" style="width: 8%;" class="bg-light">Code</th>
+                            <th rowspan="2" style="width: 24%;" class="text-start bg-light">Head of Accounts</th>
+                            
+                            <!-- Consolidated (Always Shown) -->
                             <th colspan="2" class="bg-primary bg-opacity-10 text-primary border-start border-end fw-bold">
-                                সার্বিক সমন্বিত (Consolidated)
+                                Consolidated
                             </th>
-                            <th colspan="2" class="bg-success bg-opacity-10 text-success border-end fw-bold">
-                                রাজস্ব উৎপাদন (Generation)
-                            </th>
-                            <th colspan="2" class="bg-warning bg-opacity-10 text-dark border-end fw-bold">
-                                রাজস্ব বিতরণ (Distribution)
-                            </th>
-                            <th colspan="2" class="bg-secondary bg-opacity-10 text-secondary border-end fw-bold">
-                                সাধারণ উপরিখাত (Overhead)
-                            </th>
-                            <th colspan="2" class="bg-info bg-opacity-10 text-info border-end fw-bold">
-                                আমানতি কাজ (Deposit)
-                            </th>
-                            <th colspan="2" class="bg-danger bg-opacity-10 text-danger fw-bold">
-                                উন্নয়ন প্রকল্প (Development)
-                            </th>
+
+                            <!-- Revenue Generation (Shown only if figures exist) -->
+                            @if ($hasGeneration)
+                                <th colspan="2" class="bg-success bg-opacity-10 text-success border-end fw-bold">
+                                    Revenue Generation
+                                </th>
+                            @endif
+
+                            <!-- Revenue Distribution (Shown only if figures exist) -->
+                            @if ($hasDistribution)
+                                <th colspan="2" class="bg-warning bg-opacity-10 text-dark border-end fw-bold">
+                                    Revenue Distribution
+                                </th>
+                            @endif
+
+                            <!-- Overhead (Shown only if figures exist) -->
+                            @if ($hasOverhead)
+                                <th colspan="2" class="bg-secondary bg-opacity-10 text-secondary border-end fw-bold">
+                                    Overhead
+                                </th>
+                            @endif
+
+                            <!-- Deposit Works (Shown only if figures exist) -->
+                            @if ($hasDeposit)
+                                <th colspan="2" class="bg-info bg-opacity-10 text-info border-end fw-bold">
+                                    Deposit Works
+                                </th>
+                            @endif
+
+                            <!-- Development (Shown only if figures exist) -->
+                            @if ($hasDevelopment)
+                                <th colspan="2" class="bg-danger bg-opacity-10 text-danger fw-bold">
+                                    Development
+                                </th>
+                            @endif
                         </tr>
                         <tr>
                             <!-- Consolidated -->
-                            <th class="text-end bg-primary bg-opacity-10 text-primary border-start" style="width: 6%;">ডেবিট (৳)</th>
-                            <th class="text-end bg-primary bg-opacity-10 text-primary border-end" style="width: 6%;">ক্রেডিট (৳)</th>
-                            <!-- Generation -->
-                            <th class="text-end bg-success bg-opacity-10 text-success" style="width: 6%;">ডেবিট (৳)</th>
-                            <th class="text-end bg-success bg-opacity-10 text-success border-end" style="width: 6%;">ক্রেডিট (৳)</th>
-                            <!-- Distribution -->
-                            <th class="text-end bg-warning bg-opacity-10 text-dark" style="width: 6%;">ডেবিট (৳)</th>
-                            <th class="text-end bg-warning bg-opacity-10 text-dark border-end" style="width: 6%;">ক্রেডিট (৳)</th>
+                            <th class="text-end bg-primary bg-opacity-10 text-primary border-start" style="width: 8%;">Debit</th>
+                            <th class="text-end bg-primary bg-opacity-10 text-primary border-end" style="width: 8%;">Credit</th>
+
+                            <!-- Revenue Generation -->
+                            @if ($hasGeneration)
+                                <th class="text-end bg-success bg-opacity-10 text-success" style="width: 8%;">Debit</th>
+                                <th class="text-end bg-success bg-opacity-10 text-success border-end" style="width: 8%;">Credit</th>
+                            @endif
+
+                            <!-- Revenue Distribution -->
+                            @if ($hasDistribution)
+                                <th class="text-end bg-warning bg-opacity-10 text-dark" style="width: 8%;">Debit</th>
+                                <th class="text-end bg-warning bg-opacity-10 text-dark border-end" style="width: 8%;">Credit</th>
+                            @endif
+
                             <!-- Overhead -->
-                            <th class="text-end bg-secondary bg-opacity-10 text-secondary" style="width: 6%;">ডেবিট (৳)</th>
-                            <th class="text-end bg-secondary bg-opacity-10 text-secondary border-end" style="width: 6%;">ক্রেডিট (৳)</th>
-                            <!-- Deposit -->
-                            <th class="text-end bg-info bg-opacity-10 text-info" style="width: 6%;">ডেবিট (৳)</th>
-                            <th class="text-end bg-info bg-opacity-10 text-info border-end" style="width: 6%;">ক্রেডিট (৳)</th>
+                            @if ($hasOverhead)
+                                <th class="text-end bg-secondary bg-opacity-10 text-secondary" style="width: 8%;">Debit</th>
+                                <th class="text-end bg-secondary bg-opacity-10 text-secondary border-end" style="width: 8%;">Credit</th>
+                            @endif
+
+                            <!-- Deposit Works -->
+                            @if ($hasDeposit)
+                                <th class="text-end bg-info bg-opacity-10 text-info" style="width: 8%;">Debit</th>
+                                <th class="text-end bg-info bg-opacity-10 text-info border-end" style="width: 8%;">Credit</th>
+                            @endif
+
                             <!-- Development -->
-                            <th class="text-end bg-danger bg-opacity-10 text-danger" style="width: 6%;">ডেবিট (৳)</th>
-                            <th class="text-end bg-danger bg-opacity-10 text-danger" style="width: 6%;">ক্রেডিট (৳)</th>
+                            @if ($hasDevelopment)
+                                <th class="text-end bg-danger bg-opacity-10 text-danger" style="width: 8%;">Debit</th>
+                                <th class="text-end bg-danger bg-opacity-10 text-danger" style="width: 8%;">Credit</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -239,53 +281,83 @@
                                 <td class="fw-bold text-center">{{ $r['code'] }}</td>
                                 <td>
                                     <a href="{{ route('ledger.index', ['chart_of_account_id' => \App\Models\ChartOfAccount::where('account_code', $r['code'])->value('id'), 'cost_center_id' => $costCenterId]) }}" class="text-decoration-none text-dark fw-semibold">
-                                        {{ $r['name_bn'] }}
+                                        {{ $r['name'] }}
                                     </a>
-                                    <small class="text-muted d-block" style="font-size: 11px;">{{ $r['name'] }}</small>
                                 </td>
+                                
                                 <!-- Consolidated -->
                                 <td class="text-end fw-semibold text-primary border-start">{{ $r['closing_dr'] > 0 ? number_format($r['closing_dr'], 2) : '-' }}</td>
                                 <td class="text-end fw-semibold text-primary border-end">{{ $r['closing_cr'] > 0 ? number_format($r['closing_cr'], 2) : '-' }}</td>
-                                <!-- Generation -->
-                                <td class="text-end">{{ $r['generation_dr'] > 0 ? number_format($r['generation_dr'], 2) : '-' }}</td>
-                                <td class="text-end border-end">{{ $r['generation_cr'] > 0 ? number_format($r['generation_cr'], 2) : '-' }}</td>
-                                <!-- Distribution -->
-                                <td class="text-end">{{ $r['distribution_dr'] > 0 ? number_format($r['distribution_dr'], 2) : '-' }}</td>
-                                <td class="text-end border-end">{{ $r['distribution_cr'] > 0 ? number_format($r['distribution_cr'], 2) : '-' }}</td>
+
+                                <!-- Revenue Generation -->
+                                @if ($hasGeneration)
+                                    <td class="text-end">{{ $r['generation_dr'] > 0 ? number_format($r['generation_dr'], 2) : '-' }}</td>
+                                    <td class="text-end border-end">{{ $r['generation_cr'] > 0 ? number_format($r['generation_cr'], 2) : '-' }}</td>
+                                @endif
+
+                                <!-- Revenue Distribution -->
+                                @if ($hasDistribution)
+                                    <td class="text-end">{{ $r['distribution_dr'] > 0 ? number_format($r['distribution_dr'], 2) : '-' }}</td>
+                                    <td class="text-end border-end">{{ $r['distribution_cr'] > 0 ? number_format($r['distribution_cr'], 2) : '-' }}</td>
+                                @endif
+
                                 <!-- Overhead -->
-                                <td class="text-end">{{ $r['overhead_dr'] > 0 ? number_format($r['overhead_dr'], 2) : '-' }}</td>
-                                <td class="text-end border-end">{{ $r['overhead_cr'] > 0 ? number_format($r['overhead_cr'], 2) : '-' }}</td>
+                                @if ($hasOverhead)
+                                    <td class="text-end">{{ $r['overhead_dr'] > 0 ? number_format($r['overhead_dr'], 2) : '-' }}</td>
+                                    <td class="text-end border-end">{{ $r['overhead_cr'] > 0 ? number_format($r['overhead_cr'], 2) : '-' }}</td>
+                                @endif
+
                                 <!-- Deposit Works -->
-                                <td class="text-end">{{ $r['deposit_dr'] > 0 ? number_format($r['deposit_dr'], 2) : '-' }}</td>
-                                <td class="text-end border-end">{{ $r['deposit_cr'] > 0 ? number_format($r['deposit_cr'], 2) : '-' }}</td>
+                                @if ($hasDeposit)
+                                    <td class="text-end">{{ $r['deposit_dr'] > 0 ? number_format($r['deposit_dr'], 2) : '-' }}</td>
+                                    <td class="text-end border-end">{{ $r['deposit_cr'] > 0 ? number_format($r['deposit_cr'], 2) : '-' }}</td>
+                                @endif
+
                                 <!-- Development -->
-                                <td class="text-end">{{ $r['development_dr'] > 0 ? number_format($r['development_dr'], 2) : '-' }}</td>
-                                <td class="text-end">{{ $r['development_cr'] > 0 ? number_format($r['development_cr'], 2) : '-' }}</td>
+                                @if ($hasDevelopment)
+                                    <td class="text-end">{{ $r['development_dr'] > 0 ? number_format($r['development_dr'], 2) : '-' }}</td>
+                                    <td class="text-end">{{ $r['development_cr'] > 0 ? number_format($r['development_cr'], 2) : '-' }}</td>
+                                @endif
                             </tr>
                         @empty
                             <tr>
                                 <td colspan="14" class="text-center py-5 text-muted">
                                     <i class="fa-solid fa-folder-open fs-2 text-secondary mb-2 d-block"></i>
-                                    নির্বাচিত ফিল্টার ও পরিধিতে কোনো রেওয়ামিল তথ্য পাওয়া যায়নি।
+                                    No trial balance records found for the selected scope and date range.
                                 </td>
                             </tr>
                         @endforelse
                     </tbody>
                     <tfoot class="table-light border-top-2 fw-bold text-end">
                         <tr class="fs-6">
-                            <td colspan="2" class="text-center text-dark">সর্বমোট যোগফল (Total):</td>
+                            <td colspan="2" class="text-center text-dark">Total:</td>
                             <td class="text-primary border-start">৳ {{ number_format($totals['consolidated_dr'], 2) }}</td>
                             <td class="text-primary border-end">৳ {{ number_format($totals['consolidated_cr'], 2) }}</td>
-                            <td>৳ {{ number_format($totals['generation_dr'], 2) }}</td>
-                            <td class="border-end">৳ {{ number_format($totals['generation_cr'], 2) }}</td>
-                            <td>৳ {{ number_format($totals['distribution_dr'], 2) }}</td>
-                            <td class="border-end">৳ {{ number_format($totals['distribution_cr'], 2) }}</td>
-                            <td>৳ {{ number_format($totals['overhead_dr'], 2) }}</td>
-                            <td class="border-end">৳ {{ number_format($totals['overhead_cr'], 2) }}</td>
-                            <td>৳ {{ number_format($totals['deposit_dr'], 2) }}</td>
-                            <td class="border-end">৳ {{ number_format($totals['deposit_cr'], 2) }}</td>
-                            <td>৳ {{ number_format($totals['development_dr'], 2) }}</td>
-                            <td>৳ {{ number_format($totals['development_cr'], 2) }}</td>
+                            
+                            @if ($hasGeneration)
+                                <td>৳ {{ number_format($totals['generation_dr'], 2) }}</td>
+                                <td class="border-end">৳ {{ number_format($totals['generation_cr'], 2) }}</td>
+                            @endif
+
+                            @if ($hasDistribution)
+                                <td>৳ {{ number_format($totals['distribution_dr'], 2) }}</td>
+                                <td class="border-end">৳ {{ number_format($totals['distribution_cr'], 2) }}</td>
+                            @endif
+
+                            @if ($hasOverhead)
+                                <td>৳ {{ number_format($totals['overhead_dr'], 2) }}</td>
+                                <td class="border-end">৳ {{ number_format($totals['overhead_cr'], 2) }}</td>
+                            @endif
+
+                            @if ($hasDeposit)
+                                <td>৳ {{ number_format($totals['deposit_dr'], 2) }}</td>
+                                <td class="border-end">৳ {{ number_format($totals['deposit_cr'], 2) }}</td>
+                            @endif
+
+                            @if ($hasDevelopment)
+                                <td>৳ {{ number_format($totals['development_dr'], 2) }}</td>
+                                <td>৳ {{ number_format($totals['development_cr'], 2) }}</td>
+                            @endif
                         </tr>
                     </tfoot>
                 </table>
@@ -294,20 +366,20 @@
                 <table class="table table-hover align-middle mb-0 table-custom">
                     <thead class="table-light align-middle">
                         <tr>
-                            <th rowspan="2" style="width: 10%;">হিসাব কোড</th>
-                            <th rowspan="2" style="width: 25%;">হিসাব খাতের নাম</th>
-                            <th rowspan="2" style="width: 10%;">ধরন</th>
-                            <th colspan="2" class="text-center bg-light border-bottom">প্রারম্ভিক জের (Opening)</th>
-                            <th colspan="2" class="text-center bg-light border-bottom">চলতি লেনদেন (Transactions)</th>
-                            <th colspan="2" class="text-center bg-light border-bottom">সমাপনী জের (Closing)</th>
+                            <th rowspan="2" style="width: 10%;">Code</th>
+                            <th rowspan="2" style="width: 30%;">Head of Accounts</th>
+                            <th rowspan="2" style="width: 10%;">Type</th>
+                            <th colspan="2" class="text-center bg-light border-bottom">Opening Balance</th>
+                            <th colspan="2" class="text-center bg-light border-bottom">Period Transactions</th>
+                            <th colspan="2" class="text-center bg-light border-bottom">Closing Balance</th>
                         </tr>
                         <tr>
-                            <th class="text-end" style="width: 9%;">ডেবিট (৳)</th>
-                            <th class="text-end" style="width: 9%;">ক্রেডিট (৳)</th>
-                            <th class="text-end" style="width: 9%;">ডেবিট (৳)</th>
-                            <th class="text-end" style="width: 9%;">ক্রেডিট (৳)</th>
-                            <th class="text-end" style="width: 9%;">ডেবিট (৳)</th>
-                            <th class="text-end" style="width: 10%;">ক্রেডিট (৳)</th>
+                            <th class="text-end" style="width: 8%;">Debit</th>
+                            <th class="text-end" style="width: 8%;">Credit</th>
+                            <th class="text-end" style="width: 8%;">Debit</th>
+                            <th class="text-end" style="width: 8%;">Credit</th>
+                            <th class="text-end" style="width: 9%;">Debit</th>
+                            <th class="text-end" style="width: 9%;">Credit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -316,9 +388,8 @@
                                 <td class="fw-bold">{{ $r['code'] }}</td>
                                 <td>
                                     <a href="{{ route('ledger.index', ['chart_of_account_id' => \App\Models\ChartOfAccount::where('account_code', $r['code'])->value('id'), 'cost_center_id' => $costCenterId]) }}" class="text-decoration-none text-dark fw-medium">
-                                        {{ $r['name_bn'] }}
+                                        {{ $r['name'] }}
                                     </a>
-                                    <small class="text-muted d-block">{{ $r['name'] }}</small>
                                 </td>
                                 <td>
                                     <span class="badge bg-light text-dark border">{{ strtoupper($r['type']) }}</span>
@@ -332,13 +403,15 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9" class="text-center py-5 text-muted">কোনো রেকর্ড পাওয়া যায়নি।</td>
+                                <td colspan="9" class="text-center py-5 text-muted">
+                                    No records found for the selected date range.
+                                </td>
                             </tr>
                         @endforelse
                     </tbody>
                     <tfoot class="table-light border-top border-2">
                         <tr class="fw-bold">
-                            <td colspan="3" class="text-end">সর্বমোট যোগফল (Total):</td>
+                            <td colspan="3" class="text-end">Total:</td>
                             <td class="text-end">৳ {{ number_format($totals['opening_dr'], 2) }}</td>
                             <td class="text-end">৳ {{ number_format($totals['opening_cr'], 2) }}</td>
                             <td class="text-end text-success">৳ {{ number_format($totals['period_dr'], 2) }}</td>
