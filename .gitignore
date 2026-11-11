@@ -36,19 +36,24 @@ Thumbs.db
 /storage/*.key
 /storage/pail
 /storage/framework/maintenance.php
-/storage/framework/cache/
-/storage/framework/sessions/
-/storage/framework/views/
-/storage/framework/testing/
-
-# Laravel Excel temporary/cache files
-/storage/framework/cache/laravel-excel/
-
-# Private application files and backups
-/storage/app/private/backups/
-/storage/app/private/backup-temp/
-/storage/app/private/restore-temp/
-/storage/restore-verification-*/
+/storage/framework/cache/*
+!/storage/framework/cache/.gitkeep
+!/storage/framework/cache/data/
+/storage/framework/cache/data/*
+!/storage/framework/cache/data/.gitkeep
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitkeep
+/storage/framework/views/*
+!/storage/framework/views/.gitkeep
+/storage/framework/testing/*
+!/storage/framework/testing/.gitkeep
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/app/*
+!/storage/app/.gitkeep
+!/storage/app/public/
+/storage/app/public/*
+!/storage/app/public/.gitkeep
 
 # Certificates
 /certificates

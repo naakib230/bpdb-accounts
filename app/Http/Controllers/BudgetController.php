@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBudgetRequest;
 use App\Models\AuditLog;
 use App\Models\Budget;
 use App\Models\ChartOfAccount;
@@ -57,17 +58,9 @@ class BudgetController extends Controller
         ));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(StoreBudgetRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'fiscal_year_id' => ['required', 'exists:fiscal_years,id'],
-            'cost_center_id' => ['required', 'exists:cost_centers,id'],
-            'allocations'    => ['required', 'array'],
-            'allocations.*.chart_of_account_id' => ['required', 'exists:chart_of_accounts,id'],
-            'allocations.*.original_budget'     => ['nullable', 'numeric', 'min:0'],
-            'allocations.*.revised_budget'      => ['nullable', 'numeric', 'min:0'],
-            'allocations.*.notes'               => ['nullable', 'string', 'max:255'],
-        ]);
+        $data = $request->validated();
 
         $saved = 0;
         foreach ($data['allocations'] as $item) {

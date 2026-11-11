@@ -8,6 +8,7 @@ use App\Models\BankReconciliation;
 use App\Models\BankReconciliationItem;
 use App\Models\CostCenter;
 use App\Models\VoucherEntry;
+use App\Services\BankReconciliationService;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,6 +20,10 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class BankReconciliationController extends Controller
 {
+    public function __construct(
+        protected BankReconciliationService $reconciliationService
+    ) {}
+
     public function index(Request $request): View
     {
         $user = Auth::user();
@@ -79,30 +84,9 @@ class BankReconciliationController extends Controller
         $toDate   = $request->input('to_date', date('Y-m-t'));
 
         // Calculate Balance as per Cash Book up to $toDate
-        $cashBookBalance = 0.0;
-        if ($selectedBank) {
-            $coaId       = $selectedBank->chart_of_account_id;
-            $baseOpening = (float) $selectedBank->opening_balance;
-
-            $transQuery = VoucherEntry::whereHas('voucher', function ($q) use ($toDate) {
-                $q->where('status', 'posted')->where('date', '<=', $toDate);
-            });
-
-            if ($coaId) {
-                $transQuery->where('chart_of_account_id', $coaId);
-            }
-            if ($selectedCostCenter && $selectedBank->cost_center_id == $selectedCostCenter->id) {
-                $transQuery->where(function ($q) use ($selectedCostCenter) {
-                    $q->where('cost_center_id', $selectedCostCenter->id)
-                      ->orWhereHas('voucher', fn($v) => $v->where('cost_center_id', $selectedCostCenter->id));
-                });
-            }
-
-            $dr = (float) (clone $transQuery)->sum('debit_amount');
-            $cr = (float) (clone $transQuery)->sum('credit_amount');
-
-            $cashBookBalance = $baseOpening + $dr - $cr;
-        }
+        $cashBookBalance = $selectedBank
+            ? $this->reconciliationService->calculateCashBookBalance($selectedBank, $selectedCostCenter, $toDate)
+            : 0.0;
 
         // Check if an existing reconciliation was saved for this bank account and date
         $existing = null;
@@ -138,16 +122,22 @@ class BankReconciliationController extends Controller
         }
 
         // Calculate schedule totals
-        $totalA1 = array_sum(array_column($scheduleItems['A1'], 'amount'));
-        $totalA2 = array_sum(array_column($scheduleItems['A2'], 'amount'));
-        $totalAdd = $totalA1 + $totalA2;
-        $subtotal = $cashBookBalance + $totalAdd;
+        $allFlattenedItems = array_merge(
+            $scheduleItems['A1'],
+            $scheduleItems['A2'],
+            $scheduleItems['B1'],
+            $scheduleItems['B2']
+        );
+        $totals = $this->reconciliationService->calculateScheduleTotals($allFlattenedItems, $cashBookBalance);
 
-        $totalB1 = array_sum(array_column($scheduleItems['B1'], 'amount'));
-        $totalB2 = array_sum(array_column($scheduleItems['B2'], 'amount'));
-        $totalLess = $totalB1 + $totalB2;
-
-        $reconciledBalance = $subtotal - $totalLess;
+        $totalA1           = $totals['totalA1'];
+        $totalA2           = $totals['totalA2'];
+        $totalAdd          = $totals['totalAdd'];
+        $subtotal          = $totals['subtotal'];
+        $totalB1           = $totals['totalB1'];
+        $totalB2           = $totals['totalB2'];
+        $totalLess         = $totals['totalLess'];
+        $reconciledBalance = $totals['reconciledBalance'];
         $bankStatementBalance = $existing ? (float) $existing->bank_statement_balance : $reconciledBalance;
 
         // History of saved reconciliations
@@ -196,76 +186,7 @@ class BankReconciliationController extends Controller
             'items.*.amount'         => ['required', 'numeric', 'min:0'],
         ]);
 
-        DB::transaction(function () use ($data) {
-            $itemsData = $data['items'] ?? [];
-
-            $totalA1 = 0; $totalA2 = 0; $totalB1 = 0; $totalB2 = 0;
-            foreach ($itemsData as $item) {
-                $amt = (float) $item['amount'];
-                if ($amt <= 0) continue;
-
-                if ($item['schedule'] === 'A1') $totalA1 += $amt;
-                elseif ($item['schedule'] === 'A2') $totalA2 += $amt;
-                elseif ($item['schedule'] === 'B1') $totalB1 += $amt;
-                elseif ($item['schedule'] === 'B2') $totalB2 += $amt;
-            }
-
-            $totalAdd  = $totalA1 + $totalA2;
-            $totalLess = $totalB1 + $totalB2;
-            $reconciledBalance = (float) $data['cash_book_balance'] + $totalAdd - $totalLess;
-            $diff = round((float) $data['bank_statement_balance'] - $reconciledBalance, 2);
-            $status = abs($diff) < 0.01 ? 'reconciled' : 'draft';
-
-            // Find existing or create
-            $rec = BankReconciliation::updateOrCreate(
-                [
-                    'bank_account_id' => $data['bank_account_id'],
-                    'statement_date'  => $data['to_date'],
-                ],
-                [
-                    'cost_center_id'         => $data['cost_center_id'] ?? null,
-                    'from_date'              => $data['from_date'],
-                    'to_date'                => $data['to_date'],
-                    'statement_date'         => $data['to_date'],
-                    'bank_statement_balance' => $data['bank_statement_balance'],
-                    'cash_book_balance'      => $data['cash_book_balance'],
-                    'reconciled_balance'     => $reconciledBalance,
-                    'difference'             => $diff,
-                    'status'                 => $status,
-                    'notes'                  => $data['notes'] ?? null,
-                    'prepared_by_id'         => Auth::id(),
-                    'reconciled_at'          => $status === 'reconciled' ? now() : null,
-                ]
-            );
-
-            // Re-sync items
-            $rec->items()->delete();
-            foreach ($itemsData as $item) {
-                $amt = (float) $item['amount'];
-                if ($amt <= 0) continue;
-
-                $type = match ($item['schedule']) {
-                    'A1' => 'outstanding_cheque',
-                    'A2' => 'interest_credited',
-                    'B1' => 'deposit_in_transit',
-                    'B2' => 'bank_charge',
-                    default => 'other_adjustment',
-                };
-                $effect = in_array($item['schedule'], ['A1', 'A2']) ? 'add' : 'less';
-
-                $rec->items()->create([
-                    'schedule'     => $item['schedule'],
-                    'type'         => $type,
-                    'item_date'    => $item['item_date'] ?: $data['to_date'],
-                    'reference_no' => $item['reference_no'] ?? null,
-                    'description'  => $item['description'] ?? ($type),
-                    'amount'       => $amt,
-                    'effect'       => $effect,
-                ]);
-            }
-
-            AuditLog::log('SAVE_BANK_RECONCILIATION', "Bank Reconciliation Statement saved. Account ID: {$data['bank_account_id']}, Status: {$status}");
-        });
+        $this->reconciliationService->saveReconciliation($data, Auth::id());
 
         return redirect()->route('reconciliation.index', [
             'cost_center_id'  => $data['cost_center_id'] ?? null,
@@ -299,28 +220,9 @@ class BankReconciliationController extends Controller
         $costCenter = $costCenterId ? CostCenter::find($costCenterId) : $bankAccount?->costCenter;
 
         // Cash book balance
-        $cashBookBalance = 0.0;
-        if ($bankAccount) {
-            $coaId = $bankAccount->chart_of_account_id;
-            $baseOpening = (float) $bankAccount->opening_balance;
-
-            $transQuery = VoucherEntry::whereHas('voucher', function ($q) use ($toDate) {
-                $q->where('status', 'posted')->where('date', '<=', $toDate);
-            });
-            if ($coaId) {
-                $transQuery->where('chart_of_account_id', $coaId);
-            }
-            if ($costCenter) {
-                $transQuery->where(function ($q) use ($costCenter) {
-                    $q->where('cost_center_id', $costCenter->id)
-                      ->orWhereHas('voucher', fn($v) => $v->where('cost_center_id', $costCenter->id));
-                });
-            }
-
-            $dr = (float) (clone $transQuery)->sum('debit_amount');
-            $cr = (float) (clone $transQuery)->sum('credit_amount');
-            $cashBookBalance = $baseOpening + $dr - $cr;
-        }
+        $cashBookBalance = $bankAccount
+            ? $this->reconciliationService->calculateCashBookBalance($bankAccount, $costCenter, $toDate)
+            : 0.0;
 
         // Existing reconciliation items
         $rec = BankReconciliation::with('items')
@@ -332,21 +234,16 @@ class BankReconciliationController extends Controller
             ->first();
 
         $items = $rec ? $rec->items : collect();
-        $itemsA1 = $items->where('schedule', 'A1');
-        $itemsA2 = $items->where('schedule', 'A2');
-        $itemsB1 = $items->where('schedule', 'B1');
-        $itemsB2 = $items->where('schedule', 'B2');
+        $totals = $this->reconciliationService->calculateScheduleTotals($items->toArray(), $cashBookBalance);
 
-        $totalA1 = (float) $itemsA1->sum('amount');
-        $totalA2 = (float) $itemsA2->sum('amount');
-        $totalAdd = $totalA1 + $totalA2;
-        $subtotal = $cashBookBalance + $totalAdd;
-
-        $totalB1 = (float) $itemsB1->sum('amount');
-        $totalB2 = (float) $itemsB2->sum('amount');
-        $totalLess = $totalB1 + $totalB2;
-
-        $reconciledBalance = $subtotal - $totalLess;
+        $totalA1           = $totals['totalA1'];
+        $totalA2           = $totals['totalA2'];
+        $totalAdd          = $totals['totalAdd'];
+        $subtotal          = $totals['subtotal'];
+        $totalB1           = $totals['totalB1'];
+        $totalB2           = $totals['totalB2'];
+        $totalLess         = $totals['totalLess'];
+        $reconciledBalance = $totals['reconciledBalance'];
 
         $monthName = Carbon::parse($toDate)->format("F 'y");
         $unitOfficeName = $costCenter ? ($costCenter->name_bn ?: $costCenter->name) : 'BPDB Office';

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreChartOfAccountRequest;
 use App\Models\AuditLog;
 use App\Models\ChartOfAccount;
 use App\Models\User;
@@ -45,22 +46,9 @@ class ChartOfAccountController extends Controller
         return view('chart_of_accounts.index', compact('accounts', 'parentCandidates', 'users', 'type', 'search', 'controlHead', 'controlHeads'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(StoreChartOfAccountRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'account_code'    => ['required', 'string', 'max:50', 'unique:chart_of_accounts,account_code'],
-            'account_name'    => ['required', 'string', 'max:255'],
-            'account_name_bn' => ['nullable', 'string', 'max:255'],
-            'account_type'    => ['required', 'in:asset,liability,equity,revenue,expense'],
-            'income_balance'  => ['nullable', 'string', 'max:50'],
-            'control_head'    => ['nullable', 'string', 'max:191'],
-            'parent_id'       => ['nullable', 'exists:chart_of_accounts,id'],
-            'normal_balance'  => ['required', 'in:debit,credit'],
-            'opening_balance' => ['nullable', 'numeric'],
-            'is_leaf'         => ['nullable', 'boolean'],
-            'direct_posting'  => ['nullable', 'boolean'],
-            'description'     => ['nullable', 'string'],
-        ]);
+        $data = $request->validated();
 
         $data['is_leaf'] = $request->boolean('is_leaf', true);
         $data['direct_posting'] = $request->boolean('direct_posting', $data['is_leaf']);
@@ -73,22 +61,9 @@ class ChartOfAccountController extends Controller
         return back()->with('success', 'হিসাব কোড সফলভাবে তৈরি করা হয়েছে।');
     }
 
-    public function update(Request $request, ChartOfAccount $chartOfAccount): RedirectResponse
+    public function update(StoreChartOfAccountRequest $request, ChartOfAccount $chartOfAccount): RedirectResponse
     {
-        $data = $request->validate([
-            'account_code'    => ['required', 'string', 'max:50', 'unique:chart_of_accounts,account_code,' . $chartOfAccount->id],
-            'account_name'    => ['required', 'string', 'max:255'],
-            'account_name_bn' => ['nullable', 'string', 'max:255'],
-            'account_type'    => ['required', 'in:asset,liability,equity,revenue,expense'],
-            'income_balance'  => ['nullable', 'string', 'max:50'],
-            'control_head'    => ['nullable', 'string', 'max:191'],
-            'parent_id'       => ['nullable', 'exists:chart_of_accounts,id'],
-            'normal_balance'  => ['required', 'in:debit,credit'],
-            'is_leaf'         => ['nullable', 'boolean'],
-            'direct_posting'  => ['nullable', 'boolean'],
-            'is_active'       => ['nullable', 'boolean'],
-            'description'     => ['nullable', 'string'],
-        ]);
+        $data = $request->validated();
 
         $data['is_leaf'] = $request->boolean('is_leaf', true);
         $data['direct_posting'] = $request->boolean('direct_posting', $data['is_leaf']);
